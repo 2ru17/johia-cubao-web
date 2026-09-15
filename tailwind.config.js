@@ -1,5 +1,5 @@
-/** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -37,6 +37,11 @@ export default {
       borderRadius: {
         btn: '6px',
       },
+      fontSize: {
+        'fluid-h1': 'clamp(3rem, 6vw + 1rem, 5.5rem)',
+        'fluid-h2': 'clamp(2.25rem, 4.5vw + 1rem, 4.5rem)',
+        'fluid-h3': 'clamp(1.75rem, 3vw + 0.5rem, 3rem)',
+      },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
@@ -53,6 +58,10 @@ export default {
         aurora: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        ripple: {
+          '0%': { width: '0px', height: '0px', opacity: 0.5 },
+          '100%': { width: '500px', height: '500px', opacity: 0 },
         }
       },
       animation: {
@@ -60,6 +69,7 @@ export default {
         'fade-up': 'fade-up 0.6s ease-out forwards',
         shimmer: 'shimmer 4s linear infinite',
         aurora: 'aurora 15s ease infinite',
+        ripple: 'ripple 0.6s linear',
       },
       backgroundImage: {
         'texture-dark': "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E\")",

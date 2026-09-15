@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Left Column */}
           <div>
             <Link to="/">
-              <img src="/images/general/Banner default home-white.svg" alt="JOHIA Cubao Logo" className="w-[200px] h-auto mb-4 hover:opacity-80 transition-opacity" />
+              <img src="/images/general/banner-white.svg" alt="JOHIA Cubao Logo" className="w-[200px] h-auto mb-4 hover:opacity-80 transition-opacity" />
             </Link>
             <p className="font-sans text-gray-400 mb-8 max-w-sm text-lg">
               Jesus Our Hope International Assemblies.<br />
@@ -27,13 +27,13 @@ export default function Footer() {
             </p>
             
             <div className="flex space-x-6">
-              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="text-[#1877F2] hover:scale-110 hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Facebook">
+              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="text-[#1877F2]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Facebook">
                 <IconBrandFacebook size={28} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-[#E4405F] hover:scale-110 hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-[#E4405F]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Instagram">
                 <IconBrandInstagram size={28} />
               </a>
-              <a href="https://youtube.com/@JOHIA_Cubao" target="_blank" rel="noreferrer" className="text-[#FF0000] hover:scale-110 hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="YouTube">
+              <a href="https://youtube.com/@JOHIA_Cubao" target="_blank" rel="noreferrer" className="text-[#FF0000]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="YouTube">
                 <IconBrandYoutube size={28} />
               </a>
             </div>
@@ -45,19 +45,18 @@ export default function Footer() {
             <nav className="flex flex-col space-y-4 font-sans text-gray-400 font-medium">
               <Link to="/" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Home</Link>
               <Link to="/programs" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Programs</Link>
-              <Link to="/give" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Give</Link>
-              <Link to="/contact" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Contact</Link>
+              <Link to="/give" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Support Us</Link>
             </nav>
             
             <a href="mailto:johiacubao.info@gmail.com" className="inline-flex items-center space-x-3 mt-10 text-brand-yellow hover:text-white transition-colors duration-300 group">
-              <IconMail size={20} className="group-hover:scale-110 transition-transform" />
+              <IconMail size={20} className="group- transition-transform" />
               <span className="font-medium">johiacubao.info@gmail.com</span>
             </a>
           </div>
 
         </div>
         
-        <div className="mt-16 pt-8 border-t border-white/10 text-center md:text-left text-sm text-gray-500 font-sans">
+        <div className="mt-16 pt-8 border-t border-white/10 text-center md:text-left text-sm text-gray-500 dark:text-gray-400 font-sans">
           <p>© 2026 JOHIA - Cubao. All rights reserved.</p>
         </div>
       </div>

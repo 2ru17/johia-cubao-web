@@ -16,11 +16,11 @@ export default function InteractiveTeamSection({
 
   const textureClass = 
     texture === 'dark' ? 'bg-texture-dark text-text-light' : 
-    texture === 'light' ? 'bg-texture-light text-text-dark' : 
+    texture === 'light' ? 'bg-background-light dark:bg-background-dark bg-texture-light dark:bg-texture-dark text-text-dark dark:text-text-light' : 
     'bg-background-dark text-text-light';
 
   return (
-    <section id={id} className={cn("min-h-[80vh] flex items-center py-24", textureClass)}>
+    <section id={id} className={cn("flex items-center py-12 transition-colors duration-500", textureClass)}>
       <div className="container mx-auto px-6 w-full">
         <AnimatedSection variant={reverse ? "slide-right" : "slide-left"} className="w-full">
           <div className={cn(
@@ -29,7 +29,7 @@ export default function InteractiveTeamSection({
           )}>
             
             {/* Image Side (Carousel) */}
-            <div className="w-full lg:w-1/2 rounded-[20px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 relative group aspect-[4/3] bg-gray-900">
+            <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 relative group aspect-[4/3] bg-gray-900">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeTeamIndex}
@@ -60,7 +60,7 @@ export default function InteractiveTeamSection({
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-brand-yellow mb-8 tracking-tight drop-shadow-md">
                 {title}
               </h2>
-              <div className="font-sans text-lg md:text-xl leading-relaxed mb-8 opacity-90">
+              <div className="font-sans text-lg md:text-xl leading-relaxed mb-8 opacity-90 transition-colors duration-500">
                 {mainDescription}
               </div>
               
@@ -75,7 +75,7 @@ export default function InteractiveTeamSection({
                         "p-4 rounded-xl cursor-pointer transition-all duration-300 border",
                         isActive 
                           ? "bg-brand-yellow/10 border-brand-yellow shadow-[0_0_15px_rgba(251,176,59,0.2)]" 
-                          : "border-transparent hover:bg-black/5"
+                          : "border-transparent hover:bg-black/5 dark:hover:bg-white/5"
                       )}
                     >
                       <h4 className={cn(

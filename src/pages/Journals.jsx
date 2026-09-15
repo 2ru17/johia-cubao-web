@@ -29,17 +29,17 @@ const journals = [
 
 export default function Journals() {
   return (
-    <div className="flex flex-col w-full bg-background-light text-text-dark">
+    <div className="flex flex-col w-full bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light">
       <PageMeta title="Journals" description="Read our latest articles and reflections." />
 
       {/* Hero */}
       <section className="relative py-24 bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-6 text-center">
           <AnimatedSection>
-            <h1 className="text-4xl md:text-6xl font-extrabold font-heading text-text-dark mb-4">
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
               Our Journals
             </h1>
-            <p className="text-lg text-gray-500 font-sans max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
               Reflections, testimonies, and updates from the JOHIA Cubao family.
             </p>
           </AnimatedSection>
@@ -47,13 +47,13 @@ export default function Journals() {
       </section>
 
       {/* Blog Grid */}
-      <SectionWrapper className="bg-background-light">
+      <SectionWrapper className="bg-background-light dark:bg-background-dark">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {journals.map((post, idx) => (
-            <AnimatedSection key={idx} delay={idx * 0.1} className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full group">
+            <AnimatedSection key={idx} delay={idx * 0.1} className="bg-white dark:bg-background-dark rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full group">
               <div className="aspect-[16/9] overflow-hidden relative">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                <img src={post.image} alt={post.title} className="w-full h-full object-cover transform group- transition-transform duration-700" />
               </div>
               
               <div className="p-8 flex flex-col flex-grow">
@@ -61,13 +61,13 @@ export default function Journals() {
                   <span className="text-xs font-bold text-brand-yellow uppercase tracking-wider">{post.tag}</span>
                   <span className="text-xs text-gray-400 font-sans">{post.date}</span>
                 </div>
-                <h3 className="text-2xl font-bold font-heading mb-3 text-text-dark group-hover:text-brand-yellow transition-colors">
+                <h3 className="text-2xl font-bold font-heading mb-3 text-text-dark dark:text-text-light group-hover:text-brand-yellow transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 font-sans text-sm leading-relaxed mb-6 flex-grow">
+                <p className="text-gray-600 dark:text-gray-300 font-sans text-sm leading-relaxed mb-6 flex-grow">
                   {post.excerpt}
                 </p>
-                <a href="#read-more" className="text-sm font-bold font-sans text-text-dark border-b-2 border-brand-yellow pb-1 self-start hover:text-brand-yellow transition-colors">
+                <a href="#read-more" className="text-sm font-bold font-sans text-text-dark dark:text-text-light border-b-2 border-brand-yellow pb-1 self-start hover:text-brand-yellow transition-colors">
                   Read Article →
                 </a>
               </div>

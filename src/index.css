@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  *, ::before, ::after {
+    @apply transition-colors duration-500 ease-in-out;
+  }
+  
   body {
-    @apply bg-background-light text-text-dark font-sans antialiased;
+    @apply bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light font-sans antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -46,14 +50,14 @@
   }
   
   .bg-texture-dark {
+    @apply bg-background-dark;
     background-image: theme('backgroundImage.texture-dark');
-    background-color: theme('colors.background.dark');
     background-attachment: fixed;
   }
   
   .bg-texture-light {
+    @apply bg-background-light;
     background-image: theme('backgroundImage.texture-light');
-    background-color: theme('colors.background.light');
     background-attachment: fixed;
   }
 }
@@ -66,4 +70,20 @@
 @keyframes shimmer {
   0% { background-position: 200% center; }
   100% { background-position: -200% center; }
+}
+
+/* Custom Scrollbar globally */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 176, 59, 0.6);
+  border-radius: 6px;
+  border: 3px solid #1A1A1A;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 176, 59, 1);
 }

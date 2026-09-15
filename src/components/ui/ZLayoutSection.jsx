@@ -17,11 +17,11 @@ export default function ZLayoutSection({
   // Map texture prop to the global CSS classes we created in Phase 1
   const textureClass = 
     texture === 'dark' ? 'bg-texture-dark' : 
-    texture === 'light' ? 'bg-texture-light' : 
+    texture === 'light' ? 'bg-background-light dark:bg-background-dark bg-texture-light dark:bg-texture-dark' : 
     'bg-background-dark';
 
   return (
-    <section id={id} className={cn("min-h-[80vh] flex items-center py-24", textureClass, className)}>
+    <section id={id} className={cn("flex items-center py-12", textureClass, className)}>
       <div className="container mx-auto px-6 w-full">
         <AnimatedSection variant={reverse ? "slide-right" : "slide-left"} className="w-full">
           <div className={cn(
@@ -30,12 +30,12 @@ export default function ZLayoutSection({
           )}>
             
             {/* Image Side */}
-            <div className="w-full lg:w-1/2 rounded-[20px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 relative group">
+            <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 relative group">
               <div className="absolute inset-0 bg-overlay-dark/40 group-hover:bg-overlay-dark/10 transition-colors duration-500 z-10 pointer-events-none"></div>
               <img 
                 src={imageSrc} 
                 alt={imageAlt} 
-                className="w-full h-full object-cover aspect-[4/3] transform group-hover:scale-105 transition-transform duration-700" 
+                className="w-full h-full object-cover aspect-[4/3] transform group- transition-transform duration-700" 
               />
             </div>
             
@@ -44,7 +44,9 @@ export default function ZLayoutSection({
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-brand-yellow mb-8 tracking-tight">
                 {title}
               </h2>
-              <div className="text-gray-300 font-sans text-lg md:text-xl leading-relaxed space-y-6">
+              <div className={cn("font-sans text-lg md:text-xl leading-relaxed space-y-6", 
+                texture === 'light' ? 'text-gray-600 dark:text-gray-300' : 'text-gray-300'
+              )}>
                 {description}
               </div>
               {actionButton && (

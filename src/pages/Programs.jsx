@@ -15,11 +15,11 @@ export default function Programs() {
         <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection variant="scale">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold font-heading text-shimmer mb-6">Equip Your Faith</h1>
-            <p className="text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto mb-10">
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">Equip Your Faith</h1>
+            <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
               Discover pathways to grow deeper in your relationship with God through our structured programs.
             </p>
-            <Button variant="solid" className="shadow-lg hover:scale-105 transition-all" href="/ministries#ministries-serve">Get Involved</Button>
+            <Button variant="solid" className="!bg-brand-yellow !text-text-dark hover:!bg-white shadow-xl transition-all" href="/ministries#ministries-serve">Get Involved</Button>
           </AnimatedSection>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function Programs() {
           imageAlt="School of Champions"
           reverse={true}
           texture="light"
-          className="text-text-dark" // Ensure body text is dark on light texture
+          className="text-text-dark dark:text-text-light" // Ensure body text is dark on light texture
         />
         
         <ZLayoutSection 
@@ -65,7 +65,7 @@ export default function Programs() {
           imageAlt="Community Outreach"
           reverse={true}
           texture="light"
-          className="text-text-dark"
+          className="text-text-dark dark:text-text-light"
         />
 
         <ZLayoutSection 
@@ -80,15 +80,14 @@ export default function Programs() {
       </div>
 
       {/* Bottom CTA */}
-      <section className="bg-brand-yellow text-text-dark text-center py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-texture-light opacity-30 mix-blend-multiply pointer-events-none"></div>
-        <AnimatedSection variant="rise" className="relative z-10">
-          <h2 className="text-4xl md:text-6xl font-extrabold font-heading mb-6 tracking-tight">Support Our Mission</h2>
-          <p className="text-xl md:text-2xl font-sans max-w-2xl mx-auto mb-10 font-medium opacity-90">
+      <section className="bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light text-center py-16 border-t border-gray-100 transition-colors duration-500">
+        <AnimatedSection variant="fade" className="relative z-10 max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold font-heading mb-6 tracking-tight">Support Our Mission</h2>
+          <p className="text-xl md:text-2xl font-sans max-w-2xl mx-auto mb-10 font-medium text-gray-500 dark:text-gray-400">
             Partner with us in advancing the Kingdom through your generous giving.
           </p>
-          <Button variant="solid" className="bg-background-dark text-text-light hover:bg-white hover:text-text-dark px-10 py-4 text-lg shadow-xl hover:scale-105 transition-all" href="/give">
-            Ways to Give
+          <Button variant="solid" className="px-10 py-4 text-lg shadow-md transition-all" href="/give">
+            Support Us
           </Button>
         </AnimatedSection>
       </section>

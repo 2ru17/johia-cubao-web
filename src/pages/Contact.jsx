@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex flex-col w-full bg-background-light">
+    <div className="flex flex-col w-full bg-background-light dark:bg-background-dark">
       <PageMeta title="Contact" description="Get in touch with JOHIA Cubao." />
 
       {/* SECTION 1: HERO */}
@@ -42,60 +42,56 @@ export default function Contact() {
             
             {/* Left Column: Info */}
             <AnimatedSection variant="slide-right" className="flex flex-col">
-              <span className="text-brand-yellow font-bold tracking-widest text-sm uppercase mb-4 flex items-center gap-2">
-                <span className="w-8 h-1 bg-brand-yellow inline-block"></span>
-                GET IN TOUCH
-              </span>
               <h2 className="text-5xl md:text-6xl font-extrabold font-heading text-shimmer-dark mb-6 tracking-tight">Let's Connect</h2>
-              <p className="text-gray-700 font-sans text-xl mb-12 leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 font-sans text-xl mb-12 leading-relaxed">
                 Whether you need prayer, have questions about our ministries, or want to plan your visit, we're here for you. Reach out to us using the form or the details below.
               </p>
 
               <div className="space-y-8 mb-10">
-                <div className="flex items-start space-x-6 text-text-dark group">
-                  <div className="bg-white p-4 rounded-full text-brand-yellow shadow-lg group-hover:scale-110 group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconMapPin size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
                     <h4 className="font-heading font-extrabold text-xl mb-1">Visit Us</h4>
-                    <p className="text-gray-600 font-sans text-lg">#5 Cambridge St. Cubao, Quezon City, Philippines</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">#15 Cambridge St. Cubao, Quezon City, Philippines</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-6 text-text-dark group">
-                  <div className="bg-white p-4 rounded-full text-brand-yellow shadow-lg group-hover:scale-110 group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconClock size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
                     <h4 className="font-heading font-extrabold text-xl mb-1">Service Times</h4>
-                    <p className="text-gray-600 font-sans text-lg">Sundays @ 10:15 AM</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">Sundays @ 10:15 AM</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-6 text-text-dark group">
-                  <div className="bg-white p-4 rounded-full text-brand-yellow shadow-lg group-hover:scale-110 group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconMail size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
                     <h4 className="font-heading font-extrabold text-xl mb-1">Email Us</h4>
-                    <p className="text-gray-600 font-sans text-lg">johiacubao.info@gmail.com</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">johiacubao.info@gmail.com</p>
                   </div>
                 </div>
               </div>
             </AnimatedSection>
 
             {/* Right Column: Contact Form */}
-            <AnimatedSection variant="rise" delay={0.2} className="bg-white p-10 md:p-14 rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100">
-              <h3 className="text-3xl font-extrabold font-heading text-text-dark mb-10 tracking-tight">Send us a message</h3>
+            <AnimatedSection variant="rise" delay={0.2} className="bg-white dark:bg-background-dark p-10 md:p-14 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100">
+              <h3 className="text-3xl font-extrabold font-heading text-text-dark dark:text-text-light mb-10 tracking-tight">Send us a message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-bold text-gray-800 mb-3 font-sans uppercase tracking-wider">Full Name *</label>
+                  <label htmlFor="name" className="block text-sm font-bold text-gray-800 dark:text-gray-200 mb-3 font-sans uppercase tracking-wider">Full Name *</label>
                   <input 
                     type="text" 
                     id="name" 
                     required 
-                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark text-lg"
+                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark dark:text-text-light text-lg"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     placeholder="Juan Dela Cruz"
@@ -103,12 +99,12 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-bold text-gray-800 mb-3 font-sans uppercase tracking-wider">Email Address *</label>
+                  <label htmlFor="email" className="block text-sm font-bold text-gray-800 dark:text-gray-200 mb-3 font-sans uppercase tracking-wider">Email Address *</label>
                   <input 
                     type="email" 
                     id="email" 
                     required 
-                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark text-lg"
+                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark dark:text-text-light text-lg"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     placeholder="juan@example.com"
@@ -116,19 +112,19 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-gray-800 mb-3 font-sans uppercase tracking-wider">Message *</label>
+                  <label htmlFor="message" className="block text-sm font-bold text-gray-800 dark:text-gray-200 mb-3 font-sans uppercase tracking-wider">Message *</label>
                   <textarea 
                     id="message" 
                     required 
                     rows="6"
-                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark text-lg resize-none"
+                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark dark:text-text-light text-lg resize-none"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     placeholder="How can we help you?"
                   ></textarea>
                 </div>
 
-                <Button type="submit" variant="solid" className="w-full text-xl py-5 shadow-xl hover:scale-105 transition-all">
+                <Button type="submit" variant="solid" className="w-full text-xl py-5 shadow-xl  transition-all">
                   Send Message
                 </Button>
 
@@ -157,8 +153,7 @@ export default function Contact() {
         </AnimatedSection>
         
         <div className="container mx-auto px-6">
-          <AnimatedSection variant="scale" className="h-[600px] w-full rounded-[40px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 group relative max-w-6xl mx-auto">
-            <div className="absolute inset-0 bg-brand-yellow/10 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-10"></div>
+          <AnimatedSection variant="scale" className="h-[600px] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-100 group relative max-w-6xl mx-auto">
             <iframe
               src="https://maps.google.com/maps?q=Jesus%20Our%20Hope%20International%20Assemblies%20Cubao&t=&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
@@ -168,7 +163,7 @@ export default function Contact() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="JOHIA Cubao Map"
-              className="grayscale-[80%] invert-[90%] group-hover:grayscale-0 group-hover:invert-0 transition-all duration-1000 z-0 relative"
+              className="    transition-all duration-1000 z-0 relative"
             ></iframe>
           </AnimatedSection>
         </div>

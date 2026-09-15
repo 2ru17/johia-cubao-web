@@ -6,7 +6,7 @@ import PageMeta from '../seo/PageMeta';
 
 export default function Layout({ children }) {
   return (
-    <div className="flex flex-col min-h-screen bg-background-light text-text-dark font-sans selection:bg-brand-yellow selection:text-text-dark">
+    <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light font-sans selection:bg-brand-yellow selection:text-text-dark dark:text-text-light">
       <PageMeta />
       <ScrollToHash />
       <Navbar />
