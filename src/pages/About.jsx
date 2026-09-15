@@ -45,14 +45,14 @@ export default function About() {
             <div className="border-l-4 border-brand-yellow pl-8 py-2">
               <h3 className="font-heading font-extrabold text-2xl text-brand-yellow mb-4 tracking-wider uppercase">Mission</h3>
               <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-sans leading-relaxed font-light">
-                To exalt Jesus Christ, equip the saints for the work of the ministry, and evangelize the lost through the empowering presence of the Holy Spirit.
+                To Love and Honor God, Raise Christ-Committed Followers, and Live on Purpose
               </p>
             </div>
             
             <div className="border-l-4 border-brand-yellow pl-8 py-2">
               <h3 className="font-heading font-extrabold text-2xl text-brand-yellow mb-4 tracking-wider uppercase">Vision</h3>
               <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-sans leading-relaxed font-light">
-                To be a vibrant, Spirit-filled church multiplying disciples and transforming communities across the nation.
+                People Loving God. People Inspiring Change. People With Hope
               </p>
             </div>
           </div>
