@@ -77,6 +77,17 @@ export default function Programs() {
           reverse={false}
           texture="dark"
         />
+
+        <ZLayoutSection 
+          id="programs-johia-brews"
+          title="JOHIA Brews"
+          description={<p>More than just a coffee shop, JOHIA Brews is a hub for connection, fellowship, and discipleship. Grab a cup of freshly brewed coffee, meet new friends, and enjoy heartfelt conversations in a welcoming, faith-filled atmosphere.</p>}
+          imageSrc="/images/general/CoreValues.png"
+          imageAlt="JOHIA Brews"
+          reverse={true}
+          texture="light"
+          className="text-text-dark dark:text-text-light"
+        />
       </div>
 
       {/* Bottom CTA */}

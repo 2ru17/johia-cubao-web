@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
@@ -6,6 +6,9 @@ import TiltCard from '../components/ui/TiltCard';
 import { IconBuildingBank, IconQrcode, IconHeartHandshake } from '@tabler/icons-react';
 
 export default function Give() {
+  const [showGcash, setShowGcash] = useState(false);
+  const [showBank, setShowBank] = useState(false);
+
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark transition-colors duration-500">
       <PageMeta title="Support Us" description="Partner with us in advancing the Kingdom through generous giving." />
@@ -32,16 +35,25 @@ export default function Give() {
           {/* Option 1: GCash */}
           <AnimatedSection variant="fade" delay={0.1}>
             <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full">
-                <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
-                  <IconQrcode size={40} />
+              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col justify-between">
+                <div>
+                  <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
+                    <IconQrcode size={40} />
+                  </div>
+                  <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">GCash</h3>
+                  <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
+                    Scan the QR code or send directly to our official GCash account.
+                  </p>
                 </div>
-                <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">GCash</h3>
-                <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
-                  Scan the QR code or send directly to our official GCash account.
-                </p>
-                <div className="bg-gray-50 dark:bg-gray-900 aspect-square rounded-2xl flex items-center justify-center text-gray-400 border border-gray-100 dark:border-gray-700 transition-colors">
-                  <p className="font-medium text-sm tracking-wider uppercase">QR Code Placeholder</p>
+                <div 
+                  onClick={() => setShowGcash(!showGcash)}
+                  className="bg-gray-50 dark:bg-gray-900 aspect-square rounded-2xl flex flex-col items-center justify-center text-gray-400 border border-gray-100 dark:border-gray-700 transition-all duration-300 cursor-pointer hover:border-brand-yellow/50"
+                >
+                  {!showGcash ? (
+                    <p className="font-bold text-brand-yellow tracking-wider uppercase text-center px-4">Click to view QR Code</p>
+                  ) : (
+                    <p className="font-medium text-sm tracking-wider uppercase">QR Code Placeholder</p>
+                  )}
                 </div>
               </div>
             </TiltCard>
@@ -50,27 +62,38 @@ export default function Give() {
           {/* Option 2: Bank Transfer */}
           <AnimatedSection variant="fade" delay={0.2}>
             <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full">
-                <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
-                  <IconBuildingBank size={40} />
+              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col justify-between">
+                <div>
+                  <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
+                    <IconBuildingBank size={40} />
+                  </div>
+                  <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">Bank Transfer</h3>
+                  <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
+                    Transfer funds directly to our bank account.
+                  </p>
                 </div>
-                <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">Bank Transfer</h3>
-                <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
-                  Transfer funds directly to our bank account.
-                </p>
-                <div className="text-left bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 space-y-4 transition-colors">
-                  <div>
-                    <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Bank Name</p>
-                    <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">BDO Unibank</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Account Name</p>
-                    <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">Jesus Our Hope Int'l</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Account Number</p>
-                    <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">0012-3456-7890</p>
-                  </div>
+                <div 
+                  onClick={() => setShowBank(!showBank)}
+                  className="text-left bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 space-y-4 transition-all duration-300 cursor-pointer hover:border-brand-yellow/50 h-48 flex flex-col justify-center"
+                >
+                  {!showBank ? (
+                    <p className="font-bold text-brand-yellow tracking-wider uppercase text-center w-full">Click to view Details</p>
+                  ) : (
+                    <>
+                      <div>
+                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Bank Name</p>
+                        <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">BDO Unibank</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Account Name</p>
+                        <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">Jesus Our Hope Int'l</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Account Number</p>
+                        <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">0012-3456-7890</p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </TiltCard>

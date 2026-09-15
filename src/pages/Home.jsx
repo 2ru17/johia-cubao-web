@@ -44,7 +44,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.9 }}
           >
              <p className="text-lg md:text-xl text-brand-yellow font-sans font-bold uppercase tracking-widest border border-brand-yellow/30 rounded-full px-6 py-2 bg-brand-yellow/10 backdrop-blur-sm shadow-[0_0_15px_rgba(251,176,59,0.2)]">
-              Sundays @ 10:15 AM
+              Sundays @ 10:00 AM
             </p>
           </motion.div>
         </div>

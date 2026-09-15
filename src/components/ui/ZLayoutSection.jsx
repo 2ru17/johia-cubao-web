@@ -11,7 +11,8 @@ export default function ZLayoutSection({
   reverse = false, 
   className,
   texture = 'none', // 'dark', 'light', 'none'
-  actionButton = null
+  actionButton = null,
+  imageClassName = 'object-center'
 }) {
   
   // Map texture prop to the global CSS classes we created in Phase 1
@@ -35,7 +36,7 @@ export default function ZLayoutSection({
               <img 
                 src={imageSrc} 
                 alt={imageAlt} 
-                className="w-full h-full object-cover aspect-[4/3] transform group- transition-transform duration-700" 
+                className={cn("w-full h-full object-cover aspect-[4/3] transform group-hover:scale-105 transition-transform duration-700", imageClassName)} 
               />
             </div>
             

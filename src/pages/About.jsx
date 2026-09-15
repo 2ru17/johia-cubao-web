@@ -90,6 +90,7 @@ export default function About() {
               imageAlt={pastor.name}
               reverse={index % 2 !== 0}
               texture={index % 2 === 0 ? 'dark' : 'none'}
+              imageClassName="object-top"
               className="min-h-[50vh] py-16"
             />
           ))}

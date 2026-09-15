@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
@@ -8,12 +9,42 @@ import { IconMapPin, IconClock, IconPhone, IconMail } from '@tabler/icons-react'
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Placeholder for Web3Forms integration
-    setStatus('Message sent successfully!');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setStatus(null);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "e9ab44a9-991f-4643-b646-167c3c6075a8",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: "New Contact Form Submission - JOHIA Cubao Website"
+        }),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setStatus({ type: 'success', message: 'Message sent successfully! We will get back to you soon.' });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus({ type: 'error', message: 'Something went wrong. Please try again later.' });
+      }
+    } catch (error) {
+      setStatus({ type: 'error', message: 'Something went wrong. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -64,7 +95,7 @@ export default function Contact() {
                   </div>
                   <div className="flex flex-col justify-center pt-1">
                     <h4 className="font-heading font-extrabold text-xl mb-1">Service Times</h4>
-                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">Sundays @ 10:15 AM</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">Sundays @ 10:00 AM</p>
                   </div>
                 </div>
 
@@ -124,17 +155,21 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <Button type="submit" variant="solid" className="w-full text-xl py-5 shadow-xl  transition-all">
-                  Send Message
+                <Button type="submit" variant="solid" className="w-full text-xl py-5 shadow-xl transition-all" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
 
                 {status && (
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-6 p-4 bg-green-50 text-green-700 border border-green-200 rounded-xl text-center font-bold font-sans"
+                    className={`mt-6 p-4 border rounded-xl text-center font-bold font-sans ${
+                      status.type === 'success' 
+                        ? "bg-green-50 text-green-700 border-green-200" 
+                        : "bg-red-50 text-red-700 border-red-200"
+                    }`}
                   >
-                    {status}
+                    {status.message}
                   </motion.div>
                 )}
               </form>
