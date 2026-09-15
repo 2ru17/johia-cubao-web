@@ -23,7 +23,19 @@ function AnimatedRoutes() {
   const location = useLocation();
   
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence 
+      mode="wait"
+      onExitComplete={() => {
+        if (location.hash) {
+          setTimeout(() => {
+            const element = document.getElementById(location.hash.replace('#', ''));
+            if (element) element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }}
+    >
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
