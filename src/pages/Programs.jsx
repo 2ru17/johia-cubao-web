@@ -1,0 +1,97 @@
+import React from 'react';
+import PageMeta from '../components/seo/PageMeta';
+import ZLayoutSection from '../components/ui/ZLayoutSection';
+import SectionWrapper from '../components/ui/SectionWrapper';
+import AnimatedSection from '../components/ui/AnimatedSection';
+import Button from '../components/ui/Button';
+
+export default function Programs() {
+  return (
+    <div className="flex flex-col w-full bg-background-dark">
+      <PageMeta title="Programs" description="Equip your faith through JOHIA Cubao's programs." />
+
+      {/* Hero */}
+      <section className="relative pt-40 pb-32 flex items-center justify-center overflow-hidden bg-aurora border-b border-white/5">
+        <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <AnimatedSection variant="scale">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold font-heading text-shimmer mb-6">Equip Your Faith</h1>
+            <p className="text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto mb-10">
+              Discover pathways to grow deeper in your relationship with God through our structured programs.
+            </p>
+            <Button variant="solid" className="shadow-lg hover:scale-105 transition-all" href="/ministries#ministries-serve">Get Involved</Button>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Z-Layout Sections */}
+      <div className="flex flex-col">
+        <ZLayoutSection 
+          id="programs-sunday-service"
+          title="Sunday Worship Service"
+          description={<p>Experience the presence of God through passionate worship and transformative preaching. Our Sunday services are the heartbeat of our church family where we gather to seek His face, hear His Word, and build authentic community.</p>}
+          imageSrc="/images/general/CoreValues.png"
+          imageAlt="Sunday Worship Service"
+          reverse={false}
+          texture="dark"
+        />
+        
+        <ZLayoutSection 
+          id="programs-soc"
+          title="School of Champions (SOC)"
+          description={<p>A structured discipleship track designed to equip believers with foundational truths, leadership skills, and biblical doctrines to fulfill their God-given destiny. From discovering your spiritual gifts to leading others, SOC is your path to spiritual maturity.</p>}
+          imageSrc="/images/general/retreat-pic.jpg"
+          imageAlt="School of Champions"
+          reverse={true}
+          texture="light"
+          className="text-text-dark" // Ensure body text is dark on light texture
+        />
+        
+        <ZLayoutSection 
+          id="programs-prayer"
+          title="Dawn Watch & Prayer"
+          description={<p>We believe in the absolute power of prayer. Join our intercessory team and dawn watch gatherings as we stand in the gap for our city, nation, and church. This is where battles are fought and won before the day even begins.</p>}
+          imageSrc="/images/ministries/prayer.jpg"
+          imageAlt="Prayer Gatherings"
+          reverse={false}
+          texture="dark"
+        />
+        
+        <ZLayoutSection 
+          id="programs-outreach"
+          title="Community Outreach"
+          description={<p>Faith in action. Our community outreach programs are dedicated to being the hands and feet of Jesus, providing practical help, resources, and unyielding hope to the marginalized and broken in our city.</p>}
+          imageSrc="/images/ministries/sundayschl.jpg"
+          imageAlt="Community Outreach"
+          reverse={true}
+          texture="light"
+          className="text-text-dark"
+        />
+
+        <ZLayoutSection 
+          id="programs-retreats"
+          title="Life Retreats"
+          description={<p>Set aside time to encounter God without distractions. Our annual Life Retreats are immersive weekend experiences focused on spiritual breakthrough, deep fellowship, and profound personal encounters with the Holy Spirit.</p>}
+          imageSrc="/images/general/retreat-pic.jpg"
+          imageAlt="Life Retreats"
+          reverse={false}
+          texture="dark"
+        />
+      </div>
+
+      {/* Bottom CTA */}
+      <section className="bg-brand-yellow text-text-dark text-center py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-texture-light opacity-30 mix-blend-multiply pointer-events-none"></div>
+        <AnimatedSection variant="rise" className="relative z-10">
+          <h2 className="text-4xl md:text-6xl font-extrabold font-heading mb-6 tracking-tight">Support Our Mission</h2>
+          <p className="text-xl md:text-2xl font-sans max-w-2xl mx-auto mb-10 font-medium opacity-90">
+            Partner with us in advancing the Kingdom through your generous giving.
+          </p>
+          <Button variant="solid" className="bg-background-dark text-text-light hover:bg-white hover:text-text-dark px-10 py-4 text-lg shadow-xl hover:scale-105 transition-all" href="/give">
+            Ways to Give
+          </Button>
+        </AnimatedSection>
+      </section>
+    </div>
+  );
+}
