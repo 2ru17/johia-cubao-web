@@ -120,7 +120,7 @@ export default function Ministries() {
         {/* Consolidated Apply Button */}
         <div className="py-24 text-center bg-white dark:bg-background-dark border-t border-gray-100">
            <AnimatedSection variant="fade">
-              <h3 className="text-3xl font-heading font-extrabold text-text-dark dark:text-text-light mb-8">Ready to serve the house?</h3>
+              <h3 className="text-3xl font-heading font-extrabold text-text-dark dark:text-text-light mb-8">Ready to serve the Lord?</h3>
               <Button variant="solid" href="https://forms.google.com" target="_blank" className="px-12 py-5 text-xl shadow-md transition-all">
                 Learn More
               </Button>

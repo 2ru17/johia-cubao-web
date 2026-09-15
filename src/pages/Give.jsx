@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import TiltCard from '../components/ui/TiltCard';
-import { IconBuildingBank, IconQrcode, IconHeartHandshake } from '@tabler/icons-react';
+import { IconBuildingBank, IconQrcode, IconHeartHandshake, IconZoomIn, IconX } from '@tabler/icons-react';
 
 export default function Give() {
   const [showGcash, setShowGcash] = useState(false);
   const [showBank, setShowBank] = useState(false);
+  const [showQrModal, setShowQrModal] = useState(false);
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark transition-colors duration-500">
@@ -35,7 +37,7 @@ export default function Give() {
           {/* Option 1: GCash */}
           <AnimatedSection variant="fade" delay={0.1}>
             <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col justify-between">
+              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col">
                 <div>
                   <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
                     <IconQrcode size={40} />
@@ -45,15 +47,25 @@ export default function Give() {
                     Scan the QR code or send directly to our official GCash account.
                   </p>
                 </div>
-                <div 
-                  onClick={() => setShowGcash(!showGcash)}
-                  className="bg-gray-50 dark:bg-gray-900 aspect-square rounded-2xl flex flex-col items-center justify-center text-gray-400 border border-gray-100 dark:border-gray-700 transition-all duration-300 cursor-pointer hover:border-brand-yellow/50"
-                >
-                  {!showGcash ? (
-                    <p className="font-bold text-brand-yellow tracking-wider uppercase text-center px-4">Click to view QR Code</p>
-                  ) : (
-                    <p className="font-medium text-sm tracking-wider uppercase">QR Code Placeholder</p>
+                <div className="mt-auto pt-4 flex flex-col gap-4">
+                  {showGcash && (
+                    <div 
+                      onClick={() => setShowQrModal(true)}
+                      className="bg-gray-50 dark:bg-gray-900 aspect-square rounded-2xl flex items-center justify-center text-gray-400 border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] transition-all cursor-pointer relative group overflow-hidden"
+                    >
+                      {/* Temporary placeholder image, waiting for official QR code */}
+                      <img src="/images/general/placeholder.jpg" alt="GCash QR Code" className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <IconZoomIn size={48} className="text-white drop-shadow-md" />
+                      </div>
+                    </div>
                   )}
+                  <button 
+                    onClick={() => setShowGcash(!showGcash)}
+                    className="w-full py-4 rounded-xl font-bold tracking-wider uppercase text-sm border-2 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-brand-yellow hover:text-brand-yellow transition-all"
+                  >
+                    {showGcash ? 'Hide QR Code' : 'View QR Code'}
+                  </button>
                 </div>
               </div>
             </TiltCard>
@@ -62,7 +74,7 @@ export default function Give() {
           {/* Option 2: Bank Transfer */}
           <AnimatedSection variant="fade" delay={0.2}>
             <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col justify-between">
+              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col">
                 <div>
                   <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
                     <IconBuildingBank size={40} />
@@ -72,14 +84,9 @@ export default function Give() {
                     Transfer funds directly to our bank account.
                   </p>
                 </div>
-                <div 
-                  onClick={() => setShowBank(!showBank)}
-                  className="text-left bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 space-y-4 transition-all duration-300 cursor-pointer hover:border-brand-yellow/50 h-48 flex flex-col justify-center"
-                >
-                  {!showBank ? (
-                    <p className="font-bold text-brand-yellow tracking-wider uppercase text-center w-full">Click to view Details</p>
-                  ) : (
-                    <>
+                <div className="mt-auto pt-4 flex flex-col gap-4">
+                  {showBank && (
+                    <div className="text-left bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] space-y-4 transition-all">
                       <div>
                         <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Bank Name</p>
                         <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">BDO Unibank</p>
@@ -92,8 +99,14 @@ export default function Give() {
                         <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Account Number</p>
                         <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">0012-3456-7890</p>
                       </div>
-                    </>
+                    </div>
                   )}
+                  <button 
+                    onClick={() => setShowBank(!showBank)}
+                    className="w-full py-4 rounded-xl font-bold tracking-wider uppercase text-sm border-2 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-brand-yellow hover:text-brand-yellow transition-all"
+                  >
+                    {showBank ? 'Hide Account Details' : 'View Account Details'}
+                  </button>
                 </div>
               </div>
             </TiltCard>
@@ -102,18 +115,20 @@ export default function Give() {
           {/* Option 3: In Person */}
           <AnimatedSection variant="fade" delay={0.3}>
             <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full">
-                <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
-                  <IconHeartHandshake size={40} />
+              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col">
+                <div>
+                  <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
+                    <IconHeartHandshake size={40} />
+                  </div>
+                  <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">In Person</h3>
+                  <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
+                    Give during our Sunday worship services using the offering envelopes.
+                  </p>
                 </div>
-                <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">In Person</h3>
-                <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
-                  Give during our Sunday worship services using the offering envelopes.
-                </p>
-                <div className="bg-gray-50 dark:bg-gray-900 h-48 rounded-2xl overflow-hidden relative border border-gray-100 dark:border-gray-700 flex items-center justify-center transition-colors">
-                   <div className="text-brand-yellow font-extrabold tracking-widest text-lg">
-                     OFFERING BOX
-                   </div>
+                <div className="mt-auto pt-4">
+                  <div className="w-full py-4 rounded-xl font-bold tracking-wider uppercase text-sm border-2 border-brand-yellow/30 bg-brand-yellow/5 text-brand-yellow shadow-[0_0_15px_rgba(251,176,59,0.1)]">
+                    Offering Box
+                  </div>
                 </div>
               </div>
             </TiltCard>
@@ -163,6 +178,48 @@ export default function Give() {
           </div>
         </div>
       </section>
+
+      {/* QR Code Fullscreen Modal */}
+      <AnimatePresence>
+        {showQrModal && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setShowQrModal(false)}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", bounce: 0.4, duration: 0.6 }}
+              className="relative max-w-md w-full bg-white dark:bg-background-dark p-2 rounded-3xl shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()} // Prevent clicking modal from closing it
+            >
+              {/* Close Button */}
+              <button 
+                onClick={() => setShowQrModal(false)}
+                className="absolute top-4 right-4 bg-black/50 hover:bg-black p-2 rounded-full text-white transition-colors z-10"
+              >
+                <IconX size={24} />
+              </button>
+              
+              {/* Image */}
+              <img 
+                src="/images/general/placeholder.jpg" 
+                alt="GCash QR Code Zoomed" 
+                className="w-full h-auto aspect-square object-cover rounded-2xl" 
+              />
+              
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-white mb-2">Official GCash QR</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Scan this code using your GCash app to send your tithes and offerings.</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
     </div>
   );
