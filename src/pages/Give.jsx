@@ -4,7 +4,7 @@ import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import TiltCard from '../components/ui/TiltCard';
-import { IconBuildingBank, IconQrcode, IconHeartHandshake, IconZoomIn, IconX } from '@tabler/icons-react';
+import { IconBuildingBank, IconQrcode, IconHeartHandshake, IconZoomIn, IconX, IconDownload } from '@tabler/icons-react';
 
 export default function Give() {
   const [showGcash, setShowGcash] = useState(false);
@@ -212,9 +212,20 @@ export default function Give() {
                 className="w-full h-auto aspect-square object-cover rounded-2xl" 
               />
               
-              <div className="p-6 text-center">
+              <div className="p-6 pb-2 text-center">
                 <h3 className="text-xl font-bold font-heading text-text-dark dark:text-white mb-2">Official GCash QR</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Scan this code using your GCash app to send your tithes and offerings.</p>
+              </div>
+              
+              <div className="px-6 pb-6 pt-4 text-center">
+                <a 
+                  href="/images/general/placeholder.jpg" 
+                  download="johia-gcash-qr.jpg"
+                  className="inline-flex items-center justify-center gap-2 bg-brand-yellow text-white font-bold tracking-wide uppercase text-sm px-6 py-3 rounded-full hover:bg-brand-yellow/90 hover:shadow-lg hover:scale-105 transition-all"
+                >
+                  <IconDownload size={20} />
+                  Save QR Code
+                </a>
               </div>
             </motion.div>
           </motion.div>
