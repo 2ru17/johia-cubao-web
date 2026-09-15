@@ -17,10 +17,18 @@ const allPosts = Object.values(mdxPosts)
   // Optionally sort by date here if needed
   .reverse(); 
 
+const moodColors = {
+  joy: "bg-yellow-50 dark:bg-yellow-900/10 border-yellow-200 dark:border-yellow-700/30",
+  peace: "bg-blue-50 dark:bg-blue-900/10 border-blue-200 dark:border-blue-700/30",
+  fire: "bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-700/30",
+  reflection: "bg-purple-50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-700/30",
+  default: "bg-white dark:bg-[#1a1a1a] border-gray-100 dark:border-white/5"
+};
+
 export default function Posts() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 7;
+  const postsPerPage = 7; // Mathematically perfect for our Bento grid
 
   // Filter posts based on search term
   const filteredPosts = allPosts.filter(post => 
@@ -104,6 +112,9 @@ export default function Posts() {
                   
                   // Apply mathematical bento layout
                   const { gridClass, size } = getBentoStyles(idx);
+                  
+                  // Apply mood colors
+                  const cardColorClass = moodColors[post.mood] || moodColors.default;
 
                   return (
                     <AnimatedSection 
@@ -115,7 +126,8 @@ export default function Posts() {
                       <TiltCard className="w-full h-full">
                         <Link to={`/posts/${post.slug}`} className="block w-full h-full">
                           <div className={cn(
-                            "bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-white/5 rounded-3xl p-8 hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300 group flex flex-col h-full overflow-hidden relative",
+                            "rounded-3xl p-8 hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300 group flex flex-col h-full overflow-hidden relative border",
+                            cardColorClass,
                             (size === "large" || size === "wide") ? "md:p-12" : ""
                           )}>
                             {/* Decorative hover glow */}
