@@ -46,48 +46,38 @@ export default function Home() {
           {/* Free-form asymmetric grid layout */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 max-w-7xl mx-auto">
             
-            {/* Card 1: Wide & Heroic (Worship) */}
+            {/* Card 1: Wide & Heroic (Church Programs) */}
             <TiltCard className="md:col-span-8">
-              <Link to="/programs#programs-sunday-service" className="block w-full h-full group relative min-h-[400px] md:min-h-[500px] overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)]">
+              <Link to="/programs" className="block w-full h-full group relative min-h-[400px] md:min-h-[500px] overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)]">
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10"></div>
-                <img src="/images/general/CoreValues.png" alt="Worship Service" className="w-full h-full object-cover transform group-hover:rotate-1 transition-transform duration-1000" />
+                <img src="/images/general/CoreValues.png" alt="Church Programs" className="w-full h-full object-cover transform group-hover:rotate-1 transition-transform duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
-                  <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Sunday Worship</h3>
+                  <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Church Programs</h3>
+                  <p className="text-gray-300 font-sans text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Sunday Worship, School of Champions, and more.</p>
                 </div>
               </Link>
             </TiltCard>
 
-            {/* Card 2: Tall (Life Groups) */}
+            {/* Card 2: Tall (Ministries) */}
             <TiltCard className="md:col-span-4 md:row-span-2">
-              <Link to="/ministries#ministries-demographics" className="block w-full h-full group relative min-h-[400px] md:min-h-full overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)] ">
+              <Link to="/ministries" className="block w-full h-full group relative min-h-[400px] md:min-h-full overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)] ">
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500 z-10"></div>
-                {/* Fallback image if Life Groups specific image isn't there */}
-                <img src="/images/general/retreat-pic.jpg" alt="Life Groups" className="w-full h-full object-cover transform transition-transform duration-1000" />
+                <img src="/images/general/retreat-pic.jpg" alt="Ministries" className="w-full h-full object-cover transform transition-transform duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-t from-black/60 to-transparent">
-                  <h3 className="text-3xl md:text-4xl font-bold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300 mb-4">Life Groups</h3>
+                  <h3 className="text-3xl md:text-4xl font-bold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300 mb-4">Ministries</h3>
                   <p className="text-gray-300 font-sans text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Find your people.</p>
                 </div>
               </Link>
             </TiltCard>
 
-            {/* Card 3: Square/Standard (SOC) */}
-            <TiltCard className="md:col-span-4">
-              <Link to="/programs#programs-soc" className="block w-full h-full group relative min-h-[300px] md:min-h-[350px] overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_30px_rgba(251,176,59,0.3)] ">
+            {/* Card 3: Wide (Latest News) */}
+            <TiltCard className="md:col-span-8">
+              <Link to="/posts" className="block w-full h-full group relative min-h-[300px] md:min-h-[350px] overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_30px_rgba(251,176,59,0.3)] ">
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-colors duration-500 z-10"></div>
-                <img src="/images/ministries/sundayschl.jpg" alt="School of Champions" className="w-full h-full object-cover transform transition-transform duration-1000" />
-                <div className="absolute inset-0 z-20 flex items-center justify-center p-6 text-center">
-                  <h3 className="text-2xl font-bold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">School of Champions</h3>
-                </div>
-              </Link>
-            </TiltCard>
-
-            {/* Card 4: Standard (Prayer) */}
-            <TiltCard className="md:col-span-4">
-              <Link to="/programs#programs-prayer" className="block w-full h-full group relative min-h-[300px] md:min-h-[350px] overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_30px_rgba(251,176,59,0.3)] ">
-                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500 z-10"></div>
-                <img src="/images/ministries/prayer.jpg" alt="Prayer Gatherings" className="w-full h-full object-cover transform transition-transform duration-1000" />
-                <div className="absolute inset-0 z-20 flex items-center justify-center p-6 text-center">
-                  <h3 className="text-2xl font-bold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Prayer Gatherings</h3>
+                <img src="/images/ministries/sundayschl.jpg" alt="Latest News" className="w-full h-full object-cover transform transition-transform duration-1000" />
+                <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
+                  <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Latest News</h3>
+                  <p className="text-gray-300 font-sans text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Stay encouraged with devotionals and updates.</p>
                 </div>
               </Link>
             </TiltCard>
