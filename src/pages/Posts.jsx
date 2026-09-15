@@ -113,8 +113,10 @@ export default function Posts() {
                   // Apply mathematical bento layout
                   const { gridClass, size } = getBentoStyles(idx);
                   
-                  // Apply mood colors
-                  const cardColorClass = moodColors[post.mood] || moodColors.default;
+                  // Apply mood colors (fallback to cycling through moods if none specified)
+                  const fallbackMoods = ['joy', 'peace', 'fire', 'reflection'];
+                  const assignedMood = post.mood || fallbackMoods[idx % fallbackMoods.length];
+                  const cardColorClass = moodColors[assignedMood] || moodColors.default;
 
                   return (
                     <AnimatedSection 
