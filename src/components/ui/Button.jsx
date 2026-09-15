@@ -10,7 +10,8 @@ export default function Button({
   href, 
   onClick, 
   type = 'button',
-  target 
+  target,
+  disabled
 }) {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -116,7 +117,7 @@ export default function Button({
   }
 
   return (
-    <motion.button type={type} {...motionProps}>
+    <motion.button type={type} disabled={disabled} {...motionProps}>
       {innerContent}
     </motion.button>
   );

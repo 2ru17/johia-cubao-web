@@ -45,6 +45,7 @@ export default function Footer() {
             <nav className="flex flex-col space-y-4 font-sans text-gray-400 font-medium">
               <Link to="/" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Home</Link>
               <Link to="/programs" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Programs</Link>
+              <Link to="/contact" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Contact</Link>
               <Link to="/give" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Support Us</Link>
             </nav>
             
