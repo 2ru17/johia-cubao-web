@@ -17,12 +17,42 @@ const allPosts = Object.values(mdxPosts)
   // Optionally sort by date here if needed
   .reverse(); 
 
-const moodColors = {
-  joy: "bg-yellow-50 dark:bg-yellow-900/10 border-yellow-200 dark:border-yellow-700/30",
-  peace: "bg-blue-50 dark:bg-blue-900/10 border-blue-200 dark:border-blue-700/30",
-  fire: "bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-700/30",
-  reflection: "bg-purple-50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-700/30",
-  default: "bg-white dark:bg-[#1a1a1a] border-gray-100 dark:border-white/5"
+const moodStyles = {
+  joy: {
+    bg: "bg-white dark:bg-[#1a1a1a]",
+    border: "border-yellow-100 dark:border-yellow-900/30 hover:border-yellow-300 dark:hover:border-yellow-500/50",
+    glow: "bg-yellow-400/30 dark:bg-yellow-500/10",
+    badge: "text-yellow-600 dark:text-yellow-400 bg-yellow-100 dark:bg-yellow-900/30",
+    readMore: "text-yellow-500 dark:text-yellow-400"
+  },
+  peace: {
+    bg: "bg-white dark:bg-[#1a1a1a]",
+    border: "border-blue-100 dark:border-blue-900/30 hover:border-blue-300 dark:hover:border-blue-500/50",
+    glow: "bg-blue-400/30 dark:bg-blue-500/10",
+    badge: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30",
+    readMore: "text-blue-500 dark:text-blue-400"
+  },
+  fire: {
+    bg: "bg-white dark:bg-[#1a1a1a]",
+    border: "border-red-100 dark:border-red-900/30 hover:border-red-300 dark:hover:border-red-500/50",
+    glow: "bg-red-400/30 dark:bg-red-500/10",
+    badge: "text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30",
+    readMore: "text-red-500 dark:text-red-400"
+  },
+  reflection: {
+    bg: "bg-white dark:bg-[#1a1a1a]",
+    border: "border-purple-100 dark:border-purple-900/30 hover:border-purple-300 dark:hover:border-purple-500/50",
+    glow: "bg-purple-400/30 dark:bg-purple-500/10",
+    badge: "text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30",
+    readMore: "text-purple-500 dark:text-purple-400"
+  },
+  default: {
+    bg: "bg-white dark:bg-[#1a1a1a]",
+    border: "border-gray-100 dark:border-white/5 hover:border-brand-yellow/50",
+    glow: "bg-brand-yellow/20 dark:bg-brand-yellow/5",
+    badge: "text-brand-yellow bg-brand-yellow/10",
+    readMore: "text-brand-yellow"
+  }
 };
 
 export default function Posts() {
@@ -116,7 +146,7 @@ export default function Posts() {
                   // Apply mood colors (fallback to cycling through moods if none specified)
                   const fallbackMoods = ['joy', 'peace', 'fire', 'reflection'];
                   const assignedMood = post.mood || fallbackMoods[idx % fallbackMoods.length];
-                  const cardColorClass = moodColors[assignedMood] || moodColors.default;
+                  const style = moodStyles[assignedMood] || moodStyles.default;
 
                   return (
                     <AnimatedSection 
@@ -128,22 +158,22 @@ export default function Posts() {
                       <TiltCard className="w-full h-full">
                         <Link to={`/posts/${post.slug}`} className="block w-full h-full">
                           <div className={cn(
-                            "rounded-3xl p-8 hover:shadow-2xl hover:border-brand-yellow/50 transition-all duration-300 group flex flex-col h-full overflow-hidden relative border",
-                            cardColorClass,
+                            "rounded-3xl p-8 transition-all duration-500 group flex flex-col h-full overflow-hidden relative border",
+                            style.bg, style.border,
                             (size === "large" || size === "wide") ? "md:p-12" : ""
                           )}>
-                            {/* Decorative hover glow */}
-                            <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-brand-yellow/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
+                            {/* Decorative aura glow */}
+                            <div className={cn("absolute -right-20 -bottom-20 w-64 h-64 rounded-full blur-3xl opacity-30 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none z-0", style.glow)}></div>
                             
                             <div className="flex justify-between items-center mb-6 relative z-10">
-                              <span className="text-xs font-bold uppercase tracking-wider text-brand-yellow bg-brand-yellow/10 px-3 py-1 rounded-full">
+                              <span className={cn("text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full", style.badge)}>
                                 {post.category || "General"}
                               </span>
                               <span className="text-sm font-sans text-gray-400 font-medium">{post.date}</span>
                             </div>
                             
                             <h3 className={cn(
-                              "font-bold font-heading text-text-dark dark:text-text-light mb-4 group-hover:text-brand-yellow transition-colors relative z-10",
+                              "font-bold font-heading text-text-dark dark:text-text-light mb-4 group-hover:opacity-80 transition-opacity relative z-10",
                               size === "large" ? "text-3xl lg:text-4xl" : "text-2xl"
                             )}>
                               {post.title}
@@ -156,7 +186,7 @@ export default function Posts() {
                               {post.excerpt}
                             </p>
                             
-                            <div className="flex items-center text-brand-yellow font-bold font-sans text-sm uppercase tracking-wider group-hover:translate-x-2 transition-transform w-max relative z-10 mt-auto">
+                            <div className={cn("flex items-center font-bold font-sans text-sm uppercase tracking-wider group-hover:translate-x-2 transition-transform w-max relative z-10 mt-auto", style.readMore)}>
                               Read More <IconArrowRight size={16} className="ml-2" />
                             </div>
                           </div>
