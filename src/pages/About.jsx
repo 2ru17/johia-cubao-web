@@ -6,12 +6,12 @@ import ZLayoutSection from '../components/ui/ZLayoutSection';
 import Button from '../components/ui/Button';
 
 const pastors = [
-  { name: "Ptr. Jun", image: "/images/pastors/ptr jun.jpg", bio: "Short write-up intro for Ptr. Jun will be placed here." },
-  { name: "Ptr. Jess", image: "/images/pastors/Jess.jpg", bio: "Short write-up intro for Ptr. Jess will be placed here." },
-  { name: "Ptr. Dek", image: "/images/pastors/docdek.jpg", bio: "Short write-up intro for Ptr. Dek will be placed here." },
-  { name: "Ptr. Ken", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Ken will be placed here." },
-  { name: "Ptr. Marc", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here." },
-  { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here." },
+  { name: "Ptr. Jun", image: "/images/pastors/ptr jun.jpg", bio: "Short write-up intro for Ptr. Jun will be placed here.", position: "object-top" },
+  { name: "Ptr. Jess", image: "/images/pastors/Jess.jpg", bio: "Short write-up intro for Ptr. Jess will be placed here.", position: "object-top" },
+  { name: "Ptr. Dek", image: "/images/pastors/docdek.jpg", bio: "Short write-up intro for Ptr. Dek will be placed here.", position: "object-top" },
+  { name: "Ptr. Ken", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Ken will be placed here.", position: "object-top" },
+  { name: "Ptr. Marc", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here.", position: "object-top" },
+  { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-bottom" },
 ];
 
 export default function About() {
@@ -90,7 +90,7 @@ export default function About() {
               imageAlt={pastor.name}
               reverse={index % 2 !== 0}
               texture={index % 2 === 0 ? 'dark' : 'none'}
-              imageClassName="object-top"
+              imageClassName={pastor.position}
               className="min-h-[50vh] py-16"
             />
           ))}
@@ -114,7 +114,7 @@ export default function About() {
         <div className="absolute inset-0 bg-aurora opacity-30 z-0"></div>
         <AnimatedSection className="relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light mb-10 drop-shadow-md">Ready to take the next step?</h2>
-          <Button variant="solid" href="/programs#programs-soc" className="!bg-brand-yellow !text-text-dark hover:!bg-white px-10 py-4 text-lg shadow-[0_0_20px_rgba(251,176,59,0.3)] transition-all">
+          <Button variant="solid" href="/programs" className="!bg-brand-yellow !text-text-dark hover:!bg-white px-10 py-4 text-lg shadow-[0_0_20px_rgba(251,176,59,0.3)] transition-all">
             Explore Programs
           </Button>
         </AnimatedSection>

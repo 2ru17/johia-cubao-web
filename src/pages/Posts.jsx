@@ -6,7 +6,7 @@ import SectionWrapper from '../components/ui/SectionWrapper';
 import TiltCard from '../components/ui/TiltCard';
 import EmptyState from '../components/ui/EmptyState';
 import Button from '../components/ui/Button';
-import { IconArrowRight, IconSearch, IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
+import { IconArrowRight, IconSearch, IconChevronLeft, IconChevronRight, IconChevronDown } from '@tabler/icons-react';
 import { cn } from '../lib/utils';
 
 // Dynamically load all MDX posts and their frontmatter
@@ -57,14 +57,20 @@ const moodStyles = {
 
 export default function Posts() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTag, setSelectedTag] = useState('All Tags');
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 7; // Mathematically perfect for our Bento grid
 
-  // Filter posts based on search term
-  const filteredPosts = allPosts.filter(post => 
-    post.title?.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    post.category?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Extract all unique tags from posts
+  const allTags = ['All Tags', ...new Set(allPosts.flatMap(post => post.tags || []))];
+
+  // Filter posts based on search term and selected tag
+  const filteredPosts = allPosts.filter(post => {
+    const matchesSearch = post.title?.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          post.category?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTag = selectedTag === 'All Tags' || (post.tags && post.tags.includes(selectedTag));
+    return matchesSearch && matchesTag;
+  });
 
   const hasPosts = filteredPosts.length > 0;
   
@@ -110,21 +116,40 @@ export default function Posts() {
               Stay encouraged with our latest devotionals, event recaps, and sermon notes.
             </p>
 
-            {/* Search Bar */}
-            <div className="max-w-md mx-auto relative mt-10">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 z-10">
-                <IconSearch size={20} />
+            {/* Search & Filter Bar */}
+            <div className="max-w-3xl mx-auto relative mt-10 flex flex-col md:flex-row gap-4">
+              <div className="relative flex-grow">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 z-10">
+                  <IconSearch size={20} />
+                </div>
+                <input
+                  type="text"
+                  className="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all backdrop-blur-sm shadow-xl"
+                  placeholder="Search posts or categories..."
+                  value={searchTerm}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    setCurrentPage(1); // Reset to first page on search
+                  }}
+                />
               </div>
-              <input
-                type="text"
-                className="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all backdrop-blur-sm shadow-xl"
-                placeholder="Search posts or categories..."
-                value={searchTerm}
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                  setCurrentPage(1); // Reset to first page on search
-                }}
-              />
+              <div className="relative min-w-[200px]">
+                <select
+                  value={selectedTag}
+                  onChange={(e) => {
+                    setSelectedTag(e.target.value);
+                    setCurrentPage(1);
+                  }}
+                  className="w-full appearance-none px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all backdrop-blur-sm shadow-xl cursor-pointer"
+                >
+                  {allTags.map(tag => (
+                    <option key={tag} value={tag} className="bg-gray-900 text-white">{tag}</option>
+                  ))}
+                </select>
+                <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-brand-yellow z-10">
+                  <IconChevronDown size={20} />
+                </div>
+              </div>
             </div>
           </AnimatedSection>
         </div>
