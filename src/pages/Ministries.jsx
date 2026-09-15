@@ -96,7 +96,7 @@ export default function Ministries() {
           title="Hospitality & Care"
           mainDescription="Be the welcoming hands and feet of Jesus. Ensure every person who walks through our doors feels at home and safe."
           teams={[
-            { name: "Ushers & Greeters", desc: "Welcoming guests, distributing materials, and assisting with seating.", image: "/images/general/outside.png" },
+            { name: "Consolidation", desc: "Welcoming guests, distributing materials, and assisting with seating.", image: "/images/general/outside.png" },
             { name: "Marshalls", desc: "Providing security, traffic control, and ensuring a safe worship environment.", image: "/images/placeholder-ministry.png" },
             { name: "Brews", desc: "Serving coffee and refreshments to foster fellowship before and after service.", image: "/images/general/retreat-pic.jpg" }
           ]}

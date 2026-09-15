@@ -54,7 +54,7 @@ export default function Give() {
                       className="bg-gray-50 dark:bg-gray-900 aspect-square rounded-2xl flex items-center justify-center text-gray-400 border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] transition-all cursor-pointer relative group overflow-hidden"
                     >
                       {/* Temporary placeholder image, waiting for official QR code */}
-                      <img src="/images/general/placeholder.jpg" alt="GCash QR Code" className="w-full h-full object-cover" />
+                      <img src="/images/general/outside.png" alt="GCash QR Code" className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <IconZoomIn size={48} className="text-white drop-shadow-md" />
                       </div>
@@ -207,7 +207,7 @@ export default function Give() {
               
               {/* Image */}
               <img 
-                src="/images/general/placeholder.jpg" 
+                src="/images/general/outside.png" 
                 alt="GCash QR Code Zoomed" 
                 className="w-full h-auto aspect-square object-cover rounded-2xl" 
               />
@@ -219,8 +219,8 @@ export default function Give() {
               
               <div className="px-6 pb-6 pt-4 text-center">
                 <a 
-                  href="/images/general/placeholder.jpg" 
-                  download="johia-gcash-qr.jpg"
+                  href="/images/general/outside.png" 
+                  download="johia-gcash-qr.png"
                   className="inline-flex items-center justify-center gap-2 bg-brand-yellow text-white font-bold tracking-wide uppercase text-sm px-6 py-3 rounded-full hover:bg-brand-yellow/90 hover:shadow-lg hover:scale-105 transition-all"
                 >
                   <IconDownload size={20} />
