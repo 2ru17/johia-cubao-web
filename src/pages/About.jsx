@@ -15,6 +15,14 @@ const pastors = [
   { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-center" },
 ];
 
+const admins = [
+  { name: "Admin 1", role: "Church Administrator", image: "/images/pastors/ptr jun.jpg" },
+  { name: "Admin 2", role: "Finance Officer", image: "/images/pastors/Jess.jpg" },
+  { name: "Admin 3", role: "Operations Manager", image: "/images/pastors/docdek.jpg" },
+  { name: "Admin 4", role: "Secretariat", image: "/images/pastors/ken.jpg" },
+  { name: "Admin 5", role: "Communications", image: "/images/pastors/marc.jpg" },
+];
+
 // Animated counter hook
 function useAnimatedCounter(target, duration = 2000, shouldAnimate) {
   const [count, setCount] = useState(0);
@@ -147,7 +155,7 @@ export default function About() {
       <StatCountersSection />
 
       {/* Meet Our Pastors */}
-      <section id="about-us-meet-pastor-header" className="bg-background-dark py-24 border-t border-white/5">
+      <section id="about-us-meet-pastor-header" className="bg-background-dark py-24 border-t border-white/5 relative z-10">
         <div className="container mx-auto px-6 text-center mb-10">
           <AnimatedSection>
             <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-light mb-4 drop-shadow-md">Meet Our Pastors</h2>
@@ -172,6 +180,33 @@ export default function About() {
               className="min-h-[50vh] py-16"
             />
           ))}
+        </div>
+      </section>
+
+      {/* Meet Our Admins */}
+      <section id="about-us-meet-admins" className="bg-[#111] py-24 border-t border-white/5 relative z-10">
+        <div className="container mx-auto px-6">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light mb-4 drop-shadow-md">Meet Our Admins</h2>
+            <p className="text-gray-400 font-sans text-xl max-w-2xl mx-auto">
+              The hardworking team behind the scenes ensuring our operations run smoothly and excellently.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+            {admins.map((admin, index) => (
+              <AnimatedSection key={admin.name} variant="rise" delay={index * 0.1}>
+                <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg border border-white/10 bg-[#1A1A1A]">
+                  <img src={admin.image} alt={admin.name} className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 w-full p-6 text-left">
+                    <h3 className="text-2xl font-bold font-heading text-brand-yellow mb-1">{admin.name}</h3>
+                    <p className="text-white/80 font-sans text-sm font-medium">{admin.role}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 
