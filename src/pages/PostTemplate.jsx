@@ -19,9 +19,14 @@ export default function PostTemplate() {
   let frontmatter = null;
 
   for (const path in mdxPosts) {
-    if (mdxPosts[path].frontmatter?.slug === slug) {
+    const fm = mdxPosts[path].frontmatter;
+    if (!fm) continue;
+    const inferredSlug = path.split('/').pop().replace('.mdx', '');
+    const currentSlug = fm.slug || inferredSlug;
+    
+    if (currentSlug === slug) {
       targetPath = path;
-      frontmatter = mdxPosts[path].frontmatter;
+      frontmatter = fm;
       break;
     }
   }

@@ -11,11 +11,16 @@ import { cn } from '../lib/utils';
 
 // Dynamically load all MDX posts and their frontmatter
 const mdxPosts = import.meta.glob('../content/posts/*.mdx', { eager: true });
-const allPosts = Object.values(mdxPosts)
-  .map(module => module.frontmatter)
+const allPosts = Object.keys(mdxPosts)
+  .map(path => {
+    const fm = mdxPosts[path].frontmatter;
+    if (!fm) return null;
+    const inferredSlug = path.split('/').pop().replace('.mdx', '');
+    return { ...fm, slug: fm.slug || inferredSlug };
+  })
   .filter(Boolean)
   // Optionally sort by date here if needed
-  .reverse(); 
+  .sort((a, b) => new Date(b.date) - new Date(a.date)); 
 
 const moodStyles = {
   joy: {
