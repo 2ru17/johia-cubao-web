@@ -5,7 +5,7 @@ import { IconBrandFacebook, IconBrandInstagram, IconBrandYoutube, IconMail } fro
 
 export default function Footer() {
   return (
-    <footer className="bg-background-footer text-text-light relative border-t border-white/5 overflow-hidden">
+    <footer className="bg-background-footer text-text-light relative border-t border-white/[0.06] overflow-hidden">
       {/* Animated Gold Accent Bar */}
       <motion.div 
         animate={{ x: [-100, 2000] }}

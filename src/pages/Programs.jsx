@@ -97,7 +97,7 @@ export default function Programs() {
           <p className="text-xl md:text-2xl font-sans max-w-2xl mx-auto mb-10 font-medium text-gray-500 dark:text-gray-400">
             Partner with us in advancing the Kingdom through your generous giving.
           </p>
-          <Button variant="solid" className="px-10 py-4 text-lg shadow-md transition-all" href="/give">
+          <Button variant="solid" className="px-10 py-4 text-lg shadow-md transition-all animate-glow-pulse" href="/give">
             Support Us
           </Button>
         </AnimatedSection>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import TiltCard from '../components/ui/TiltCard';
@@ -7,6 +7,58 @@ import Button from '../components/ui/Button';
 import { Link } from 'react-router-dom';
 import PageMeta from '../components/seo/PageMeta';
 import ParallaxDivider from '../components/ui/ParallaxDivider';
+
+const scriptures = [
+  { verse: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.", ref: "Jeremiah 29:11" },
+  { verse: "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.", ref: "Joshua 1:9" },
+  { verse: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to Him, and He will make your paths straight.", ref: "Proverbs 3:5-6" },
+  { verse: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, He leads me beside quiet waters, He refreshes my soul.", ref: "Psalm 23:1-3" },
+  { verse: "I can do all things through Christ who strengthens me.", ref: "Philippians 4:13" },
+];
+
+function ScriptureCarousel() {
+  const [current, setCurrent] = useState(0);
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % scriptures.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="py-24 bg-background-footer relative overflow-hidden border-y border-white/[0.06]">
+      <div className="absolute inset-0 bg-aurora opacity-30 z-0"></div>
+      <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <p className="text-2xl md:text-3xl lg:text-4xl font-sans text-gray-200 leading-relaxed font-light italic mb-8">
+              "{scriptures[current].verse}"
+            </p>
+            <p className="text-brand-yellow font-heading font-bold text-lg tracking-wider uppercase">
+              — {scriptures[current].ref}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+        <div className="flex justify-center gap-2 mt-10">
+          {scriptures.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-brand-yellow w-6' : 'bg-white/20 hover:bg-white/40'}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -115,8 +167,10 @@ export default function Home() {
           ))}
         </div>
       </section>
+      {/* SECTION 6: SCRIPTURE CAROUSEL */}
+      <ScriptureCarousel />
 
-      {/* SECTION 5: VISIT US / MAP */}
+      {/* SECTION 7: VISIT US / MAP */}
       <SectionWrapper id="home-map" className="bg-background-light dark:bg-background-dark py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           <AnimatedSection variant="slide-left" className="order-2 lg:order-1 flex flex-col items-start">

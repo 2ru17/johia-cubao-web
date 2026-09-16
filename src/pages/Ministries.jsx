@@ -46,7 +46,7 @@ export default function Ministries() {
             <TiltCard key={group.name} className="w-full h-full">
               <div className="group relative aspect-[16/9] md:aspect-[4/3] rounded-2xl overflow-hidden bg-gray-900 border border-gray-100 transition-all duration-500 shadow-md hover:shadow-xl h-full">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/80 transition-colors duration-500 z-10"></div>
-                <img src="/images/general/retreat-pic.jpg" alt={group.name} className="w-full h-full object-cover transition-transform duration-1000" />
+                <img src="/images/general/retreat-pic.jpg" alt={group.name} className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-8 md:p-10 text-left">
                   <h3 className="text-3xl md:text-4xl font-extrabold font-heading text-brand-yellow mb-3">{group.name}</h3>
                   <p className="text-white font-sans text-lg opacity-90">{group.desc}</p>
