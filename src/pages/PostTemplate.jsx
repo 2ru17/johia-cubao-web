@@ -84,12 +84,35 @@ export default function PostTemplate() {
             <IconArrowLeft size={16} className="mr-2 group-hover:-translate-x-1 transition-transform" /> Back to all posts
           </button>
 
+          {/* Hero Thumbnail Image */}
+          {frontmatter.thumbnail && (
+            <div className="mb-16 w-full max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-white/10">
+              <img src={frontmatter.thumbnail} alt={frontmatter.title} className="w-full h-auto object-cover max-h-[600px] hover:scale-105 transition-transform duration-700" />
+            </div>
+          )}
+
           {/* Clean & Minimal Article Content */}
           <article className="prose prose-lg md:prose-xl dark:prose-invert prose-headings:font-heading prose-headings:font-extrabold prose-h1:text-brand-yellow prose-h2:text-brand-yellow/90 prose-blockquote:border-brand-yellow prose-blockquote:bg-brand-yellow/5 prose-blockquote:rounded-r-lg prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:font-medium prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-300 prose-a:text-brand-yellow hover:prose-a:text-yellow-400 prose-img:rounded-3xl prose-img:shadow-2xl mx-auto max-w-3xl leading-loose">
             <Suspense fallback={<div className="text-center py-20 text-gray-500 animate-pulse">Loading content...</div>}>
               <PostContent />
             </Suspense>
           </article>
+
+          {/* Article Footer */}
+          <div className="max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center gap-4 mb-6 md:mb-0">
+              <div className="w-12 h-12 rounded-full bg-brand-yellow/20 flex items-center justify-center text-brand-yellow font-heading font-bold text-xl">
+                J
+              </div>
+              <div>
+                <p className="font-bold text-text-dark dark:text-text-light">JOHIA Cubao</p>
+                <p className="text-sm text-gray-500">Official Church Communcations</p>
+              </div>
+            </div>
+            <Button variant="outline" className="px-6 py-2 rounded-full text-sm font-bold tracking-wider" onClick={() => navigator.clipboard.writeText(window.location.href).then(() => alert("Link copied!"))}>
+              Share Post
+            </Button>
+          </div>
 
         </AnimatedSection>
       </SectionWrapper>
