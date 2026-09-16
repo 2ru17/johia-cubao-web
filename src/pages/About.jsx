@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useInView } from 'framer-motion';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
@@ -13,6 +14,80 @@ const pastors = [
   { name: "Ptr. Marc", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here.", position: "object-top" },
   { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-center" },
 ];
+
+// Animated counter hook
+function useAnimatedCounter(target, duration = 2000, shouldAnimate) {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    if (!shouldAnimate) return;
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease out cubic for a satisfying deceleration
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration, shouldAnimate]);
+  
+  return count;
+}
+
+const stats = [
+  { value: 30, suffix: '+', label: 'Years of Ministry' },
+  { value: 6, suffix: '', label: 'Pastors & Leaders' },
+  { value: 10, suffix: '+', label: 'Active Ministries' },
+  { value: 1, suffix: '', label: 'United Family' },
+];
+
+function StatCountersSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  return (
+    <section ref={ref} className="bg-background-dark py-24 border-t border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-aurora opacity-20 z-0"></div>
+      <div className="container mx-auto px-6 relative z-10">
+        <AnimatedSection variant="rise">
+          <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light text-center mb-16 tracking-tight">
+            JOHIA by the Numbers
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {stats.map((stat, i) => (
+              <StatCard key={stat.label} stat={stat} isInView={isInView} delay={i * 200} />
+            ))}
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+function StatCard({ stat, isInView, delay }) {
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  const count = useAnimatedCounter(stat.value, 2000, shouldAnimate);
+  
+  useEffect(() => {
+    if (isInView) {
+      const timer = setTimeout(() => setShouldAnimate(true), delay);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView, delay]);
+  
+  return (
+    <div className="text-center group">
+      <div className="text-5xl md:text-7xl font-extrabold font-heading text-brand-yellow mb-3 tabular-nums">
+        {shouldAnimate ? count : 0}{stat.suffix}
+      </div>
+      <p className="text-gray-400 font-sans text-sm md:text-base uppercase tracking-wider font-semibold">
+        {stat.label}
+      </p>
+    </div>
+  );
+}
 
 export default function About() {
   return (
@@ -60,13 +135,16 @@ export default function About() {
       </SectionWrapper>
 
       {/* Core Values */}
-      <section id="about-us-core-values" className="bg-[#212528] py-24 relative border-t border-white/5">
+      <section id="about-us-core-values" className="bg-[#111] py-24 relative border-t border-white/5">
         <div className="container mx-auto px-6 text-center">
           <AnimatedSection>
             <img src="/images/general/New Core values.png" alt="Core Values" className="w-full max-w-5xl mx-auto rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10" />
           </AnimatedSection>
         </div>
       </section>
+
+      {/* JOHIA by the Numbers */}
+      <StatCountersSection />
 
       {/* Meet Our Pastors */}
       <section id="about-us-meet-pastor-header" className="bg-background-dark py-24 border-t border-white/5">

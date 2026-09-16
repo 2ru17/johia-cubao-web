@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollToHash from './ScrollToHash';
 import PageMeta from '../seo/PageMeta';
+import FloatingActionMenu from '../ui/FloatingActionMenu';
 
 export default function Layout({ children }) {
   return (
@@ -19,6 +20,7 @@ export default function Layout({ children }) {
         {children}
       </main>
 
+      <FloatingActionMenu />
       <Footer />
     </div>
   );
