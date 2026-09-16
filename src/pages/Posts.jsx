@@ -63,29 +63,33 @@ const moodStyles = {
 export default function Posts() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('All Tags');
+  const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [sortOrder, setSortOrder] = useState('desc');
+  const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 7; // Mathematically perfect for our Bento grid
 
-  // Extract all unique tags from posts
-  // Calculate tag frequencies and get top 7
+  // Extract all unique tags and categories from posts
   const tagFrequencies = allPosts.flatMap(post => post.tags || []).reduce((acc, tag) => {
     acc[tag] = (acc[tag] || 0) + 1;
     return acc;
   }, {});
-  
-  const topTags = Object.entries(tagFrequencies)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 7)
-    .map(entry => entry[0]);
-
+  const topTags = Object.entries(tagFrequencies).sort((a, b) => b[1] - a[1]).slice(0, 7).map(entry => entry[0]);
   const allTags = ['All Tags', ...topTags];
+  
+  const allCategories = ['All Categories', ...new Set(allPosts.map(post => post.category).filter(Boolean))];
 
-  // Filter posts based on search term and selected tag
+  // Filter and sort posts
   const filteredPosts = allPosts.filter(post => {
     const matchesSearch = post.title?.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          post.category?.toLowerCase().includes(searchTerm.toLowerCase());
+                          post.excerpt?.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesTag = selectedTag === 'All Tags' || (post.tags && post.tags.includes(selectedTag));
-    return matchesSearch && matchesTag;
+    const matchesCategory = selectedCategory === 'All Categories' || post.category === selectedCategory;
+    return matchesSearch && matchesTag && matchesCategory;
+  }).sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
   });
 
   const hasPosts = filteredPosts.length > 0;
@@ -98,27 +102,23 @@ export default function Posts() {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 400, behavior: 'smooth' });
   };
 
-  // 7-Post Bento Box Layout Engine
+  // Helper for bento grid layouts
   const getBentoStyles = (index) => {
-    const layoutIndex = index % 7;
-    switch (layoutIndex) {
-      case 0: return { gridClass: "md:col-span-2 lg:col-span-2 row-span-2", size: "large" };
-      case 1: return { gridClass: "col-span-1 row-span-1", size: "normal" };
-      case 2: return { gridClass: "col-span-1 row-span-1", size: "normal" };
-      case 3: return { gridClass: "col-span-1 row-span-1", size: "normal" };
-      case 4: return { gridClass: "md:col-span-2 lg:col-span-2 row-span-1", size: "wide" };
-      case 5: return { gridClass: "col-span-1 row-span-2", size: "tall" };
-      case 6: return { gridClass: "md:col-span-2 lg:col-span-2 row-span-2", size: "large" };
-      default: return { gridClass: "col-span-1 row-span-1", size: "normal" };
-    }
+    const i = index % 7;
+    if (i === 0) return { gridClass: "md:col-span-2 md:row-span-2", size: "large" };
+    if (i === 1 || i === 2) return { gridClass: "md:col-span-1 md:row-span-1", size: "small" };
+    if (i === 3) return { gridClass: "md:col-span-1 md:row-span-2", size: "tall" };
+    if (i === 4) return { gridClass: "md:col-span-2 md:row-span-1", size: "wide" };
+    if (i === 5 || i === 6) return { gridClass: "md:col-span-1 md:row-span-1", size: "small" };
+    return { gridClass: "md:col-span-1 md:row-span-1", size: "small" };
   };
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark min-h-screen">
-      <PageMeta title="Posts" description="Read our latest blog posts, updates, and devotionals." />
+      <PageMeta title="Journals | JOHIA Cubao" description="Read our latest devotionals, event recaps, and sermon notes." />
 
       {/* Hero */}
       <section className="relative pt-40 pb-24 bg-aurora border-b border-white/5 flex items-center justify-center overflow-hidden">
@@ -132,40 +132,125 @@ export default function Posts() {
               Stay encouraged with our latest devotionals, event recaps, and sermon notes.
             </p>
 
-            {/* Search & Filter Bar */}
-            <div className="max-w-3xl mx-auto relative mt-10 flex flex-col md:flex-row gap-4">
-              <div className="relative flex-grow">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 z-10">
-                  <IconSearch size={20} />
+            {/* Enhanced Search & Filter Bar */}
+            <div className="max-w-4xl mx-auto relative mt-10 flex flex-col gap-4">
+              
+              {/* Search Bar Row */}
+              <div className="flex flex-col md:flex-row gap-4 relative">
+                <div className="relative flex-grow">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 z-10">
+                    <IconSearch size={20} />
+                  </div>
+                  <input
+                    type="text"
+                    className="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all backdrop-blur-sm shadow-xl"
+                    placeholder="Search journals, devotions, or upcoming series..."
+                    value={searchTerm}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                  />
                 </div>
-                <input
-                  type="text"
-                  className="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all backdrop-blur-sm shadow-xl"
-                  placeholder="Search posts or categories..."
-                  value={searchTerm}
-                  onChange={(e) => {
-                    setSearchTerm(e.target.value);
-                    setCurrentPage(1); // Reset to first page on search
-                  }}
-                />
-              </div>
-              <div className="relative min-w-[200px]">
-                <select
-                  value={selectedTag}
-                  onChange={(e) => {
-                    setSelectedTag(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                  className="w-full appearance-none px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all backdrop-blur-sm shadow-xl cursor-pointer"
+                
+                {/* Filter Toggle Button */}
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className={cn(
+                    "flex items-center justify-center gap-2 px-8 py-4 rounded-full border transition-all backdrop-blur-sm shadow-xl font-bold tracking-wide",
+                    showFilters 
+                      ? "bg-brand-yellow text-text-dark border-brand-yellow" 
+                      : "bg-white/10 text-white border-white/20 hover:border-brand-yellow hover:text-brand-yellow"
+                  )}
                 >
-                  {allTags.map(tag => (
-                    <option key={tag} value={tag} className="bg-gray-900 text-white">{tag}</option>
-                  ))}
-                </select>
-                <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-brand-yellow z-10">
-                  <IconChevronDown size={20} />
-                </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                  Filters
+                  {(selectedTag !== 'All Tags' || selectedCategory !== 'All Categories' || sortOrder !== 'desc') && (
+                    <span className="w-2 h-2 rounded-full bg-red-500 ml-1"></span>
+                  )}
+                </button>
               </div>
+              
+              {/* Expandable Filter Menu */}
+              {showFilters && (
+                <AnimatedSection variant="fade" className="bg-[#1a1a1a] border border-white/10 rounded-3xl p-6 md:p-8 mt-2 shadow-2xl relative z-20 text-left">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Category Filter */}
+                    <div>
+                      <label className="block text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Category</label>
+                      <div className="relative">
+                        <select
+                          value={selectedCategory}
+                          onChange={(e) => { setSelectedCategory(e.target.value); setCurrentPage(1); }}
+                          className="w-full appearance-none px-4 py-3 rounded-xl bg-black/30 border border-white/10 text-white focus:outline-none focus:border-brand-yellow transition-colors cursor-pointer"
+                        >
+                          {allCategories.map(cat => <option key={cat} value={cat} className="bg-gray-900">{cat}</option>)}
+                        </select>
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-brand-yellow">
+                          <IconChevronDown size={16} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Tag Filter */}
+                    <div>
+                      <label className="block text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Topic</label>
+                      <div className="relative">
+                        <select
+                          value={selectedTag}
+                          onChange={(e) => { setSelectedTag(e.target.value); setCurrentPage(1); }}
+                          className="w-full appearance-none px-4 py-3 rounded-xl bg-black/30 border border-white/10 text-white focus:outline-none focus:border-brand-yellow transition-colors cursor-pointer"
+                        >
+                          {allTags.map(tag => <option key={tag} value={tag} className="bg-gray-900">{tag}</option>)}
+                        </select>
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-brand-yellow">
+                          <IconChevronDown size={16} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Sort Order */}
+                    <div>
+                      <label className="block text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Sort By</label>
+                      <div className="relative">
+                        <select
+                          value={sortOrder}
+                          onChange={(e) => { setSortOrder(e.target.value); setCurrentPage(1); }}
+                          className="w-full appearance-none px-4 py-3 rounded-xl bg-black/30 border border-white/10 text-white focus:outline-none focus:border-brand-yellow transition-colors cursor-pointer"
+                        >
+                          <option value="desc" className="bg-gray-900">Newest First</option>
+                          <option value="asc" className="bg-gray-900">Oldest First</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-brand-yellow">
+                          <IconChevronDown size={16} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Reset Filters */}
+                  <div className="mt-6 flex justify-end">
+                    <button 
+                      onClick={() => {
+                        setSelectedCategory('All Categories');
+                        setSelectedTag('All Tags');
+                        setSortOrder('desc');
+                        setSearchTerm('');
+                      }}
+                      className="text-sm font-bold text-gray-400 hover:text-brand-yellow transition-colors tracking-widest uppercase"
+                    >
+                      Clear Filters
+                    </button>
+                  </div>
+                </AnimatedSection>
+              )}
+              
+              {/* Match Indicator */}
+              {searchTerm && (
+                <div className="text-left text-sm text-gray-300 font-sans ml-4 mt-2">
+                  Found {filteredPosts.length} post{filteredPosts.length !== 1 && 's'} matching "{searchTerm}"
+                </div>
+              )}
             </div>
           </AnimatedSection>
         </div>
