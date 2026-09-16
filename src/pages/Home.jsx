@@ -6,6 +6,7 @@ import TiltCard from '../components/ui/TiltCard';
 import Button from '../components/ui/Button';
 import { Link } from 'react-router-dom';
 import PageMeta from '../components/seo/PageMeta';
+import ParallaxDivider from '../components/ui/ParallaxDivider';
 
 export default function Home() {
   return (
@@ -85,6 +86,9 @@ export default function Home() {
           </div>
         </AnimatedSection>
       </SectionWrapper>
+
+      {/* Parallax Divider */}
+      <ParallaxDivider imageSrc="/images/ministries/prayer.jpg" alt="Church Community" height="h-[350px]" />
 
       {/* SECTION 3: ACTION ROW */}
       <section id="home-action" className="relative py-32 bg-texture-light dark:bg-texture-dark overflow-hidden transition-colors duration-500">

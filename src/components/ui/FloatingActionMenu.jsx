@@ -39,7 +39,7 @@ export default function FloatingActionMenu() {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         whileTap={{ scale: 0.9 }}
-        className="w-14 h-14 rounded-full bg-brand-yellow text-text-dark shadow-[0_4px_20px_rgba(251,176,59,0.5)] hover:shadow-[0_4px_30px_rgba(251,176,59,0.7)] flex items-center justify-center transition-all duration-300"
+        className="w-14 h-14 rounded-full bg-brand-yellow text-text-dark shadow-[0_4px_20px_rgba(251,176,59,0.5)] hover:shadow-[0_4px_30px_rgba(251,176,59,0.7)] flex items-center justify-center transition-all duration-300 animate-glow-pulse"
       >
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}

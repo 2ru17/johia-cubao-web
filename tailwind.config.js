@@ -71,6 +71,10 @@ export default {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-8px)' },
         },
+        'glow-pulse': {
+          '0%, 100%': { boxShadow: '0 0 15px rgba(251, 176, 59, 0.3)' },
+          '50%': { boxShadow: '0 0 30px rgba(251, 176, 59, 0.6)' },
+        },
       },
       animation: {
         marquee: 'marquee 30s linear infinite',
@@ -80,6 +84,7 @@ export default {
         ripple: 'ripple 0.6s linear',
         'slow-zoom': 'slow-zoom 20s ease-in-out infinite alternate',
         float: 'float 6s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
       },
       backgroundImage: {
         'texture-dark': "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E\")",

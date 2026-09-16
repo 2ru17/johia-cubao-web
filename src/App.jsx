@@ -18,6 +18,7 @@ import Media from './pages/Media';
 import Journals from './pages/Journals';
 import Posts from './pages/Posts';
 import PostTemplate from './pages/PostTemplate';
+import NotFound from './pages/NotFound';
 
 // Extract routes to use useLocation hook
 function AnimatedRoutes() {
@@ -48,6 +49,7 @@ function AnimatedRoutes() {
         <Route path="/posts" element={<PageTransition><Posts /></PageTransition>} />
         <Route path="/posts/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
         <Route path="/journals" element={<PageTransition><Journals /></PageTransition>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
