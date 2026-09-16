@@ -57,8 +57,13 @@ export default function Footer() {
 
         </div>
         
-        <div className="mt-16 pt-8 border-t border-white/10 text-center md:text-left text-sm text-gray-500 dark:text-gray-400 font-sans">
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400 font-sans">
           <p>© 2026 JOHIA - Cubao. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <Link to="/privacy" className="hover:text-brand-yellow transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-brand-yellow transition-colors">Terms of Service</Link>
+            <Link to="/cookies" className="hover:text-brand-yellow transition-colors">Cookie Policy</Link>
+          </div>
         </div>
       </div>
     </footer>
