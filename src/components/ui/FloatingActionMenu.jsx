@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { IconHeart, IconX, IconCurrencyDollar, IconMessageCircle } from '@tabler/icons-react';
+import { IconHeart, IconX, IconHeartHandshake, IconMessageCircle } from '@tabler/icons-react';
 
 const actions = [
-  { label: 'Give', icon: IconCurrencyDollar, to: '/give', color: 'bg-green-500 hover:bg-green-400' },
+  { label: 'Support Us', icon: IconHeartHandshake, to: '/give', color: 'bg-green-500 hover:bg-green-400' },
   { label: 'Contact', icon: IconMessageCircle, to: '/contact', color: 'bg-blue-500 hover:bg-blue-400' },
 ];
 
