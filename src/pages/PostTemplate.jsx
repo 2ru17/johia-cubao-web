@@ -58,9 +58,18 @@ export default function PostTemplate() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-text-light mb-6 tracking-tight drop-shadow-md">
               {frontmatter.title}
             </h1>
-            <p className="text-xl text-gray-300 font-sans font-medium">
+            <p className="text-xl text-gray-300 font-sans font-medium mb-8">
               {frontmatter.date}
             </p>
+            {frontmatter.tags && frontmatter.tags.length > 0 && (
+              <div className="flex flex-wrap justify-center gap-3 mt-8">
+                {frontmatter.tags.map(tag => (
+                  <span key={tag} className="text-xs font-bold uppercase tracking-wider text-white/70 bg-white/5 border border-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </AnimatedSection>
         </div>
       </section>
@@ -76,7 +85,7 @@ export default function PostTemplate() {
           </button>
 
           {/* Clean & Minimal Article Content */}
-          <article className="prose prose-lg dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-a:text-brand-yellow hover:prose-a:text-yellow-400 prose-img:rounded-2xl mx-auto">
+          <article className="prose prose-lg md:prose-xl dark:prose-invert prose-headings:font-heading prose-headings:font-extrabold prose-h1:text-brand-yellow prose-h2:text-brand-yellow/90 prose-blockquote:border-brand-yellow prose-blockquote:bg-brand-yellow/5 prose-blockquote:rounded-r-lg prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:font-medium prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-300 prose-a:text-brand-yellow hover:prose-a:text-yellow-400 prose-img:rounded-3xl prose-img:shadow-2xl mx-auto max-w-3xl leading-loose">
             <Suspense fallback={<div className="text-center py-20 text-gray-500 animate-pulse">Loading content...</div>}>
               <PostContent />
             </Suspense>

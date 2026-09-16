@@ -67,7 +67,18 @@ export default function Posts() {
   const postsPerPage = 7; // Mathematically perfect for our Bento grid
 
   // Extract all unique tags from posts
-  const allTags = ['All Tags', ...new Set(allPosts.flatMap(post => post.tags || []))];
+  // Calculate tag frequencies and get top 7
+  const tagFrequencies = allPosts.flatMap(post => post.tags || []).reduce((acc, tag) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+    return acc;
+  }, {});
+  
+  const topTags = Object.entries(tagFrequencies)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 7)
+    .map(entry => entry[0]);
+
+  const allTags = ['All Tags', ...topTags];
 
   // Filter posts based on search term and selected tag
   const filteredPosts = allPosts.filter(post => {

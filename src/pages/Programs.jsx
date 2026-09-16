@@ -49,7 +49,7 @@ export default function Programs() {
         
         <ZLayoutSection 
           id="programs-prayer"
-          title="Dawn Watch & Prayer"
+          title="Dawn Watch & Prayer Gatherings"
           description={<p>We believe in the absolute power of prayer. Join our intercessory team and dawn watch gatherings as we stand in the gap for our city, nation, and church. This is where battles are fought and won before the day even begins.</p>}
           imageSrc="/images/ministries/prayer.jpg"
           imageAlt="Prayer Gatherings"
