@@ -193,10 +193,15 @@ export default function About() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-6xl mx-auto">
             {admins.map((admin, index) => (
-              <AnimatedSection key={admin.name} variant="rise" delay={index * 0.1}>
-                <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg border border-white/10 bg-[#1A1A1A]">
+              <AnimatedSection 
+                key={admin.name} 
+                variant="rise" 
+                delay={index * 0.1}
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm"
+              >
+                <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg border border-white/10 bg-[#1A1A1A] h-full">
                   <img src={admin.image} alt={admin.name} className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full p-6 text-left">
