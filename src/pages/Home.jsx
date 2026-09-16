@@ -14,6 +14,21 @@ const scriptures = [
   { verse: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to Him, and He will make your paths straight.", ref: "Proverbs 3:5-6" },
   { verse: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, He leads me beside quiet waters, He refreshes my soul.", ref: "Psalm 23:1-3" },
   { verse: "I can do all things through Christ who strengthens me.", ref: "Philippians 4:13" },
+  { verse: "But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.", ref: "Isaiah 40:31" },
+  { verse: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.", ref: "Romans 8:28" },
+  { verse: "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!", ref: "2 Corinthians 5:17" },
+  { verse: "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.", ref: "Philippians 4:6" },
+  { verse: "Come to me, all you who are weary and burdened, and I will give you rest.", ref: "Matthew 11:28" },
+  { verse: "Cast all your anxiety on him because he cares for you.", ref: "1 Peter 5:7" },
+  { verse: "The Lord is my light and my salvation—whom shall I fear? The Lord is the stronghold of my life—of whom shall I be afraid?", ref: "Psalm 27:1" },
+  { verse: "He says, 'Be still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth.'", ref: "Psalm 46:10" },
+  { verse: "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control.", ref: "Galatians 5:22-23" },
+  { verse: "Let all that you do be done in love.", ref: "1 Corinthians 16:14" },
+  { verse: "Your word is a lamp for my feet, a light on my path.", ref: "Psalm 119:105" },
+  { verse: "If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness.", ref: "1 John 1:9" },
+  { verse: "In the beginning was the Word, and the Word was with God, and the Word was God.", ref: "John 1:1" },
+  { verse: "Rejoice always, pray continually, give thanks in all circumstances; for this is God's will for you in Christ Jesus.", ref: "1 Thessalonians 5:16-18" },
+  { verse: "Set your minds on things above, not on earthly things.", ref: "Colossians 3:2" }
 ];
 
 function ScriptureCarousel() {
@@ -47,11 +62,15 @@ function ScriptureCarousel() {
           </motion.div>
         </AnimatePresence>
         <div className="flex justify-center gap-2 mt-10">
-          {scriptures.map((_, i) => (
+          {Array(5).fill(0).map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? 'bg-brand-yellow w-6' : 'bg-white/20 hover:bg-white/40'}`}
+              onClick={() => {
+                // Determine which subset of 5 we are currently in, and jump to the corresponding index
+                const currentBatch = Math.floor(current / 5);
+                setCurrent(currentBatch * 5 + i);
+              }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === (current % 5) ? 'bg-brand-yellow w-6' : 'bg-white/20 hover:bg-white/40'}`}
             />
           ))}
         </div>
