@@ -6,8 +6,22 @@ import SectionWrapper from '../components/ui/SectionWrapper';
 import TiltCard from '../components/ui/TiltCard';
 import EmptyState from '../components/ui/EmptyState';
 import Button from '../components/ui/Button';
-import { IconArrowRight, IconSearch, IconChevronLeft, IconChevronRight, IconChevronDown } from '@tabler/icons-react';
+import { IconArrowRight, IconSearch, IconChevronLeft, IconChevronRight, IconChevronDown, IconClock } from '@tabler/icons-react';
 import { cn } from '../lib/utils';
+
+// --- Helpers ---
+function formatDateShort(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+function stripFA(title) {
+  return title?.replace(/^\[FA\]\s*/, '') || title;
+}
+
+function isFA(title) {
+  return title?.startsWith('[FA]');
+}
 
 // Dynamically load all MDX posts and their frontmatter
 const mdxPosts = import.meta.glob('../content/posts/*.mdx', { eager: true });
@@ -19,8 +33,7 @@ const allPosts = Object.keys(mdxPosts)
     return { ...fm, slug: fm.slug || inferredSlug };
   })
   .filter(Boolean)
-  // Optionally sort by date here if needed
-  .sort((a, b) => new Date(b.date) - new Date(a.date)); 
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const moodStyles = {
   joy: {
@@ -67,7 +80,7 @@ export default function Posts() {
   const [sortOrder, setSortOrder] = useState('desc');
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 7; // Mathematically perfect for our Bento grid
+  const postsPerPage = 7;
 
   // Extract all unique tags and categories from posts
   const tagFrequencies = allPosts.flatMap(post => post.tags || []).reduce((acc, tag) => {
@@ -76,13 +89,13 @@ export default function Posts() {
   }, {});
   const topTags = Object.entries(tagFrequencies).sort((a, b) => b[1] - a[1]).slice(0, 7).map(entry => entry[0]);
   const allTags = ['All Tags', ...topTags];
-  
+
   const allCategories = ['All Categories', ...new Set(allPosts.map(post => post.category).filter(Boolean))];
 
   // Filter and sort posts
   const filteredPosts = allPosts.filter(post => {
-    const matchesSearch = post.title?.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          post.excerpt?.toLowerCase().includes(searchTerm.toLowerCase());
+    const searchTarget = stripFA(post.title)?.toLowerCase() + ' ' + post.excerpt?.toLowerCase();
+    const matchesSearch = searchTarget.includes(searchTerm.toLowerCase());
     const matchesTag = selectedTag === 'All Tags' || (post.tags && post.tags.includes(selectedTag));
     const matchesCategory = selectedCategory === 'All Categories' || post.category === selectedCategory;
     return matchesSearch && matchesTag && matchesCategory;
@@ -93,7 +106,7 @@ export default function Posts() {
   });
 
   const hasPosts = filteredPosts.length > 0;
-  
+
   // Pagination logic
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const indexOfLastPost = currentPage * postsPerPage;
@@ -104,6 +117,13 @@ export default function Posts() {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 400, behavior: 'smooth' });
   };
+
+  // Active filter count for the badge
+  const activeFilterCount = [
+    selectedTag !== 'All Tags',
+    selectedCategory !== 'All Categories',
+    sortOrder !== 'desc'
+  ].filter(Boolean).length;
 
   // Helper for bento grid layouts
   const getBentoStyles = (index) => {
@@ -118,7 +138,7 @@ export default function Posts() {
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark min-h-screen">
-      <PageMeta title="Journals | JOHIA Cubao" description="Read our latest devotionals, event recaps, and sermon notes." />
+      <PageMeta title="Journals | JOHIA Cubao" description="Read our latest sermon notes and devotionals from JOHIA Cubao." />
 
       {/* Hero */}
       <section className="relative pt-40 pb-24 bg-aurora border-b border-white/5 flex items-center justify-center overflow-hidden">
@@ -126,15 +146,15 @@ export default function Posts() {
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection variant="fade">
             <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
-              Latest Posts
+              Journals
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
-              Stay encouraged with our latest devotionals, event recaps, and sermon notes.
+              Stay encouraged with our latest sermon notes and devotionals.
             </p>
 
-            {/* Enhanced Search & Filter Bar */}
+            {/* Search & Filter Bar */}
             <div className="max-w-4xl mx-auto relative mt-10 flex flex-col gap-4">
-              
+
               {/* Search Bar Row */}
               <div className="flex flex-col md:flex-row gap-4 relative">
                 <div className="relative flex-grow">
@@ -144,7 +164,7 @@ export default function Posts() {
                   <input
                     type="text"
                     className="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition-all backdrop-blur-sm shadow-xl"
-                    placeholder="Search journals, devotions, or upcoming series..."
+                    placeholder="Search sermon notes and devotionals..."
                     value={searchTerm}
                     onChange={(e) => {
                       setSearchTerm(e.target.value);
@@ -152,25 +172,27 @@ export default function Posts() {
                     }}
                   />
                 </div>
-                
+
                 {/* Filter Toggle Button */}
                 <button
                   onClick={() => setShowFilters(!showFilters)}
                   className={cn(
                     "flex items-center justify-center gap-2 px-8 py-4 rounded-full border transition-all backdrop-blur-sm shadow-xl font-bold tracking-wide",
-                    showFilters 
-                      ? "bg-brand-yellow text-text-dark border-brand-yellow" 
+                    showFilters
+                      ? "bg-brand-yellow text-text-dark border-brand-yellow"
                       : "bg-white/10 text-white border-white/20 hover:border-brand-yellow hover:text-brand-yellow"
                   )}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
                   Filters
-                  {(selectedTag !== 'All Tags' || selectedCategory !== 'All Categories' || sortOrder !== 'desc') && (
-                    <span className="w-2 h-2 rounded-full bg-red-500 ml-1"></span>
+                  {activeFilterCount > 0 && (
+                    <span className="w-5 h-5 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center ml-1">
+                      {activeFilterCount}
+                    </span>
                   )}
                 </button>
               </div>
-              
+
               {/* Expandable Filter Menu */}
               {showFilters && (
                 <AnimatedSection variant="fade" className="bg-[#1a1a1a] border border-white/10 rounded-3xl p-6 md:p-8 mt-2 shadow-2xl relative z-20 text-left">
@@ -227,10 +249,13 @@ export default function Posts() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Reset Filters */}
-                  <div className="mt-6 flex justify-end">
-                    <button 
+                  <div className="mt-6 flex justify-between items-center">
+                    <span className="text-sm text-gray-500 font-sans">
+                      Showing {filteredPosts.length} post{filteredPosts.length !== 1 && 's'}
+                    </span>
+                    <button
                       onClick={() => {
                         setSelectedCategory('All Categories');
                         setSelectedTag('All Tags');
@@ -244,7 +269,7 @@ export default function Posts() {
                   </div>
                 </AnimatedSection>
               )}
-              
+
               {/* Match Indicator */}
               {searchTerm && (
                 <div className="text-left text-sm text-gray-300 font-sans ml-4 mt-2">
@@ -265,20 +290,22 @@ export default function Posts() {
             <>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
                 {currentPosts.map((post, idx) => {
-                  
+
                   // Apply mathematical bento layout
                   const { gridClass, size } = getBentoStyles(idx);
-                  
-                  // Apply mood colors (fallback to cycling through moods if none specified)
+
+                  // Apply mood colors
                   const fallbackMoods = ['joy', 'peace', 'fire', 'reflection'];
                   const assignedMood = post.mood || fallbackMoods[idx % fallbackMoods.length];
                   const style = moodStyles[assignedMood] || moodStyles.default;
+                  const faPost = isFA(post.title);
+                  const displayTitle = stripFA(post.title);
 
                   return (
-                    <AnimatedSection 
-                      key={post.slug || idx} 
-                      variant="scale" 
-                      delay={(idx % postsPerPage) * 0.1} 
+                    <AnimatedSection
+                      key={post.slug || idx}
+                      variant="scale"
+                      delay={(idx % postsPerPage) * 0.1}
                       className={cn("w-full h-full", gridClass)}
                     >
                       <TiltCard className="w-full h-full">
@@ -290,30 +317,39 @@ export default function Posts() {
                           )}>
                             {/* Decorative aura glow */}
                             <div className={cn("absolute -right-20 -bottom-20 w-64 h-64 rounded-full blur-3xl opacity-30 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none z-0", style.glow)}></div>
-                            
-                            <div className="flex justify-between items-center mb-6 relative z-10">
-                              <span className={cn("text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full", style.badge)}>
-                                {post.category || "General"}
-                              </span>
-                              <span className="text-sm font-sans text-gray-400 font-medium">{post.date}</span>
+
+                            <div className="flex justify-between items-start mb-6 relative z-10">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className={cn("text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full", style.badge)}>
+                                  {post.category || "General"}
+                                </span>
+                                {faPost && (
+                                  <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full text-orange-500 bg-orange-500/10 border border-orange-500/20">
+                                    FA
+                                  </span>
+                                )}
+                              </div>
+                              <span className="text-xs font-sans text-gray-400 font-medium whitespace-nowrap ml-4">{formatDateShort(post.date)}</span>
                             </div>
-                            
+
                             <h3 className={cn(
-                              "font-bold font-heading text-text-dark dark:text-text-light mb-4 group-hover:opacity-80 transition-opacity relative z-10",
+                              "font-bold font-heading text-text-dark dark:text-text-light mb-3 group-hover:opacity-80 transition-opacity relative z-10",
                               size === "large" ? "text-3xl lg:text-4xl" : "text-2xl"
                             )}>
-                              {post.title}
+                              {displayTitle}
                             </h3>
-                            
+
                             <p className={cn(
-                              "text-gray-500 dark:text-gray-400 font-sans mb-8 flex-grow leading-relaxed relative z-10",
+                              "text-gray-500 dark:text-gray-400 font-sans mb-6 flex-grow leading-relaxed relative z-10",
                               size === "large" ? "text-lg max-w-xl" : "text-base line-clamp-3"
                             )}>
                               {post.excerpt}
                             </p>
-                            
-                            <div className={cn("flex items-center font-bold font-sans text-sm uppercase tracking-wider group-hover:translate-x-2 transition-transform w-max relative z-10 mt-auto", style.readMore)}>
-                              Read More <IconArrowRight size={16} className="ml-2" />
+
+                            <div className="flex items-center justify-between w-full relative z-10 mt-auto">
+                              <div className={cn("flex items-center font-bold font-sans text-sm uppercase tracking-wider group-hover:translate-x-2 transition-transform", style.readMore)}>
+                                Read More <IconArrowRight size={16} className="ml-2" />
+                              </div>
                             </div>
                           </div>
                         </Link>
@@ -326,21 +362,21 @@ export default function Posts() {
               {/* Pagination Controls */}
               {totalPages > 1 && (
                 <div className="flex justify-center items-center mt-20 space-x-4">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     onClick={() => paginate(currentPage - 1)}
                     disabled={currentPage === 1}
                     className={currentPage === 1 ? 'opacity-50 pointer-events-none' : ''}
                   >
                     <IconChevronLeft size={20} className="mr-2" /> Prev
                   </Button>
-                  
+
                   <span className="font-sans font-bold text-gray-500 dark:text-gray-400 bg-white dark:bg-background-dark border border-gray-100 dark:border-white/10 px-6 py-3 rounded-full shadow-sm">
                     Page {currentPage} of {totalPages}
                   </span>
-                  
-                  <Button 
-                    variant="outline" 
+
+                  <Button
+                    variant="outline"
                     onClick={() => paginate(currentPage + 1)}
                     disabled={currentPage === totalPages}
                     className={currentPage === totalPages ? 'opacity-50 pointer-events-none' : ''}
