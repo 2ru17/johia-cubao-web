@@ -1,5 +1,5 @@
 import { ThemeProvider } from "./components/ui/ThemeProvider";
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -18,13 +18,11 @@ import Media from './pages/Media';
 import Journals from './pages/Journals';
 import Posts from './pages/Posts';
 import PostTemplate from './pages/PostTemplate';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import CookiePolicy from './pages/CookiePolicy';
 import NotFound from './pages/NotFound';
 
-// Components
-import CookieBanner from './components/ui/CookieBanner';
+// Legal pages — lazy loaded
+const PrivacyPolicy = lazy(() => import('./pages/Privacy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
 // Extract routes to use useLocation hook
 function AnimatedRoutes() {
@@ -55,9 +53,8 @@ function AnimatedRoutes() {
         <Route path="/posts" element={<PageTransition><Posts /></PageTransition>} />
         <Route path="/posts/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
         <Route path="/journals" element={<PageTransition><Journals /></PageTransition>} />
-        <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
-        <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
-        <Route path="/cookies" element={<PageTransition><CookiePolicy /></PageTransition>} />
+        <Route path="/privacy" element={<PageTransition><Suspense fallback={null}><PrivacyPolicy /></Suspense></PageTransition>} />
+        <Route path="/terms" element={<PageTransition><Suspense fallback={null}><TermsOfService /></Suspense></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
@@ -73,7 +70,6 @@ function App() {
           <Layout>
             <AnimatedRoutes />
           </Layout>
-          <CookieBanner />
         </BrowserRouter>
       </HelmetProvider>
     </ThemeProvider>

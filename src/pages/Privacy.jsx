@@ -23,15 +23,13 @@ export default function PrivacyPolicy() {
         <AnimatedSection variant="fade">
           <article className="prose prose-lg dark:prose-invert prose-headings:font-heading prose-headings:font-extrabold prose-h2:text-brand-yellow/90 prose-a:text-brand-yellow mx-auto max-w-3xl leading-relaxed">
             <h2>Who We Are</h2>
-            <p>
-              This website is operated by <strong>Jesus Our Hope International Assemblies (JOHIA) Cubao</strong>, a local church community based in Cubao, Quezon City, Philippines. Our website address is <strong>johiacubao.com</strong>.
-            </p>
+            <p>This website is operated by <strong>Jesus Our Hope International Assemblies (JOHIA) Cubao</strong>, a local church community based in Cubao, Quezon City, Philippines.</p>
 
             <h2>Information We Collect</h2>
             <p>We collect information you voluntarily provide to us, including:</p>
             <ul>
               <li><strong>Contact Form:</strong> When you submit our contact form, we collect your name, email address, and message content.</li>
-              <li><strong>Hosting Data:</strong> Our hosting provider (Hostinger) may automatically collect server logs including IP addresses, browser type, and pages visited for security and performance purposes.</li>
+              <li><strong>Hosting Data:</strong> Our hosting provider (Hostinger) may automatically collect server logs including IP addresses, browser type, and pages visited.</li>
             </ul>
 
             <h2>How We Use Your Information</h2>
@@ -42,16 +40,13 @@ export default function PrivacyPolicy() {
             </ul>
 
             <h2>Third-Party Services</h2>
-            <p>Our website may contain embedded content from third-party services:</p>
             <ul>
-              <li><strong>YouTube:</strong> Sermon videos embedded on our Media page are served by YouTube and are subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google's Privacy Policy</a>.</li>
-              <li><strong>Hostinger:</strong> Our hosting infrastructure is provided by Hostinger, which may process server-level data per their own privacy policy.</li>
+              <li><strong>YouTube:</strong> Sermon videos on our Media page are served by YouTube and subject to Google Privacy Policy.</li>
+              <li><strong>Hostinger:</strong> Our hosting infrastructure may process server-level data per their own privacy policy.</li>
             </ul>
 
             <h2>Data Retention</h2>
-            <p>
-              Contact form submissions are retained only as long as necessary to respond to your inquiry. We do not store your data indefinitely or sell it to third parties.
-            </p>
+            <p>Contact form submissions are retained only as long as necessary to respond to your inquiry. We do not store your data indefinitely or sell it to third parties.</p>
 
             <h2>Your Rights</h2>
             <p>You have the right to:</p>
@@ -63,14 +58,10 @@ export default function PrivacyPolicy() {
             <p>To exercise these rights, contact us at <a href="mailto:johiacubao.info@gmail.com">johiacubao.info@gmail.com</a>.</p>
 
             <h2>Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.</p>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page.</p>
 
             <h2>Contact Us</h2>
-            <p>
-              If you have questions about this Privacy Policy, please contact us at{' '}
-              <a href="mailto:johiacubao.info@gmail.com">johiacubao.info@gmail.com</a> or visit our{' '}
-              <Link to="/contact">Contact page</Link>.
-            </p>
+            <p>If you have questions, contact us at <a href="mailto:johiacubao.info@gmail.com">johiacubao.info@gmail.com</a> or visit our <Link to="/contact">Contact page</Link>.</p>
           </article>
         </AnimatedSection>
       </SectionWrapper>
