@@ -68,7 +68,7 @@ export default function Ministries() {
         <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection variant="blur">
-            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-shimmer mb-6">
               Find Your People.<br/>
               <span className="text-shimmer">Find Your Purpose.</span>
             </h1>

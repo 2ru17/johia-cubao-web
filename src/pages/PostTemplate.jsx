@@ -110,7 +110,11 @@ export default function PostTemplate() {
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark min-h-screen">
-      <PageMeta title={displayTitle} description={frontmatter.excerpt} />
+      <PageMeta 
+        title={displayTitle} 
+        description={frontmatter.excerpt} 
+        image={frontmatter.thumbnail} 
+      />
 
       {/* Breadcrumb Bar — pushed below fixed navbar */}
       <div className="pt-20 bg-white/5 dark:bg-white/[0.02] border-b border-gray-100 dark:border-white/5">
@@ -204,7 +208,7 @@ export default function PostTemplate() {
 
               <button
                 className="w-11 h-11 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-[#E1306C] hover:border-[#E1306C] hover:bg-[#E1306C]/10 transition-all"
-                onClick={() => window.open(`https://instagram.com`, '_blank')}
+                onClick={() => window.open(`https://www.instagram.com/johiacubao`, '_blank')}
                 aria-label="Share on Instagram"
               >
                 <IconBrandInstagram size={18} />

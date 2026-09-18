@@ -38,38 +38,43 @@ const allPosts = Object.keys(mdxPosts)
 const moodStyles = {
   joy: {
     bg: "bg-white dark:bg-[#1a1a1a]",
-    border: "border-yellow-100 dark:border-yellow-900/30 hover:border-yellow-300 dark:hover:border-yellow-500/50",
+    border: "border-yellow-100 dark:border-yellow-900/30 group-hover:border-yellow-300 dark:group-hover:border-yellow-500/50",
     glow: "bg-yellow-400/30 dark:bg-yellow-500/10",
-    badge: "text-yellow-600 dark:text-yellow-400 bg-yellow-100 dark:bg-yellow-900/30",
-    readMore: "text-yellow-500 dark:text-yellow-400"
+    badge: "text-yellow-900 bg-yellow-400 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 group-hover:bg-yellow-100 dark:group-hover:bg-yellow-900/30 transition-colors duration-500",
+    readMore: "group-hover:text-yellow-500 dark:group-hover:text-yellow-400",
+    fallbackGradient: "from-yellow-400/80 to-orange-500/80",
   },
   peace: {
     bg: "bg-white dark:bg-[#1a1a1a]",
-    border: "border-blue-100 dark:border-blue-900/30 hover:border-blue-300 dark:hover:border-blue-500/50",
+    border: "border-blue-100 dark:border-blue-900/30 group-hover:border-blue-300 dark:group-hover:border-blue-500/50",
     glow: "bg-blue-400/30 dark:bg-blue-500/10",
-    badge: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30",
-    readMore: "text-blue-500 dark:text-blue-400"
+    badge: "text-blue-900 bg-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors duration-500",
+    readMore: "group-hover:text-blue-500 dark:group-hover:text-blue-400",
+    fallbackGradient: "from-blue-500/80 to-cyan-500/80",
   },
   fire: {
     bg: "bg-white dark:bg-[#1a1a1a]",
-    border: "border-red-100 dark:border-red-900/30 hover:border-red-300 dark:hover:border-red-500/50",
+    border: "border-red-100 dark:border-red-900/30 group-hover:border-red-300 dark:group-hover:border-red-500/50",
     glow: "bg-red-400/30 dark:bg-red-500/10",
-    badge: "text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30",
-    readMore: "text-red-500 dark:text-red-400"
+    badge: "text-red-900 bg-red-400 group-hover:text-red-600 dark:group-hover:text-red-400 group-hover:bg-red-100 dark:group-hover:bg-red-900/30 transition-colors duration-500",
+    readMore: "group-hover:text-red-500 dark:group-hover:text-red-400",
+    fallbackGradient: "from-red-500/80 to-rose-600/80",
   },
   reflection: {
     bg: "bg-white dark:bg-[#1a1a1a]",
-    border: "border-purple-100 dark:border-purple-900/30 hover:border-purple-300 dark:hover:border-purple-500/50",
+    border: "border-purple-100 dark:border-purple-900/30 group-hover:border-purple-300 dark:group-hover:border-purple-500/50",
     glow: "bg-purple-400/30 dark:bg-purple-500/10",
-    badge: "text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30",
-    readMore: "text-purple-500 dark:text-purple-400"
+    badge: "text-purple-900 bg-purple-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/30 transition-colors duration-500",
+    readMore: "group-hover:text-purple-500 dark:group-hover:text-purple-400",
+    fallbackGradient: "from-purple-500/80 to-indigo-600/80",
   },
   default: {
     bg: "bg-white dark:bg-[#1a1a1a]",
-    border: "border-gray-100 dark:border-white/5 hover:border-brand-yellow/50",
+    border: "border-gray-100 dark:border-white/5 group-hover:border-brand-yellow/50",
     glow: "bg-brand-yellow/20 dark:bg-brand-yellow/5",
-    badge: "text-brand-yellow bg-brand-yellow/10",
-    readMore: "text-brand-yellow"
+    badge: "text-brand-yellow bg-gray-900 group-hover:bg-brand-yellow/10 transition-colors duration-500",
+    readMore: "group-hover:text-brand-yellow",
+    fallbackGradient: "from-gray-600/80 to-gray-800/80",
   }
 };
 
@@ -90,7 +95,7 @@ export default function Posts() {
   const topTags = Object.entries(tagFrequencies).sort((a, b) => b[1] - a[1]).slice(0, 7).map(entry => entry[0]);
   const allTags = ['All Tags', ...topTags];
 
-  const allCategories = ['All Categories', ...new Set(allPosts.map(post => post.category).filter(Boolean))];
+  const allCategories = ['All Categories', 'Sermon Notes', 'Events', 'Devotionals'];
 
   // Filter and sort posts
   const filteredPosts = allPosts.filter(post => {
@@ -121,7 +126,6 @@ export default function Posts() {
   // Active filter count for the badge
   const activeFilterCount = [
     selectedTag !== 'All Tags',
-    selectedCategory !== 'All Categories',
     sortOrder !== 'desc'
   ].filter(Boolean).length;
 
@@ -145,7 +149,7 @@ export default function Posts() {
         <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection variant="fade">
-            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-shimmer mb-6">
               Journals
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
@@ -154,6 +158,24 @@ export default function Posts() {
 
             {/* Search & Filter Bar */}
             <div className="max-w-4xl mx-auto relative mt-10 flex flex-col gap-4">
+
+              {/* Category Pill Tabs */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8 relative z-20">
+                {allCategories.map(category => (
+                  <button
+                    key={category}
+                    onClick={() => { setSelectedCategory(category); setCurrentPage(1); }}
+                    className={cn(
+                      "px-6 py-2 rounded-full font-bold text-sm transition-all shadow-sm backdrop-blur-sm border",
+                      selectedCategory === category 
+                        ? 'bg-brand-yellow text-text-dark border-brand-yellow' 
+                        : 'bg-white/10 text-white border-white/20 hover:border-brand-yellow hover:text-brand-yellow'
+                    )}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
 
               {/* Search Bar Row */}
               <div className="flex flex-col md:flex-row gap-4 relative">
@@ -196,23 +218,7 @@ export default function Posts() {
               {/* Expandable Filter Menu */}
               {showFilters && (
                 <AnimatedSection variant="fade" className="bg-[#1a1a1a] border border-white/10 rounded-3xl p-6 md:p-8 mt-2 shadow-2xl relative z-20 text-left">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {/* Category Filter */}
-                    <div>
-                      <label className="block text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Category</label>
-                      <div className="relative">
-                        <select
-                          value={selectedCategory}
-                          onChange={(e) => { setSelectedCategory(e.target.value); setCurrentPage(1); }}
-                          className="w-full appearance-none px-4 py-3 rounded-xl bg-black/30 border border-white/10 text-white focus:outline-none focus:border-brand-yellow transition-colors cursor-pointer"
-                        >
-                          {allCategories.map(cat => <option key={cat} value={cat} className="bg-gray-900">{cat}</option>)}
-                        </select>
-                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-brand-yellow">
-                          <IconChevronDown size={16} />
-                        </div>
-                      </div>
-                    </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     {/* Tag Filter */}
                     <div>
@@ -311,44 +317,57 @@ export default function Posts() {
                       <TiltCard className="w-full h-full">
                         <Link to={`/posts/${post.slug}`} className="block w-full h-full">
                           <div className={cn(
-                            "rounded-3xl p-8 transition-all duration-500 group flex flex-col h-full overflow-hidden relative border",
+                            "rounded-3xl p-6 md:p-8 transition-all duration-500 group flex flex-col h-full overflow-hidden relative border shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)]",
                             style.bg, style.border,
                             (size === "large" || size === "wide") ? "md:p-12" : ""
                           )}>
-                            {/* Decorative aura glow */}
+                            
+                            {/* Decorative aura glow (State 2) */}
                             <div className={cn("absolute -right-20 -bottom-20 w-64 h-64 rounded-full blur-3xl opacity-30 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none z-0", style.glow)}></div>
 
-                            <div className="flex justify-between items-start mb-6 relative z-10">
-                              <div className="flex items-center gap-2 flex-wrap">
-                                <span className={cn("text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full", style.badge)}>
-                                  {post.category || "General"}
-                                </span>
-                                {faPost && (
-                                  <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full text-orange-500 bg-orange-500/10 border border-orange-500/20">
-                                    FA
-                                  </span>
-                                )}
-                              </div>
-                              <span className="text-xs font-sans text-gray-400 font-medium whitespace-nowrap ml-4">{formatDateShort(post.date)}</span>
+                            {/* The Image Layer (Fades out on hover) */}
+                            <div className="absolute inset-0 z-0 transition-opacity duration-500 group-hover:opacity-0">
+                              <div 
+                                className={cn("absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105", !post.thumbnail ? `bg-gradient-to-br ${style.fallbackGradient}` : "")}
+                                style={post.thumbnail ? { backgroundImage: `url(${post.thumbnail})` } : {}}
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
                             </div>
 
-                            <h3 className={cn(
-                              "font-bold font-heading text-text-dark dark:text-text-light mb-3 group-hover:opacity-80 transition-opacity relative z-10",
-                              size === "large" ? "text-3xl lg:text-4xl" : "text-2xl"
-                            )}>
-                              {displayTitle}
-                            </h3>
+                            {/* Content Container (z-10) */}
+                            <div className="relative z-10 flex flex-col h-full">
+                              <div className="flex justify-between items-start mb-6">
+                                <div className="flex items-center gap-2 flex-wrap">
+                                  <span className={cn("text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm", style.badge)}>
+                                    {post.category || "General"}
+                                  </span>
+                                  {faPost && (
+                                    <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full text-white bg-orange-600/90 border border-orange-400 group-hover:bg-orange-500/10 group-hover:text-orange-500 group-hover:border-orange-500/20 transition-colors duration-500">
+                                      FA
+                                    </span>
+                                  )}
+                                </div>
+                                <span className="text-xs font-sans text-gray-200 group-hover:text-gray-400 font-medium whitespace-nowrap ml-4 drop-shadow-sm group-hover:drop-shadow-none transition-colors duration-500">{formatDateShort(post.date)}</span>
+                              </div>
 
-                            <p className={cn(
-                              "text-gray-500 dark:text-gray-400 font-sans mb-6 flex-grow leading-relaxed relative z-10",
-                              size === "large" ? "text-lg max-w-xl" : "text-base line-clamp-3"
-                            )}>
-                              {post.excerpt}
-                            </p>
+                              <h3 className={cn(
+                                "font-bold font-heading text-white group-hover:text-text-dark dark:group-hover:text-text-light mb-3 drop-shadow-md group-hover:drop-shadow-none transition-all duration-500",
+                                size === "large" ? "text-3xl lg:text-4xl" : "text-2xl"
+                              )}>
+                                {displayTitle}
+                              </h3>
 
-                            <div className="flex items-center justify-between w-full relative z-10 mt-auto">
-                              <div className={cn("flex items-center font-bold font-sans text-sm uppercase tracking-wider group-hover:translate-x-2 transition-transform", style.readMore)}>
-                                Read More <IconArrowRight size={16} className="ml-2" />
+                              <p className={cn(
+                                "text-gray-100 group-hover:text-gray-500 dark:group-hover:text-gray-400 font-sans mb-6 flex-grow leading-relaxed drop-shadow-md group-hover:drop-shadow-none transition-colors duration-500",
+                                size === "large" ? "text-lg max-w-xl" : "text-base line-clamp-3"
+                              )}>
+                                {post.excerpt}
+                              </p>
+
+                              <div className="flex items-center justify-between w-full mt-auto">
+                                <div className={cn("flex items-center font-bold font-sans text-sm uppercase tracking-wider text-white group-hover:translate-x-2 transition-all duration-500 drop-shadow-sm group-hover:drop-shadow-none", style.readMore)}>
+                                  Read More <IconArrowRight size={16} className="ml-2" />
+                                </div>
                               </div>
                             </div>
                           </div>

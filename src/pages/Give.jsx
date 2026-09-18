@@ -20,14 +20,14 @@ export default function Give() {
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark transition-colors duration-500">
-      <PageMeta title="Support Us" description="Partner with us in advancing the Kingdom through generous giving." />
+      <PageMeta title="Brew with Us" description="Partner with us in advancing the Kingdom through generous giving." />
 
-      {/* Hero: Support Us */}
+      {/* Hero: Brew with Us */}
       <section className="relative pt-40 pb-32 flex items-center justify-center overflow-hidden bg-aurora border-b border-white/5">
         <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection variant="fade">
-            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-shimmer mb-6">
               Brew with Us
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">

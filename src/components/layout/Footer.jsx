@@ -30,7 +30,7 @@ export default function Footer() {
               <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="text-[#1877F2]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Facebook">
                 <IconBrandFacebook size={28} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-[#E4405F]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Instagram">
+              <a href="https://www.instagram.com/johiacubao" target="_blank" rel="noreferrer" className="text-[#E4405F]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Instagram">
                 <IconBrandInstagram size={28} />
               </a>
               <a href="https://youtube.com/@JOHIA_Cubao" target="_blank" rel="noreferrer" className="text-[#FF0000]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="YouTube">
@@ -46,7 +46,7 @@ export default function Footer() {
               <Link to="/" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Home</Link>
               <Link to="/programs" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Programs</Link>
               <Link to="/contact" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Contact</Link>
-              <Link to="/give" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Support Us</Link>
+              <Link to="/give" className="hover:text-brand-yellow hover:-translate-x-2 transition-all duration-300">Brew with Us</Link>
             </nav>
             
             <a href="mailto:johiacubao.info@gmail.com" className="inline-flex items-center space-x-3 mt-10 text-brand-yellow hover:text-white transition-colors duration-300 group">

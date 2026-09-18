@@ -13,7 +13,7 @@ export default function TermsOfService() {
         <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
         <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
           <AnimatedSection variant="fade">
-            <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light mb-4 tracking-tight">Terms of Service</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-shimmer mb-4 tracking-tight">Terms of Service</h1>
             <p className="text-lg text-gray-300 font-sans">Last updated: September 17, 2026</p>
           </AnimatedSection>
         </div>

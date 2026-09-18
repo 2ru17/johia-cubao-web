@@ -15,7 +15,7 @@ export default function Programs() {
         <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection variant="scale">
-            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">Equip Your Faith</h1>
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-shimmer mb-6">Equip Your Faith</h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
               Discover pathways to grow deeper in your relationship with God through our structured programs.
             </p>
@@ -98,7 +98,7 @@ export default function Programs() {
             Partner with us in advancing the Kingdom through your generous giving.
           </p>
           <Button variant="solid" className="px-10 py-4 text-lg shadow-md transition-all animate-glow-pulse" href="/give">
-            Support Us
+            Brew with Us
           </Button>
         </AnimatedSection>
       </section>
