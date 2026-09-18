@@ -5,7 +5,7 @@ import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import Button from '../components/ui/Button';
 import Toast from '../components/ui/Toast';
-import { IconMapPin, IconClock } from '@tabler/icons-react';
+import { IconMapPin, IconClock, IconPhone, IconBrandFacebook } from '@tabler/icons-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -81,7 +81,7 @@ export default function Contact() {
 
               <div className="space-y-8 mb-10">
                 <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
-                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconMapPin size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
@@ -91,7 +91,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
-                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconClock size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
@@ -99,9 +99,33 @@ export default function Contact() {
                     <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">Tuesdays to Thursdays (9AM to 6PM)</p>
                   </div>
                 </div>
+
+                <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                    <IconPhone size={28} />
+                  </div>
+                  <div className="flex flex-col justify-center pt-1">
+                    <h4 className="font-heading font-extrabold text-xl mb-1">Phone Number</h4>
+                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">270018356</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-[#1877F2] group-hover:text-white transition-all duration-300">
+                    <IconBrandFacebook size={28} />
+                  </div>
+                  <div className="flex flex-col justify-center pt-1">
+                    <h4 className="font-heading font-extrabold text-xl mb-1">Message Us</h4>
+                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">
+                      <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="hover:text-[#1877F2] hover:underline transition-colors">
+                        JOHIA Cubao Facebook Page
+                      </a>
+                    </p>
+                  </div>
+                </div>
                 
                 <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
-                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconClock size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
