@@ -28,10 +28,10 @@ export default function Give() {
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection variant="fade">
             <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
-              Support Us
+              Brew with Us
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
-              We offer multiple secure and convenient ways for you to give your tithes and offerings.
+              Pull up a chair and partner with us in funding the ministry, outreach, and mission of JOHIA Cubao.
             </p>
           </AnimatedSection>
         </div>

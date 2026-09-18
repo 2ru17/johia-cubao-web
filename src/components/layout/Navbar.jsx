@@ -10,7 +10,7 @@ const navLinks = [
   { name: 'About Us', path: '/about' },
   { name: 'Programs', path: '/programs' },
   { name: 'Ministries', path: '/ministries' },
-  { name: 'Support Us', path: '/give' },
+  { name: 'Brew', path: '/give' },
   { 
     name: 'Media', 
     path: '/media',

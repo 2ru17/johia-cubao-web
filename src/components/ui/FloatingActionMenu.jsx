@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { IconHeart, IconX, IconHeartHandshake, IconMessageCircle } from '@tabler/icons-react';
 
 const actions = [
-  { label: 'Support Us', icon: IconHeartHandshake, to: '/give', color: 'bg-green-500 hover:bg-green-400' },
+  { label: 'Brew with Us', icon: IconHeartHandshake, to: '/give', color: 'bg-green-500 hover:bg-green-400' },
   { label: 'Contact', icon: IconMessageCircle, to: '/contact', color: 'bg-blue-500 hover:bg-blue-400' },
 ];
 
