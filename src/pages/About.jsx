@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useInView } from 'framer-motion';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
@@ -14,6 +15,88 @@ const pastors = [
   { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-center" },
 ];
 
+const admins = [
+  { name: "Admin 1", role: "Church Administrator", image: "/images/pastors/ptr jun.jpg" },
+  { name: "Admin 2", role: "Finance Officer", image: "/images/pastors/Jess.jpg" },
+  { name: "Admin 3", role: "Operations Manager", image: "/images/pastors/docdek.jpg" },
+  { name: "Admin 4", role: "Secretariat", image: "/images/pastors/ken.jpg" },
+  { name: "Admin 5", role: "Communications", image: "/images/pastors/marc.jpg" },
+];
+
+// Animated counter hook
+function useAnimatedCounter(target, duration = 2000, shouldAnimate) {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    if (!shouldAnimate) return;
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease out cubic for a satisfying deceleration
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration, shouldAnimate]);
+  
+  return count;
+}
+
+const stats = [
+  { value: 30, suffix: '+', label: 'Years of Ministry' },
+  { value: 6, suffix: '', label: 'Pastors & Leaders' },
+  { value: 10, suffix: '+', label: 'Active Ministries' },
+  { value: 1, suffix: '', label: 'United Family' },
+];
+
+function StatCountersSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  return (
+    <section ref={ref} className="bg-background-dark py-24 border-t border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-aurora opacity-20 z-0"></div>
+      <div className="container mx-auto px-6 relative z-10">
+        <AnimatedSection variant="rise">
+          <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light text-center mb-16 tracking-tight">
+            JOHIA by the Numbers
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {stats.map((stat, i) => (
+              <StatCard key={stat.label} stat={stat} isInView={isInView} delay={i * 200} />
+            ))}
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+function StatCard({ stat, isInView, delay }) {
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  const count = useAnimatedCounter(stat.value, 2000, shouldAnimate);
+  
+  useEffect(() => {
+    if (isInView) {
+      const timer = setTimeout(() => setShouldAnimate(true), delay);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView, delay]);
+  
+  return (
+    <div className="text-center group">
+      <div className="text-5xl md:text-7xl font-extrabold font-heading text-brand-yellow mb-3 tabular-nums">
+        {shouldAnimate ? count : 0}{stat.suffix}
+      </div>
+      <p className="text-gray-400 font-sans text-sm md:text-base uppercase tracking-wider font-semibold">
+        {stat.label}
+      </p>
+    </div>
+  );
+}
+
 export default function About() {
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark">
@@ -24,7 +107,7 @@ export default function About() {
         <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection>
-            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-shimmer mb-6">
               Our Culture
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
@@ -60,7 +143,7 @@ export default function About() {
       </SectionWrapper>
 
       {/* Core Values */}
-      <section id="about-us-core-values" className="bg-[#212528] py-24 relative border-t border-white/5">
+      <section id="about-us-core-values" className="bg-[#111] py-24 relative border-t border-white/5">
         <div className="container mx-auto px-6 text-center">
           <AnimatedSection>
             <img src="/images/general/New Core values.png" alt="Core Values" className="w-full max-w-5xl mx-auto rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10" />
@@ -68,8 +151,11 @@ export default function About() {
         </div>
       </section>
 
+      {/* JOHIA by the Numbers */}
+      <StatCountersSection />
+
       {/* Meet Our Pastors */}
-      <section id="about-us-meet-pastor-header" className="bg-background-dark py-24 border-t border-white/5">
+      <section id="about-us-meet-pastor-header" className="bg-background-dark py-24 border-t border-white/5 relative z-10">
         <div className="container mx-auto px-6 text-center mb-10">
           <AnimatedSection>
             <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-light mb-4 drop-shadow-md">Meet Our Pastors</h2>
@@ -94,6 +180,38 @@ export default function About() {
               className="min-h-[50vh] py-16"
             />
           ))}
+        </div>
+      </section>
+
+      {/* Meet Our Admins */}
+      <section id="about-us-meet-admins" className="bg-[#111] py-24 border-t border-white/5 relative z-10">
+        <div className="container mx-auto px-6">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light mb-4 drop-shadow-md">Meet Our Admins</h2>
+            <p className="text-gray-400 font-sans text-xl max-w-2xl mx-auto">
+              The hardworking team behind the scenes ensuring our operations run smoothly and excellently.
+            </p>
+          </AnimatedSection>
+
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-6xl mx-auto">
+            {admins.map((admin, index) => (
+              <AnimatedSection 
+                key={admin.name} 
+                variant="rise" 
+                delay={index * 0.1}
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm"
+              >
+                <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg border border-white/10 bg-[#1A1A1A] h-full">
+                  <img src={admin.image} alt={admin.name} className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 w-full p-6 text-left">
+                    <h3 className="text-2xl font-bold font-heading text-brand-yellow mb-1">{admin.name}</h3>
+                    <p className="text-white/80 font-sans text-sm font-medium">{admin.role}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 

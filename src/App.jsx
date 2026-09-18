@@ -1,5 +1,5 @@
 import { ThemeProvider } from "./components/ui/ThemeProvider";
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -18,6 +18,14 @@ import Media from './pages/Media';
 import Journals from './pages/Journals';
 import Posts from './pages/Posts';
 import PostTemplate from './pages/PostTemplate';
+import NotFound from './pages/NotFound';
+
+import UserPreferences from './components/ui/UserPreferences';
+import SiteMetrics from './components/seo/SiteMetrics';
+
+// Legal pages — lazy loaded
+const PrivacyPolicy = lazy(() => import('./pages/Privacy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
 // Extract routes to use useLocation hook
 function AnimatedRoutes() {
@@ -48,6 +56,9 @@ function AnimatedRoutes() {
         <Route path="/posts" element={<PageTransition><Posts /></PageTransition>} />
         <Route path="/posts/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
         <Route path="/journals" element={<PageTransition><Journals /></PageTransition>} />
+        <Route path="/privacy" element={<PageTransition><Suspense fallback={null}><PrivacyPolicy /></Suspense></PageTransition>} />
+        <Route path="/terms" element={<PageTransition><Suspense fallback={null}><TermsOfService /></Suspense></PageTransition>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
@@ -59,8 +70,10 @@ function App() {
     <ThemeProvider>
       <HelmetProvider>
         <BrowserRouter>
+          <SiteMetrics />
           <Layout>
             <AnimatedRoutes />
+            <UserPreferences />
           </Layout>
         </BrowserRouter>
       </HelmetProvider>

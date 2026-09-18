@@ -36,7 +36,7 @@ export default function Journals() {
       <section className="relative py-24 bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-6 text-center">
           <AnimatedSection>
-            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-shimmer mb-6">
               Our Journals
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">

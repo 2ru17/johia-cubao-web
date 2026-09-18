@@ -36,7 +36,7 @@ export default function ZLayoutSection({
               <img 
                 src={imageSrc} 
                 alt={imageAlt} 
-                className={cn("w-full h-full object-cover aspect-[4/3] transform group-hover:scale-105 transition-transform duration-700", imageClassName)} 
+                className={cn("w-full h-full object-cover aspect-[4/3] grayscale-[50%] group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700", imageClassName)} 
               />
             </div>
             

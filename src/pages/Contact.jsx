@@ -4,7 +4,8 @@ import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import Button from '../components/ui/Button';
-import { IconMapPin, IconClock } from '@tabler/icons-react';
+import Toast from '../components/ui/Toast';
+import { IconMapPin, IconClock, IconPhone, IconBrandFacebook } from '@tabler/icons-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -67,7 +68,7 @@ export default function Contact() {
       </section>
 
       {/* SECTION 2: FORM SECTION */}
-      <section id="contact-main-form" className="py-24 bg-[#eaeaea] relative z-20">
+      <section id="contact-main-form" className="py-24 bg-[#eaeaea] dark:bg-background-dark relative z-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-start">
             
@@ -80,7 +81,7 @@ export default function Contact() {
 
               <div className="space-y-8 mb-10">
                 <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
-                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconMapPin size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
@@ -90,7 +91,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
-                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconClock size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
@@ -98,9 +99,33 @@ export default function Contact() {
                     <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">Tuesdays to Thursdays (9AM to 6PM)</p>
                   </div>
                 </div>
+
+                <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                    <IconPhone size={28} />
+                  </div>
+                  <div className="flex flex-col justify-center pt-1">
+                    <h4 className="font-heading font-extrabold text-xl mb-1">Phone Number</h4>
+                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">270018356</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-[#1877F2] group-hover:text-white transition-all duration-300">
+                    <IconBrandFacebook size={28} />
+                  </div>
+                  <div className="flex flex-col justify-center pt-1">
+                    <h4 className="font-heading font-extrabold text-xl mb-1">Message Us</h4>
+                    <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">
+                      <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="hover:text-[#1877F2] hover:underline transition-colors">
+                        JOHIA Cubao Facebook Page
+                      </a>
+                    </p>
+                  </div>
+                </div>
                 
                 <div className="flex items-start space-x-6 text-text-dark dark:text-text-light group">
-                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group- group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
+                  <div className="bg-white dark:bg-background-dark p-4 rounded-full text-brand-yellow shadow-lg group-hover:bg-brand-yellow group-hover:text-white transition-all duration-300">
                     <IconClock size={28} />
                   </div>
                   <div className="flex flex-col justify-center pt-1">
@@ -112,7 +137,7 @@ export default function Contact() {
             </AnimatedSection>
 
             {/* Right Column: Contact Form */}
-            <AnimatedSection variant="rise" delay={0.2} className="bg-white dark:bg-background-dark p-10 md:p-14 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100">
+            <AnimatedSection variant="rise" delay={0.2} className="bg-white dark:bg-white/5 dark:backdrop-blur-md p-10 md:p-14 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 dark:border-white/[0.08]">
               <h3 className="text-3xl font-extrabold font-heading text-text-dark dark:text-text-light mb-10 tracking-tight">Get in Touch</h3>
               
               <form onSubmit={handleSubmit} className="space-y-8">
@@ -122,7 +147,7 @@ export default function Contact() {
                     type="text" 
                     id="name" 
                     required 
-                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark dark:text-text-light text-lg"
+                    className="w-full px-6 py-4 rounded-xl border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 dark:bg-white/5 text-text-dark dark:text-text-light text-lg"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     placeholder="Juan Dela Cruz"
@@ -135,7 +160,7 @@ export default function Contact() {
                     type="email" 
                     id="email" 
                     required 
-                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark dark:text-text-light text-lg"
+                    className="w-full px-6 py-4 rounded-xl border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 dark:bg-white/5 text-text-dark dark:text-text-light text-lg"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     placeholder="juan@example.com"
@@ -148,7 +173,7 @@ export default function Contact() {
                     id="message" 
                     required 
                     rows="6"
-                    className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 text-text-dark dark:text-text-light text-lg resize-none"
+                    className="w-full px-6 py-4 rounded-xl border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 dark:bg-white/5 text-text-dark dark:text-text-light text-lg resize-none"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     placeholder="How can we help you?"
@@ -160,17 +185,12 @@ export default function Contact() {
                 </Button>
 
                 {status && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`mt-6 p-4 border rounded-xl text-center font-bold font-sans ${
-                      status.type === 'success' 
-                        ? "bg-green-50 text-green-700 border-green-200" 
-                        : "bg-red-50 text-red-700 border-red-200"
-                    }`}
-                  >
-                    {status.message}
-                  </motion.div>
+                  <Toast 
+                    message={status.message}
+                    type={status.type}
+                    isVisible={!!status}
+                    onClose={() => setStatus(null)}
+                  />
                 )}
               </form>
             </AnimatedSection>
@@ -179,7 +199,7 @@ export default function Contact() {
       </section>
 
       {/* SECTION 3: MAP SECTION */}
-      <section className="bg-[#212528] py-24 border-t border-white/5 relative">
+      <section className="bg-[#111] py-24 border-t border-white/5 relative">
         <AnimatedSection variant="rise" className="container mx-auto px-6 text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-brand-yellow mb-6 drop-shadow-md">Plan Your Visit</h2>
           <p className="text-gray-400 font-sans text-xl max-w-2xl mx-auto">

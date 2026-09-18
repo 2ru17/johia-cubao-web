@@ -10,7 +10,7 @@ const navLinks = [
   { name: 'About Us', path: '/about' },
   { name: 'Programs', path: '/programs' },
   { name: 'Ministries', path: '/ministries' },
-  { name: 'Support Us', path: '/give' },
+  { name: 'Brew', path: '/give' },
   { 
     name: 'Media', 
     path: '/media',
@@ -58,8 +58,10 @@ export default function Navbar() {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={cn(
-        "fixed top-0 w-full z-50 transition-colors duration-300",
-        isScrolled ? "bg-background-dark/95 backdrop-blur-md shadow-lg border-b border-white/5" : "bg-transparent"
+        "fixed top-0 w-full z-50 transition-all duration-500",
+        isScrolled 
+          ? "bg-black/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.3)] border-b border-white/[0.06]" 
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -87,9 +89,9 @@ export default function Navbar() {
               {/* Dropdown */}
               {link.subLinks && (
                 <div className="absolute left-0 top-full pt-4 w-40 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
-                  <div className="bg-white dark:bg-background-dark dark:bg-gray-800 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] flex flex-col py-2 border border-gray-100 dark:border-gray-700 overflow-hidden">
+                  <div className="bg-black/70 backdrop-blur-xl rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.4)] flex flex-col py-2 border border-white/[0.08] overflow-hidden">
                     {link.subLinks.map(sub => (
-                      <Link key={sub.name} to={sub.path} className="px-5 py-3 text-sm text-text-dark dark:text-text-light dark:text-gray-200 hover:bg-brand-yellow/10 hover:text-brand-yellow transition-colors font-sans font-medium">
+                      <Link key={sub.name} to={sub.path} className="px-5 py-3 text-sm text-gray-300 hover:bg-brand-yellow/10 hover:text-brand-yellow transition-colors font-sans font-medium">
                         {sub.name}
                       </Link>
                     ))}

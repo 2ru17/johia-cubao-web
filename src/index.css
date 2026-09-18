@@ -20,10 +20,10 @@
   .bg-aurora {
     background: linear-gradient(
       -45deg,
-      #1A1A1A,
-      #2c1b18,
-      #3b2609,
-      #1A1A1A
+      #0a0a0a,
+      #1a0f08,
+      #2a1a05,
+      #0a0a0a
     );
     background-size: 400% 400%;
     animation: aurora 15s ease infinite;
@@ -60,6 +60,16 @@
     background-image: theme('backgroundImage.texture-light');
     background-attachment: fixed;
   }
+
+  .skeleton {
+    @apply bg-gray-800 rounded-lg relative overflow-hidden;
+  }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+    animation: shimmer 2s infinite;
+  }
 }
 
 @keyframes aurora {
@@ -77,12 +87,12 @@
   width: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: #1A1A1A;
+  background: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(251, 176, 59, 0.6);
   border-radius: 6px;
-  border: 3px solid #1A1A1A;
+  border: 3px solid #0a0a0a;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(251, 176, 59, 1);

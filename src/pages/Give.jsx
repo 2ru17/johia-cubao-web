@@ -4,27 +4,34 @@ import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import TiltCard from '../components/ui/TiltCard';
-import { IconBuildingBank, IconQrcode, IconHeartHandshake, IconZoomIn, IconX, IconDownload } from '@tabler/icons-react';
+import { IconBuildingBank, IconQrcode, IconHeartHandshake, IconZoomIn, IconX, IconDownload, IconCopy, IconCheck } from '@tabler/icons-react';
 
 export default function Give() {
   const [showGcash, setShowGcash] = useState(false);
   const [showBank, setShowBank] = useState(false);
   const [showQrModal, setShowQrModal] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark transition-colors duration-500">
-      <PageMeta title="Support Us" description="Partner with us in advancing the Kingdom through generous giving." />
+      <PageMeta title="Brew with Us" description="Partner with us in advancing the Kingdom through generous giving." />
 
-      {/* Hero: Support Us */}
+      {/* Hero: Brew with Us */}
       <section className="relative pt-40 pb-32 flex items-center justify-center overflow-hidden bg-aurora border-b border-white/5">
         <div className="absolute inset-0 bg-overlay-dark/90 z-0"></div>
         <div className="container mx-auto px-6 relative z-10 text-center">
           <AnimatedSection variant="fade">
-            <h1 className="text-fluid-h1 font-extrabold font-heading text-text-light mb-6 drop-shadow-md">
-              Support Us
+            <h1 className="text-fluid-h1 font-extrabold font-heading text-shimmer mb-6">
+              Brew with Us
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
-              We offer multiple secure and convenient ways for you to give your tithes and offerings.
+              Pull up a chair and partner with us in funding the ministry, outreach, and mission of JOHIA Cubao.
             </p>
           </AnimatedSection>
         </div>
@@ -97,7 +104,16 @@ export default function Give() {
                       </div>
                       <div>
                         <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Account Number</p>
-                        <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">0012-3456-7890</p>
+                        <div className="flex items-center gap-2">
+                          <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">0012-3456-7890</p>
+                          <button 
+                            onClick={() => copyToClipboard('001234567890')}
+                            className="p-1.5 rounded-lg bg-brand-yellow/10 text-brand-yellow hover:bg-brand-yellow hover:text-white transition-all duration-300"
+                            title="Copy account number"
+                          >
+                            {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   )}
