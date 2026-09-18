@@ -12,11 +12,11 @@ import "yet-another-react-lightbox/styles.css";
 // Photos with assigned categories
 const basePhotos = [
   { src: "/images/general/New Core values.png", category: "Events" },
-  { src: "/images/general/retreat-pic.jpg", category: "Youth" },
+  { src: "/images/general/retreat-pic.jpg", category: "Community" },
   { src: "/images/ministries/sundayschl.jpg", category: "Sundays" },
   { src: "/images/ministries/prayer.jpg", category: "Events" },
   { src: "/images/general/outside.png", category: "Sundays" },
-  { src: "/images/general/CoreValues.png", category: "Youth" },
+  { src: "/images/general/CoreValues.png", category: "Community" },
 ];
 // Dedicated array for the simulated Instagram feed (9 posts)
 const igPhotos = [
@@ -34,7 +34,7 @@ const igPhotos = [
 // Duplicated for masonry effect
 const communityPhotos = [...basePhotos, ...basePhotos, ...basePhotos, ...basePhotos];
 
-const categories = ['All', 'Sundays', 'Youth', 'Events'];
+const categories = ['All', 'Sundays', 'Community', 'Events'];
 
 export default function Media() {
   const [index, setIndex] = useState(-1);
