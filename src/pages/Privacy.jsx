@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
         <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
           <AnimatedSection variant="fade">
             <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-shimmer mb-4 tracking-tight">Privacy Policy</h1>
-            <p className="text-lg text-gray-300 font-sans">Last updated: September 17, 2026</p>
+            <p className="text-lg text-gray-300 font-sans">Last updated: September 19, 2026</p>
           </AnimatedSection>
         </div>
       </section>
@@ -39,8 +39,13 @@ export default function PrivacyPolicy() {
               <li>To comply with applicable legal obligations.</li>
             </ul>
 
+            <h2>Cookies and Analytics</h2>
+            <p>Our website uses Google Analytics, a service provided by Google LLC, to help us understand how visitors interact with our site. Google Analytics uses "cookies" (small text files placed on your device) to collect standard internet log information and visitor behavior information in an anonymous form.</p>
+            <p>This data (including your IP address, pages visited, and time spent on the site) is transmitted to Google. We use this information solely to evaluate website traffic and improve our online platform. You can choose to accept or decline cookies by modifying your web browser settings.</p>
+
             <h2>Third-Party Services</h2>
             <ul>
+              <li><strong>Google Analytics:</strong> Traffic measurement and analysis. (<a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>)</li>
               <li><strong>YouTube:</strong> Sermon videos on our Media page are served by YouTube and subject to Google Privacy Policy.</li>
               <li><strong>Hostinger:</strong> Our hosting infrastructure may process server-level data per their own privacy policy.</li>
             </ul>
