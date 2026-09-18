@@ -20,6 +20,9 @@ import Posts from './pages/Posts';
 import PostTemplate from './pages/PostTemplate';
 import NotFound from './pages/NotFound';
 
+import UserPreferences from './components/ui/UserPreferences';
+import SiteMetrics from './components/seo/SiteMetrics';
+
 // Legal pages — lazy loaded
 const PrivacyPolicy = lazy(() => import('./pages/Privacy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
@@ -67,8 +70,10 @@ function App() {
     <ThemeProvider>
       <HelmetProvider>
         <BrowserRouter>
+          <SiteMetrics />
           <Layout>
             <AnimatedRoutes />
+            <UserPreferences />
           </Layout>
         </BrowserRouter>
       </HelmetProvider>

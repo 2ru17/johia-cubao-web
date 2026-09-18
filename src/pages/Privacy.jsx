@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
 
             <h2>Cookies and Analytics</h2>
             <p>Our website uses Google Analytics, a service provided by Google LLC, to help us understand how visitors interact with our site. Google Analytics uses "cookies" (small text files placed on your device) to collect standard internet log information and visitor behavior information in an anonymous form.</p>
-            <p>This data (including your IP address, pages visited, and time spent on the site) is transmitted to Google. We use this information solely to evaluate website traffic and improve our online platform. You can choose to accept or decline cookies by modifying your web browser settings.</p>
+            <p>This data (including your IP address, pages visited, and time spent on the site) is transmitted to Google. We use this information solely to evaluate website traffic and improve our online platform. You can choose to accept or decline cookies using the consent banner that appears upon your first visit to the site, or by modifying your web browser settings.</p>
 
             <h2>Third-Party Services</h2>
             <ul>
