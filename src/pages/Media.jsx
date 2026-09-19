@@ -4,7 +4,7 @@ import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import Button from '../components/ui/Button';
 import TiltCard from '../components/ui/TiltCard';
-import { IconBrandYoutube, IconZoomIn, IconBrandInstagram, IconHeartFilled, IconMessageCircleFilled } from '@tabler/icons-react';
+import { IconBrandYoutube, IconZoomIn, IconBrandInstagram, IconBrandFacebook, IconBrandTiktok } from '@tabler/icons-react';
 
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
@@ -62,41 +62,6 @@ export default function Media() {
             <Button variant="solid" href="https://youtube.com/@JOHIA_Cubao" target="_blank" className="!bg-[#FF0000] !text-white hover:!bg-white dark:hover:!bg-white hover:!text-[#FF0000] dark:hover:!text-[#FF0000] border-none inline-flex gap-2 shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all">
               <IconBrandYoutube /> Subscribe on YouTube
             </Button>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Instagram Feed Section */}
-      <section className="py-24 bg-white dark:bg-background-dark border-b border-gray-100 dark:border-white/5">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <AnimatedSection>
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold font-heading text-text-dark dark:text-text-light mb-4 flex items-center gap-3">
-                  <IconBrandInstagram size={40} className="text-pink-500" />
-                  Stay Connected
-                </h2>
-                <p className="text-gray-500 font-medium text-lg">Follow us <a href="https://instagram.com/johiacubao" target="_blank" rel="noreferrer" className="text-brand-yellow hover:underline">@JOHIA_Cubao</a> for daily encouragement and updates.</p>
-              </div>
-              <Button href="https://instagram.com/johiacubao" target="_blank" className="inline-flex gap-2 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white border-none shadow-md hover:shadow-lg hover:scale-105 transition-all">
-                <IconBrandInstagram size={20} /> Follow on Instagram
-              </Button>
-            </div>
-            
-            {/* Instagram 3x3 Grid */}
-            <div className="grid grid-cols-3 gap-1 md:gap-4">
-              {igPhotos.map((post, i) => (
-                <a key={i} href={post.link} target="_blank" rel="noreferrer" className="group relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-800">
-                  <img src={post.src} alt={`Instagram post ${i+1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <div className="flex items-center gap-6 text-white font-bold text-lg">
-                      <span className="flex items-center gap-2"><IconHeartFilled size={24} /> {Math.floor(Math.random() * 50) + 10}</span>
-                      <span className="flex items-center gap-2"><IconMessageCircleFilled size={24} /> {Math.floor(Math.random() * 10) + 1}</span>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -167,6 +132,78 @@ export default function Media() {
           className="z-[9999]"
         />
       </SectionWrapper>
+
+      {/* SECTION 2: SOCIAL MEDIA / STAY CONNECTED */}
+      <section className="bg-white dark:bg-[#111] py-24 relative overflow-hidden border-b border-gray-100 dark:border-white/5">
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <AnimatedSection variant="fade" className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-dark dark:text-text-light mb-4">
+                Stay Connected
+              </h2>
+              <p className="text-gray-500 font-medium text-lg max-w-2xl mx-auto">Follow us on our official social media channels for daily encouragement, live updates, and community news.</p>
+            </div>
+            
+            {/* First Row: 3 Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 max-w-5xl mx-auto">
+              {/* Facebook Card - Main */}
+              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#1877F2]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#1877F2]/10 rounded-full flex items-center justify-center text-[#1877F2] mb-4 group-hover:bg-[#1877F2] group-hover:text-white transition-colors duration-300">
+                  <IconBrandFacebook size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#1877F2] transition-colors">JOHIA Cubao</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Main FB Page</p>
+                <span className="inline-flex font-bold text-[#1877F2] group-hover:underline text-sm">Follow @johiacubaoph</span>
+              </a>
+
+              {/* Instagram Card */}
+              <a href="https://www.instagram.com/johiacubao" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#E4405F]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#E4405F]/10 rounded-full flex items-center justify-center text-[#E4405F] mb-4 group-hover:bg-[#E4405F] group-hover:text-white transition-colors duration-300">
+                  <IconBrandInstagram size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#E4405F] transition-colors">Instagram</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Photos and stories</p>
+                <span className="inline-flex font-bold text-[#E4405F] group-hover:underline text-sm">Follow @JOHIA_Cubao</span>
+              </a>
+
+              {/* TikTok Card Placeholder */}
+              <a href="#" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-black dark:hover:border-white transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-800 dark:text-white mb-4 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors duration-300">
+                  <IconBrandTiktok size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-black dark:group-hover:text-white transition-colors">TikTok</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Coming Soon</p>
+                <span className="inline-flex font-bold text-gray-800 dark:text-gray-300 group-hover:underline text-sm">Follow Us</span>
+              </a>
+            </div>
+            
+            {/* Second Row: 2 Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              {/* Wildfire FB Card */}
+              <a href="https://www.facebook.com/WildfireJOHIA" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#003314]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#003314]/10 rounded-full flex items-center justify-center text-[#003314] mb-4 group-hover:bg-[#003314] group-hover:text-white transition-colors duration-300">
+                  <IconBrandFacebook size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#003314] transition-colors">Wildfire</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Youth Ministry</p>
+                <span className="inline-flex font-bold text-[#003314] group-hover:underline text-sm">Follow @WildfireJOHIA</span>
+              </a>
+
+              {/* LinC FB Card */}
+              <a href="https://www.facebook.com/linc.johia" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-brand-yellow transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center text-brand-yellow mb-4 group-hover:bg-brand-yellow group-hover:text-text-dark transition-colors duration-300">
+                  <IconBrandFacebook size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-brand-yellow transition-colors">LinC</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Young Adults</p>
+                <span className="inline-flex font-bold text-brand-yellow group-hover:underline text-sm">Follow @linc.johia</span>
+              </a>
+            </div>
+
+          </AnimatedSection>
+        </div>
+      </section>
 
     </div>
   );

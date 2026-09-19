@@ -136,8 +136,8 @@ export default function Home() {
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500 z-10"></div>
                 <img src="/images/general/retreat-pic.jpg" alt="Ministries" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-t from-black/60 to-transparent">
-                  <h3 className="text-3xl md:text-4xl font-bold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300 mb-4">Ministries</h3>
-                  <p className="text-gray-300 font-sans text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Find your people.</p>
+                  <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Ministries</h3>
+                  <p className="text-gray-300 font-sans text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Find your people.</p>
                 </div>
               </Link>
             </TiltCard>
