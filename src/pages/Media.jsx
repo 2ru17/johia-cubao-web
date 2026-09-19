@@ -181,23 +181,23 @@ export default function Media() {
             {/* Second Row: 2 Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
               {/* Wildfire FB Card */}
-              <a href="https://www.facebook.com/WildfireJOHIA" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#F25C05]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
-                <div className="mx-auto w-16 h-16 bg-[#F25C05]/10 rounded-full flex items-center justify-center text-[#F25C05] mb-4 group-hover:bg-[#F25C05] group-hover:text-white transition-colors duration-300">
+              <a href="https://www.facebook.com/WildfireJOHIA" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#003314]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#003314]/10 rounded-full flex items-center justify-center text-[#003314] mb-4 group-hover:bg-[#003314] group-hover:text-white transition-colors duration-300">
                   <IconBrandFacebook size={32} />
                 </div>
-                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#F25C05] transition-colors">Wildfire</h3>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#003314] transition-colors">Wildfire</h3>
                 <p className="text-gray-500 mb-4 font-medium text-sm">Youth Ministry</p>
-                <span className="inline-flex font-bold text-[#F25C05] group-hover:underline text-sm">Follow @WildfireJOHIA</span>
+                <span className="inline-flex font-bold text-[#003314] group-hover:underline text-sm">Follow @WildfireJOHIA</span>
               </a>
 
               {/* LinC FB Card */}
-              <a href="https://www.facebook.com/linc.johia" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#1FB141]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
-                <div className="mx-auto w-16 h-16 bg-[#1FB141]/10 rounded-full flex items-center justify-center text-[#1FB141] mb-4 group-hover:bg-[#1FB141] group-hover:text-white transition-colors duration-300">
+              <a href="https://www.facebook.com/linc.johia" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-brand-yellow transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-brand-yellow/10 rounded-full flex items-center justify-center text-brand-yellow mb-4 group-hover:bg-brand-yellow group-hover:text-text-dark transition-colors duration-300">
                   <IconBrandFacebook size={32} />
                 </div>
-                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#1FB141] transition-colors">LinC</h3>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-brand-yellow transition-colors">LinC</h3>
                 <p className="text-gray-500 mb-4 font-medium text-sm">Young Adults</p>
-                <span className="inline-flex font-bold text-[#1FB141] group-hover:underline text-sm">Follow @linc.johia</span>
+                <span className="inline-flex font-bold text-brand-yellow group-hover:underline text-sm">Follow @linc.johia</span>
               </a>
             </div>
 
