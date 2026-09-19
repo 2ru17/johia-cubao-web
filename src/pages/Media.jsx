@@ -4,7 +4,7 @@ import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import Button from '../components/ui/Button';
 import TiltCard from '../components/ui/TiltCard';
-import { IconBrandYoutube, IconZoomIn, IconBrandInstagram, IconBrandFacebook, IconBrandX } from '@tabler/icons-react';
+import { IconBrandYoutube, IconZoomIn, IconBrandInstagram, IconBrandFacebook, IconBrandTiktok } from '@tabler/icons-react';
 
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
@@ -62,53 +62,6 @@ export default function Media() {
             <Button variant="solid" href="https://youtube.com/@JOHIA_Cubao" target="_blank" className="!bg-[#FF0000] !text-white hover:!bg-white dark:hover:!bg-white hover:!text-[#FF0000] dark:hover:!text-[#FF0000] border-none inline-flex gap-2 shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all">
               <IconBrandYoutube /> Subscribe on YouTube
             </Button>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* SECTION 2: SOCIAL MEDIA / STAY CONNECTED */}
-      <section className="bg-white dark:bg-[#111] py-24 relative overflow-hidden border-b border-gray-100 dark:border-white/5">
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-        <div className="container mx-auto px-6 relative z-10">
-          <AnimatedSection variant="fade" className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-dark dark:text-text-light mb-4">
-                Stay Connected
-              </h2>
-              <p className="text-gray-500 font-medium text-lg max-w-2xl mx-auto">Follow us on our official social media channels for daily encouragement, live updates, and community news.</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Facebook Card */}
-              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-8 hover:shadow-2xl hover:border-[#1877F2]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
-                <div className="mx-auto w-20 h-20 bg-[#1877F2]/10 rounded-full flex items-center justify-center text-[#1877F2] mb-6 group-hover:bg-[#1877F2] group-hover:text-white transition-colors duration-300">
-                  <IconBrandFacebook size={40} />
-                </div>
-                <h3 className="text-2xl font-bold font-heading text-text-dark dark:text-text-light mb-2 group-hover:text-[#1877F2] transition-colors">Facebook</h3>
-                <p className="text-gray-500 mb-6 font-medium">Join our vibrant online community.</p>
-                <span className="inline-flex font-bold text-[#1877F2] group-hover:underline">Follow @johiacubaoph</span>
-              </a>
-
-              {/* Instagram Card */}
-              <a href="https://www.instagram.com/johiacubao" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-8 hover:shadow-2xl hover:border-[#E4405F]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
-                <div className="mx-auto w-20 h-20 bg-[#E4405F]/10 rounded-full flex items-center justify-center text-[#E4405F] mb-6 group-hover:bg-[#E4405F] group-hover:text-white transition-colors duration-300">
-                  <IconBrandInstagram size={40} />
-                </div>
-                <h3 className="text-2xl font-bold font-heading text-text-dark dark:text-text-light mb-2 group-hover:text-[#E4405F] transition-colors">Instagram</h3>
-                <p className="text-gray-500 mb-6 font-medium">Photos and stories from our church.</p>
-                <span className="inline-flex font-bold text-[#E4405F] group-hover:underline">Follow @JOHIA_Cubao</span>
-              </a>
-
-              {/* X (Twitter) Card */}
-              <a href="https://x.com/JOHIAph" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-8 hover:shadow-2xl hover:border-gray-400 dark:hover:border-white/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
-                <div className="mx-auto w-20 h-20 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-800 dark:text-white mb-6 group-hover:bg-gray-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-colors duration-300">
-                  <IconBrandX size={36} />
-                </div>
-                <h3 className="text-2xl font-bold font-heading text-text-dark dark:text-text-light mb-2 group-hover:text-black dark:group-hover:text-white transition-colors">X</h3>
-                <p className="text-gray-500 mb-6 font-medium">Bite-sized updates and devotionals.</p>
-                <span className="inline-flex font-bold text-gray-800 dark:text-gray-300 group-hover:underline">Follow @JOHIAph</span>
-              </a>
-            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -179,6 +132,78 @@ export default function Media() {
           className="z-[9999]"
         />
       </SectionWrapper>
+
+      {/* SECTION 2: SOCIAL MEDIA / STAY CONNECTED */}
+      <section className="bg-white dark:bg-[#111] py-24 relative overflow-hidden border-b border-gray-100 dark:border-white/5">
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <AnimatedSection variant="fade" className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-dark dark:text-text-light mb-4">
+                Stay Connected
+              </h2>
+              <p className="text-gray-500 font-medium text-lg max-w-2xl mx-auto">Follow us on our official social media channels for daily encouragement, live updates, and community news.</p>
+            </div>
+            
+            {/* First Row: 3 Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 max-w-5xl mx-auto">
+              {/* Facebook Card - Main */}
+              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#1877F2]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#1877F2]/10 rounded-full flex items-center justify-center text-[#1877F2] mb-4 group-hover:bg-[#1877F2] group-hover:text-white transition-colors duration-300">
+                  <IconBrandFacebook size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#1877F2] transition-colors">JOHIA Cubao</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Main FB Page</p>
+                <span className="inline-flex font-bold text-[#1877F2] group-hover:underline text-sm">Follow @johiacubaoph</span>
+              </a>
+
+              {/* Instagram Card */}
+              <a href="https://www.instagram.com/johiacubao" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#E4405F]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#E4405F]/10 rounded-full flex items-center justify-center text-[#E4405F] mb-4 group-hover:bg-[#E4405F] group-hover:text-white transition-colors duration-300">
+                  <IconBrandInstagram size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#E4405F] transition-colors">Instagram</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Photos and stories</p>
+                <span className="inline-flex font-bold text-[#E4405F] group-hover:underline text-sm">Follow @JOHIA_Cubao</span>
+              </a>
+
+              {/* TikTok Card Placeholder */}
+              <a href="#" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-black dark:hover:border-white transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-800 dark:text-white mb-4 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors duration-300">
+                  <IconBrandTiktok size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-black dark:group-hover:text-white transition-colors">TikTok</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Coming Soon</p>
+                <span className="inline-flex font-bold text-gray-800 dark:text-gray-300 group-hover:underline text-sm">Follow Us</span>
+              </a>
+            </div>
+            
+            {/* Second Row: 2 Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              {/* Wildfire FB Card */}
+              <a href="https://www.facebook.com/WildfireJOHIA" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#F25C05]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#F25C05]/10 rounded-full flex items-center justify-center text-[#F25C05] mb-4 group-hover:bg-[#F25C05] group-hover:text-white transition-colors duration-300">
+                  <IconBrandFacebook size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#F25C05] transition-colors">Wildfire</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Youth Ministry</p>
+                <span className="inline-flex font-bold text-[#F25C05] group-hover:underline text-sm">Follow @WildfireJOHIA</span>
+              </a>
+
+              {/* LinC FB Card */}
+              <a href="https://www.facebook.com/linc.johia" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#1FB141]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#1FB141]/10 rounded-full flex items-center justify-center text-[#1FB141] mb-4 group-hover:bg-[#1FB141] group-hover:text-white transition-colors duration-300">
+                  <IconBrandFacebook size={32} />
+                </div>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#1FB141] transition-colors">LinC</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Young Adults</p>
+                <span className="inline-flex font-bold text-[#1FB141] group-hover:underline text-sm">Follow @linc.johia</span>
+              </a>
+            </div>
+
+          </AnimatedSection>
+        </div>
+      </section>
 
     </div>
   );
