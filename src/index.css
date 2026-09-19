@@ -97,3 +97,31 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(251, 176, 59, 1);
 }
+
+@keyframes float-tl {
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  33% { transform: translate(15px, -10px) scale(1.05) rotate(1deg); }
+  66% { transform: translate(-10px, 15px) scale(0.95) rotate(-1deg); }
+}
+@keyframes float-tr {
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  33% { transform: translate(-15px, 10px) scale(1.02) rotate(-1deg); }
+  66% { transform: translate(10px, -15px) scale(0.98) rotate(1deg); }
+}
+@keyframes float-bl {
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  33% { transform: translate(20px, -15px) scale(1.03) rotate(1.5deg); }
+  66% { transform: translate(-10px, 5px) scale(0.97) rotate(-0.5deg); }
+}
+@keyframes float-br {
+  0%, 100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  33% { transform: translate(-10px, 20px) scale(0.96) rotate(-1.5deg); }
+  66% { transform: translate(15px, -10px) scale(1.04) rotate(0.5deg); }
+}
+
+@layer utilities {
+  .animate-float-tl { animation: float-tl 20s ease-in-out infinite; transform-origin: top left; }
+  .animate-float-tr { animation: float-tr 25s ease-in-out infinite; transform-origin: top right; }
+  .animate-float-bl { animation: float-bl 22s ease-in-out infinite; transform-origin: bottom left; }
+  .animate-float-br { animation: float-br 28s ease-in-out infinite; transform-origin: bottom right; }
+}

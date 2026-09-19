@@ -29,25 +29,25 @@ export default function PaintFrameBackground() {
         </defs>
 
         {/* Top Left Paint - Yellow/Gold (LinC) */}
-        <g filter="url(#paint-edge)">
+        <g filter="url(#paint-edge)" className="animate-float-tl">
           <path d="M-50,-50 L400,-50 L300,250 L-50,350 Z" fill="#E5B53B" opacity="0.95" />
           <path d="M-50,-50 L500,-50 L450,100 L200,180 L-50,250 Z" fill="#FBB03B" opacity="0.85" />
         </g>
 
         {/* Bottom Left Paint - Blue/Teal (Engineering/YaH) */}
-        <g filter="url(#paint-edge-heavy)">
+        <g filter="url(#paint-edge-heavy)" className="animate-float-bl">
           <path d="M-50,1200 L-50,550 L150,500 L400,650 L350,1200 Z" fill="#305cde" opacity="0.95" />
           <path d="M-50,1200 L-50,650 L200,600 L500,850 L250,1200 Z" fill="#008080" opacity="0.85" />
         </g>
 
         {/* Top Right Paint - Pink/Purple (Ushers/Sunday School) */}
-        <g filter="url(#paint-edge)">
+        <g filter="url(#paint-edge)" className="animate-float-tr">
           <path d="M1500,-50 L750,-50 L850,250 L1250,450 L1500,150 Z" fill="#fd3db5" opacity="0.95" />
           <path d="M1500,-50 L900,-50 L950,150 L1350,200 L1500,50 Z" fill="#6633cc" opacity="0.85" />
         </g>
 
         {/* Bottom Right Paint - Red/Orange (Couples/Creatives) */}
-        <g filter="url(#paint-edge-heavy)">
+        <g filter="url(#paint-edge-heavy)" className="animate-float-br">
           <path d="M1500,1200 L1500,550 L1100,450 L850,850 L1150,1200 Z" fill="#ff0000" opacity="0.95" />
           <path d="M1500,1200 L1500,700 L1200,600 L950,950 L1300,1200 Z" fill="#ff9900" opacity="0.85" />
         </g>
