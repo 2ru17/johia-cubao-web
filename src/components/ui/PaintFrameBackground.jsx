@@ -10,8 +10,8 @@ export default function PaintFrameBackground() {
         style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}
       ></div>
 
-      {/* Reusable filters */}
-      <svg className="hidden">
+      {/* Top Left Paint - Yellow/Gold (LinC) */}
+      <svg className="absolute top-0 left-0 w-[200px] md:w-[400px] h-[200px] md:h-[400px] opacity-80" viewBox="0 0 400 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <filter id="paint-edge" x="-20%" y="-20%" width="140%" height="140%">
             <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
@@ -22,10 +22,6 @@ export default function PaintFrameBackground() {
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="40" xChannelSelector="R" yChannelSelector="G" />
           </filter>
         </defs>
-      </svg>
-
-      {/* Top Left Paint - Yellow/Gold (LinC) */}
-      <svg className="absolute top-0 left-0 w-[200px] md:w-[400px] h-[200px] md:h-[400px] opacity-80" viewBox="0 0 400 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#paint-edge)">
           <path d="M-50,-50 L350,-50 L200,200 L-50,250 Z" fill="#E5B53B" />
           <path d="M-50,-50 L400,-50 L300,100 L100,100 L-50,150 Z" fill="#FBB03B" opacity="0.9" />
