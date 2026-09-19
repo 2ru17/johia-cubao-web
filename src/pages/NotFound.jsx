@@ -34,10 +34,10 @@ export default function NotFound() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-text-light mb-6 tracking-tight">
-              Lost? Let's get you home.
+              Wandering in the wilderness?
             </h2>
             <p className="text-gray-400 font-sans text-lg mb-12 max-w-md mx-auto leading-relaxed">
-              The page you're looking for doesn't exist or has been moved. But don't worry — there's always a seat saved for you.
+              It seems this page has moved or doesn't exist. Don't worry — the Good Shepherd always leaves the ninety-nine to find the one. Let's get you back.
             </p>
           </motion.div>
 
