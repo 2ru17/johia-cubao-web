@@ -1,11 +1,12 @@
 import { ThemeProvider } from "./components/ui/ThemeProvider";
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import Layout from './components/layout/Layout';
 import PageTransition from './components/ui/PageTransition';
+import ComingSoon from './pages/ComingSoon';
 
 // Pages
 import Home from './pages/Home';
@@ -64,8 +65,48 @@ function AnimatedRoutes() {
   );
 }
 
+// Global feature flag - Set to false when ready to officially launch!
+export const IS_COMING_SOON_MODE = true;
 
 function App() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
+
+  useEffect(() => {
+    // Check local storage
+    if (localStorage.getItem('bypassComingSoon') === 'true') {
+      setIsUnlocked(true);
+    }
+
+    // Check URL parameters for bypass codes
+    const params = new URLSearchParams(window.location.search);
+    
+    // Secret unlock code
+    if (params.get('preview') === 'johia') {
+      localStorage.setItem('bypassComingSoon', 'true');
+      setIsUnlocked(true);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    
+    // Secret lock code
+    if (params.get('lock') === 'true') {
+      localStorage.removeItem('bypassComingSoon');
+      setIsUnlocked(false);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
+
+  // Intercept all traffic if maintenance mode is ON and user is NOT unlocked
+  if (IS_COMING_SOON_MODE && !isUnlocked) {
+    return (
+      <ThemeProvider>
+        <HelmetProvider>
+          <ComingSoon />
+        </HelmetProvider>
+      </ThemeProvider>
+    );
+  }
+
+  // Normal App Rendering
   return (
     <ThemeProvider>
       <HelmetProvider>
