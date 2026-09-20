@@ -9,7 +9,7 @@ import PaintFrameBackground from '../components/ui/PaintFrameBackground';
 import ImageLightbox from '../components/ui/ImageLightbox';
 import { motion, LayoutGroup } from 'framer-motion';
 
-const lifeGroups = [
+const lifeMinistries = [
   { 
     name: "Couples", 
     desc: "Strengthening marriages and families through Christ-centered guidance.", 
@@ -36,7 +36,7 @@ const lifeGroups = [
     name: "LinC (Young Adults)", 
     desc: "Life in Christ - Navigating career and faith together.", 
     color: "#E5B53B", 
-    image: "/images/ministries/sundayschl.jpg",
+    image: "/images/general/outside.png",
     gallery: [
       "/images/ministries/sundayschl.jpg",
       "/images/ministries/tech.jpg",
@@ -79,7 +79,7 @@ export default function Ministries() {
         </div>
       </section>
 
-      {/* TRACK A: Demographics (Life Groups) */}
+      {/* TRACK A: Demographics (Life Ministries) */}
       <LayoutGroup>
         <section id="ministries-demographics" className="relative pt-32 pb-32 overflow-hidden">
           
@@ -88,12 +88,12 @@ export default function Ministries() {
 
           <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
             <AnimatedSection variant="fade" className="text-center mb-16 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg py-10 px-8 rounded-[2.5rem] w-full max-w-3xl shadow-xl border border-white/40 dark:border-white/10">
-              <h2 className="text-5xl font-extrabold font-heading text-text-dark dark:text-text-light mb-6">Life Groups</h2>
+              <h2 className="text-5xl font-extrabold font-heading text-text-dark dark:text-text-light mb-6">Life Ministries</h2>
               <p className="text-gray-700 dark:text-gray-300 font-sans text-xl font-medium leading-relaxed">Do life together. Connect with people in the same season of life and grow spiritually in a close-knit community.</p>
             </AnimatedSection>
 
             <AnimatedSection variant="fade" className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16 w-full">
-              {lifeGroups.map((group) => (
+              {lifeMinistries.map((group) => (
                 <TiltCard key={group.name} className="w-full h-full">
                   <div 
                     className="group relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] h-full bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800"
@@ -150,13 +150,13 @@ export default function Ministries() {
         />
       </LayoutGroup>
 
-      {/* TRACK B: Service Teams */}
+      {/* TRACK B: Volunteer Teams */}
       <section id="ministries-serve" className="bg-background-light dark:bg-background-dark relative">
         
-        {/* Intro to Service Teams */}
+        {/* Intro to Volunteer Teams */}
         <div className="py-24 text-center border-y border-gray-100 bg-white dark:bg-background-dark">
           <AnimatedSection variant="fade">
-            <h2 className="text-5xl md:text-6xl font-extrabold font-heading text-text-dark dark:text-text-light mb-6">Service Teams</h2>
+            <h2 className="text-5xl md:text-6xl font-extrabold font-heading text-text-dark dark:text-text-light mb-6">Volunteer Teams</h2>
             <p className="text-gray-500 dark:text-gray-400 font-sans text-xl max-w-3xl mx-auto">
               Use your gifts to build the church. We have various volunteer teams that make Sunday worship and our weekly programs happen.
             </p>
