@@ -38,7 +38,7 @@ export default function InteractiveTeamSection({
           )}>
             
             {/* Image Side (Carousel) */}
-            <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 relative group aspect-[4/3] bg-gray-900">
+            <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 relative group aspect-[4/3] bg-neutral-900">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeTeamIndex}

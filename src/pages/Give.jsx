@@ -58,7 +58,7 @@ export default function Give() {
                   {showGcash && (
                     <div 
                       onClick={() => setShowQrModal(true)}
-                      className="bg-gray-50 dark:bg-gray-900 aspect-square rounded-2xl flex items-center justify-center text-gray-400 border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] transition-all cursor-pointer relative group overflow-hidden"
+                      className="bg-gray-50 dark:bg-neutral-900 aspect-square rounded-2xl flex items-center justify-center text-gray-400 border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] transition-all cursor-pointer relative group overflow-hidden"
                     >
                       {/* Temporary placeholder image, waiting for official QR code */}
                       <img src="/images/general/outside.png" alt="GCash QR Code" className="w-full h-full object-cover" />
@@ -93,7 +93,7 @@ export default function Give() {
                 </div>
                 <div className="mt-auto pt-4 flex flex-col gap-4">
                   {showBank && (
-                    <div className="text-left bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] space-y-4 transition-all">
+                    <div className="text-left bg-gray-50 dark:bg-neutral-900 p-6 rounded-2xl border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] space-y-4 transition-all">
                       <div>
                         <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Bank Name</p>
                         <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">BDO Unibank</p>

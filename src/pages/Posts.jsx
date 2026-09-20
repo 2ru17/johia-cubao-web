@@ -72,7 +72,7 @@ const moodStyles = {
     bg: "bg-white dark:bg-[#1a1a1a]",
     border: "border-gray-100 dark:border-white/5 group-hover:border-brand-yellow/50",
     glow: "bg-brand-yellow/20 dark:bg-brand-yellow/5",
-    badge: "text-brand-yellow bg-gray-900 group-hover:bg-brand-yellow/10 transition-colors duration-500",
+    badge: "text-brand-yellow bg-neutral-900 group-hover:bg-brand-yellow/10 transition-colors duration-500",
     readMore: "group-hover:text-brand-yellow",
     fallbackGradient: "from-gray-600/80 to-gray-800/80",
   }
@@ -229,7 +229,7 @@ export default function Posts() {
                           onChange={(e) => { setSelectedTag(e.target.value); setCurrentPage(1); }}
                           className="w-full appearance-none px-4 py-3 rounded-xl bg-black/30 border border-white/10 text-white focus:outline-none focus:border-brand-yellow transition-colors cursor-pointer"
                         >
-                          {allTags.map(tag => <option key={tag} value={tag} className="bg-gray-900">{tag}</option>)}
+                          {allTags.map(tag => <option key={tag} value={tag} className="bg-neutral-900">{tag}</option>)}
                         </select>
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-brand-yellow">
                           <IconChevronDown size={16} />
@@ -246,8 +246,8 @@ export default function Posts() {
                           onChange={(e) => { setSortOrder(e.target.value); setCurrentPage(1); }}
                           className="w-full appearance-none px-4 py-3 rounded-xl bg-black/30 border border-white/10 text-white focus:outline-none focus:border-brand-yellow transition-colors cursor-pointer"
                         >
-                          <option value="desc" className="bg-gray-900">Newest First</option>
-                          <option value="asc" className="bg-gray-900">Oldest First</option>
+                          <option value="desc" className="bg-neutral-900">Newest First</option>
+                          <option value="asc" className="bg-neutral-900">Oldest First</option>
                         </select>
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-brand-yellow">
                           <IconChevronDown size={16} />

@@ -120,7 +120,7 @@ export default function Home() {
             
             {/* Card 1: Wide & Heroic (Church Programs) */}
             <TiltCard className="md:col-span-8">
-              <Link to="/programs" className="block w-full h-full group relative min-h-[400px] md:min-h-[500px] overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)]">
+              <Link to="/programs" className="block w-full h-full group relative min-h-[400px] md:min-h-[500px] overflow-hidden rounded-2xl bg-neutral-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)]">
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10"></div>
                 <img src="/images/general/CoreValues.png" alt="Church Programs" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
@@ -132,7 +132,7 @@ export default function Home() {
 
             {/* Card 2: Tall (Ministries) */}
             <TiltCard className="md:col-span-4 md:row-span-2">
-              <Link to="/ministries" className="block w-full h-full group relative min-h-[400px] md:min-h-full overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)] ">
+              <Link to="/ministries" className="block w-full h-full group relative min-h-[400px] md:min-h-full overflow-hidden rounded-2xl bg-neutral-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)] ">
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500 z-10"></div>
                 <img src="/images/general/retreat-pic.jpg" alt="Ministries" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
@@ -144,7 +144,7 @@ export default function Home() {
 
             {/* Card 3: Wide (Latest News) */}
             <TiltCard className="md:col-span-8">
-              <Link to="/posts" className="block w-full h-full group relative min-h-[300px] md:min-h-[350px] overflow-hidden rounded-2xl bg-gray-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_30px_rgba(251,176,59,0.3)] ">
+              <Link to="/posts" className="block w-full h-full group relative min-h-[300px] md:min-h-[350px] overflow-hidden rounded-2xl bg-neutral-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_30px_rgba(251,176,59,0.3)] ">
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-colors duration-500 z-10"></div>
                 <img src="/images/ministries/sundayschl.jpg" alt="Latest News" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">

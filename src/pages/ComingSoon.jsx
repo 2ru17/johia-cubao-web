@@ -6,7 +6,7 @@ import PaintFrameBackground from '../components/ui/PaintFrameBackground';
 
 export default function ComingSoon() {
   return (
-    <div className="flex flex-col w-full min-h-screen bg-[#f9f9f9] dark:bg-gray-900 relative overflow-hidden font-sans">
+    <div className="flex flex-col w-full min-h-screen bg-[#f9f9f9] dark:bg-neutral-900 relative overflow-hidden font-sans">
       <PageMeta title="Coming Soon" description="We are preparing something special. Jesus Our Hope International Assemblies." />
       
       {/* Background */}
@@ -22,7 +22,7 @@ export default function ComingSoon() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-12 bg-gray-900/40 p-4 md:p-6 rounded-3xl backdrop-blur-md border border-white/10 shadow-2xl"
+          className="mb-12 bg-neutral-900/40 p-4 md:p-6 rounded-3xl backdrop-blur-md border border-white/10 shadow-2xl"
         >
           <img 
             src="/images/general/banner-white.svg" 

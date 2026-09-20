@@ -87,7 +87,7 @@ export default function Ministries() {
           <PaintFrameBackground />
 
           <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
-            <AnimatedSection variant="fade" className="text-center mb-16 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg py-10 px-8 rounded-[2.5rem] w-full max-w-3xl shadow-xl border border-white/40 dark:border-white/10">
+            <AnimatedSection variant="fade" className="text-center mb-16 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg py-10 px-8 rounded-[2.5rem] w-full max-w-3xl shadow-xl border border-white/40 dark:border-white/10">
               <h2 className="text-5xl font-extrabold font-heading text-text-dark dark:text-text-light mb-6">Life Groups</h2>
               <p className="text-gray-700 dark:text-gray-300 font-sans text-xl font-medium leading-relaxed">Do life together. Connect with people in the same season of life and grow spiritually in a close-knit community.</p>
             </AnimatedSection>
@@ -96,7 +96,7 @@ export default function Ministries() {
               {lifeGroups.map((group) => (
                 <TiltCard key={group.name} className="w-full h-full">
                   <div 
-                    className="group relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] h-full bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800"
+                    className="group relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] h-full bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800"
                   >
                     {/* Top: Image Section (Clickable for Gallery) */}
                     <div 
@@ -119,7 +119,7 @@ export default function Ministries() {
                     </div>
                     
                     {/* Bottom: Text Section */}
-                    <div className="flex flex-col flex-grow p-6 md:p-8 bg-white dark:bg-gray-900 relative z-10 border-t border-gray-100 dark:border-gray-800">
+                    <div className="flex flex-col flex-grow p-6 md:p-8 bg-white dark:bg-neutral-900 relative z-10 border-t border-gray-100 dark:border-neutral-800">
                       <div className="flex items-center gap-3 mb-3">
                         <span className="w-4 h-4 rounded-full shadow-sm" style={{ backgroundColor: group.color }}></span>
                         <h3 className="text-2xl md:text-3xl font-extrabold font-heading text-text-dark dark:text-white">
