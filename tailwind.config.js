@@ -19,8 +19,8 @@ export default {
       colors: {
         background: {
           light: '#F9FAFB',
-          dark: '#0a0a0a',
-          footer: '#050505',
+          dark: '#000000',
+          footer: '#000000',
         },
         brand: {
           yellow: '#FBB03B',

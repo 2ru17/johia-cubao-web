@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PaintFrameBackground() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-[#f9f9f9] dark:bg-[#0a0a0a]">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-[#f9f9f9] dark:bg-black">
       
       {/* 
         1. The Base Colors 
@@ -52,15 +52,15 @@ export default function PaintFrameBackground() {
         2. The Frosted Glass Grain (Noise Texture)
         By increasing the opacity and using mix-blend-overlay, this creates 
         that exact premium frosted glass texture seen in UI design trends.
-        In dark mode, we use mix-blend-soft-light to prevent the grain from looking harsh against black.
+        In dark mode, we use mix-blend-soft-light to prevent the grain from looking harsh against pure OLED black.
       */}
       <div 
-        className="absolute inset-0 opacity-[0.25] dark:opacity-[0.08] mix-blend-overlay dark:mix-blend-screen z-10"
+        className="absolute inset-0 opacity-[0.25] dark:opacity-[0.10] mix-blend-overlay dark:mix-blend-screen z-10"
         style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}
       ></div>
 
       {/* 3. A subtle darkening gradient to ensure text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 dark:to-black/60 z-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 dark:to-black/80 z-20"></div>
 
     </div>
   );
