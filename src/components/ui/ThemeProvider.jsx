@@ -8,9 +8,10 @@ export function ThemeProvider({ children }) {
     if (typeof window !== 'undefined') {
       const storedTheme = localStorage.getItem('theme');
       if (storedTheme) return storedTheme;
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+      // Default to light mode as requested
+      return 'light';
     }
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
