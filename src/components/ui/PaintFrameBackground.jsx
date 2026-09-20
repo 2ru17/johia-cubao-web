@@ -10,7 +10,7 @@ export default function PaintFrameBackground() {
         to melt the sharp paint splatters into a beautiful, soft mesh gradient.
         Using w-[150vw] prevents the clipping/flickering bug that scale-125 caused!
       */}
-      <svg className="absolute w-[150vw] h-[150vh] -left-[25vw] -top-[25vh] opacity-80 blur-[80px] md:blur-[120px]" viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute w-[150vw] h-[150vh] -left-[25vw] -top-[25vh] opacity-80 dark:opacity-30 blur-[80px] md:blur-[120px] transition-opacity duration-700" viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         
         {/* 
           NEW EXTRA COLORS for richer mesh gradient 
@@ -52,14 +52,15 @@ export default function PaintFrameBackground() {
         2. The Frosted Glass Grain (Noise Texture)
         By increasing the opacity and using mix-blend-overlay, this creates 
         that exact premium frosted glass texture seen in UI design trends.
+        In dark mode, we use mix-blend-soft-light to prevent the grain from looking harsh against black.
       */}
-      <div
-        className="absolute inset-0 opacity-[0.25] dark:opacity-[0.15] mix-blend-overlay z-10"
+      <div 
+        className="absolute inset-0 opacity-[0.25] dark:opacity-[0.08] mix-blend-overlay dark:mix-blend-screen z-10"
         style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}
       ></div>
 
       {/* 3. A subtle darkening gradient to ensure text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 dark:to-black/40 z-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/20 dark:to-black/60 z-20"></div>
 
     </div>
   );
