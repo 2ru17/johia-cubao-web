@@ -8,9 +8,9 @@ export default function PaintFrameBackground() {
         1. The Base Colors 
         We use the exact same SVG coordinates, but apply a massive CSS blur 
         to melt the sharp paint splatters into a beautiful, soft mesh gradient.
-        Scaling it up (scale-125) prevents the blurred edges from pulling away from the screen edge.
+        Using w-[150vw] prevents the clipping/flickering bug that scale-125 caused!
       */}
-      <svg className="absolute inset-0 w-full h-full scale-125 blur-[100px] md:blur-[140px] opacity-80" viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute w-[150vw] h-[150vh] -left-[25vw] -top-[25vh] opacity-80 blur-[80px] md:blur-[120px]" viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         
         {/* 
           NEW EXTRA COLORS for richer mesh gradient 
