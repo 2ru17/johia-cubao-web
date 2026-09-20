@@ -96,8 +96,7 @@ export default function Ministries() {
               {lifeGroups.map((group) => (
                 <TiltCard key={group.name} className="w-full h-full">
                   <div 
-                    className="group relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] h-full bg-white dark:bg-gray-900 border-4"
-                    style={{ borderColor: group.color }}
+                    className="group relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] h-full bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800"
                   >
                     {/* Top: Image Section (Clickable for Gallery) */}
                     <div 
