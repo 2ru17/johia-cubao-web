@@ -29,7 +29,7 @@ export default function Programs() {
         <ZLayoutSection 
           id="programs-sunday-service"
           title="Sunday Worship Service"
-          description={<p>Experience the presence of God through passionate worship and transformative preaching. Our Sunday services are the heartbeat of our church family where we gather to seek His face, hear His Word, and build authentic community.</p>}
+          description={<p>Experience the presence of God through passionate worship and transformative preaching. Every Sunday at 10AM.</p>}
           imageSrc="/images/general/CoreValues.png"
           imageAlt="Sunday Worship Service"
           reverse={false}
@@ -50,7 +50,7 @@ export default function Programs() {
         <ZLayoutSection 
           id="programs-prayer"
           title="Dawn Watch & Prayer Gatherings"
-          description={<p>We believe in the absolute power of prayer. Join our intercessory team and dawn watch gatherings as we stand in the gap for our city, nation, and church. This is where battles are fought and won before the day even begins.</p>}
+          description={<p>We believe in the absolute power of prayer. Join our prayer warriors and dawn watch gatherings as we stand for our church, our community and nation. This is where battles are won before the day even begins.</p>}
           imageSrc="/images/ministries/prayer.jpg"
           imageAlt="Prayer Gatherings"
           reverse={false}
@@ -60,7 +60,7 @@ export default function Programs() {
         <ZLayoutSection 
           id="programs-outreach"
           title="Community Outreach"
-          description={<p>Faith in action. Our community outreach programs are dedicated to being the hands and feet of Jesus, providing practical help, resources, and unyielding hope to the marginalized and broken in our city.</p>}
+          description={<p>Faith in action. Our community outreach programs are dedicated to be the hands and feet of Jesus. We provide help, resources and unyielding hope to the city and the nation.</p>}
           imageSrc="/images/ministries/sundayschl.jpg"
           imageAlt="Community Outreach"
           reverse={true}
@@ -71,7 +71,7 @@ export default function Programs() {
         <ZLayoutSection 
           id="programs-retreats"
           title="Life Retreats"
-          description={<p>Set aside time to encounter God without distractions. Our annual Life Retreats are immersive weekend experiences focused on spiritual breakthrough, deep fellowship, and profound personal encounters with the Holy Spirit.</p>}
+          description={<p>Encounter God without distractions. Life retreats are immersive weekend experiences in spiritual breakthroughs, deep fellowship and Holy Spirit filled encounter with Jesus.</p>}
           imageSrc="/images/general/retreat-pic.jpg"
           imageAlt="Life Retreats"
           reverse={false}
@@ -81,7 +81,7 @@ export default function Programs() {
         <ZLayoutSection 
           id="programs-johia-brews"
           title="JOHIA Brews"
-          description={<p>More than just a coffee shop, JOHIA Brews is a hub for connection, fellowship, and discipleship. Grab a cup of freshly brewed coffee, meet new friends, and enjoy heartfelt conversations in a welcoming, faith-filled atmosphere.</p>}
+          description={<p>A hub for connection, fellowship and discipleship. Grab a cup of our fresh brew, meet new friends and enjoy heartfelt conversations in a welcoming, faith filled atmosphere. Every Sunday at the JOHIA Center.</p>}
           imageSrc="/images/general/CoreValues.png"
           imageAlt="JOHIA Brews"
           reverse={true}
@@ -95,7 +95,7 @@ export default function Programs() {
         <AnimatedSection variant="fade" className="relative z-10 max-w-4xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-extrabold font-heading mb-6 tracking-tight">Support Our Mission</h2>
           <p className="text-xl md:text-2xl font-sans max-w-2xl mx-auto mb-10 font-medium text-gray-500 dark:text-gray-400">
-            Partner with us in advancing the Kingdom through your generous giving.
+            Partner with us in reaching others through your generous giving.
           </p>
           <Button variant="solid" className="px-10 py-4 text-lg shadow-md transition-all animate-glow-pulse" href="/give">
             Brew with Us

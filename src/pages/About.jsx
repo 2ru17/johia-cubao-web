@@ -160,7 +160,7 @@ export default function About() {
           <AnimatedSection>
             <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-light mb-4 drop-shadow-md">Meet Our Pastors</h2>
             <p className="text-gray-400 font-sans text-xl max-w-2xl mx-auto">
-              Dedicated servant-leaders guiding our church family with biblical truth and pastoral care.
+              Dedicated servant leaders guiding our community with biblical truth and care.
             </p>
           </AnimatedSection>
         </div>

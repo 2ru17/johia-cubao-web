@@ -73,7 +73,7 @@ export default function Ministries() {
               <span className="text-shimmer">Find Your Purpose.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-sans font-medium max-w-3xl mx-auto drop-shadow-sm leading-relaxed mb-8">
-              Whether you're looking for community or ready to serve, there is a place for you here.
+              Ready to serve? There is always a place for you here.
             </p>
           </AnimatedSection>
         </div>
@@ -184,10 +184,10 @@ export default function Ministries() {
           title="Hospitality & Care"
           mainDescription="Be the welcoming hands and feet of Jesus. Ensure every person who walks through our doors feels at home and safe."
           teams={[
-            { name: "Consolidation", desc: "Welcoming guests, distributing materials, and assisting with seating.", image: "/images/general/outside.png", color: "#FBB03B" },
-            { name: "Marshalls", desc: "Providing security, traffic control, and ensuring a safe worship environment.", image: "/images/placeholder-ministry.png", color: "#01153e" },
-            { name: "Brews", desc: "Serving coffee and refreshments to foster fellowship before and after service.", image: "/images/general/retreat-pic.jpg", color: "#6f4e37" },
-            { name: "Ushers", desc: "Assisting attendees, managing offerings, and maintaining order.", image: "/images/placeholder-ministry.png", color: "#fd3db5" }
+            { name: "Consolidation", desc: "Welcoming guests, helping others in finding their way to a new church family.", image: "/images/general/outside.png", color: "#FBB03B" },
+            { name: "Marshalls", desc: "Ensuring safety, traffic control and a healthy worship environment.", image: "/images/placeholder-ministry.png", color: "#01153e" },
+            { name: "Brews", desc: "In-house baristas to foster fellowship before and after service.", image: "/images/general/retreat-pic.jpg", color: "#6f4e37" },
+            { name: "Ushers", desc: "Deliver a welcoming atmosphere, managing offerings and providing immediate help to worshippers.", image: "/images/placeholder-ministry.png", color: "#fd3db5" }
           ]}
           reverse={true}
           texture="light"
@@ -199,8 +199,8 @@ export default function Ministries() {
           title="Foundations"
           mainDescription="Build the spiritual backbone of our church by investing in the next generation and waging war in the spiritual realm."
           teams={[
-            { name: "Sunday School", desc: "Teaching and caring for children, laying a strong biblical foundation.", image: "/images/ministries/sundayschl.jpg", color: "#6633cc" },
-            { name: "Prayer Warriors", desc: "Dedicated intercessors standing in the gap for the church and community.", image: "/images/ministries/prayer.jpg", color: "#ffd3ac" }
+            { name: "Sunday School", desc: "Translating the Sunday's preaching into a language that our kids will understand.", image: "/images/ministries/sundayschl.jpg", color: "#6633cc" },
+            { name: "Prayer Warriors", desc: "Dedicated intercessors winning wars for our community and our nation.", image: "/images/ministries/prayer.jpg", color: "#ffd3ac" }
           ]}
           reverse={false}
           texture="light"

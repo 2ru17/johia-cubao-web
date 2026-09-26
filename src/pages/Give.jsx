@@ -20,7 +20,7 @@ export default function Give() {
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark transition-colors duration-500">
-      <PageMeta title="Brew with Us" description="Partner with us in advancing the Kingdom through generous giving." />
+      <PageMeta title="Brew with Us" description="Partner with us in reaching others through your generous giving." />
 
       {/* Hero: Brew with Us */}
       <section className="relative pt-40 pb-32 flex items-center justify-center overflow-hidden bg-aurora border-b border-white/5">
@@ -185,7 +185,7 @@ export default function Give() {
                   <hr className="border-white/10 mb-8" />
                   
                   <p className="text-brand-yellow/90 font-sans text-lg leading-relaxed font-medium">
-                    Your tithes and offerings directly fuel our mission. This year, your faithful giving is funding essential sanctuary upgrades to welcome more families, expanding our outreach through dedicated hospital and jail ministries, and empowering the next generation through Wildfire Youth.
+                    Your tithes and offerings directly fuel our mission. This year, your faithful giving is funding essential sanctuary upgrades to welcome more families, expanding our outreach through dedicated hospital and jail ministries, youth scholarships, and empowering the next generation through Wildfire Youth.
                   </p>
                 </div>
               </TiltCard>

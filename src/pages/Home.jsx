@@ -168,10 +168,10 @@ export default function Home() {
             Find Your Place in the Family
           </h2>
           <div className="flex flex-wrap justify-center gap-6">
-            <Button variant="solid" className="transition-transform shadow-xl" href="/ministries#ministries-demographics">I want to get connected</Button>
-            <Button variant="solid" className="transition-transform shadow-xl" href="/contact#contact-main-form">I need a prayer</Button>
-            <Button variant="outline" className="transition-all" href="/ministries#ministries-serve">I want to volunteer</Button>
-            <Button variant="outline" className="transition-all" href="/programs#programs-soc">Ready to take the next step</Button>
+            <Button variant="solid" className="transition-transform shadow-xl" href="/ministries#ministries-demographics">GET CONNECTED</Button>
+            <Button variant="solid" className="transition-transform shadow-xl" href="/contact#contact-main-form">I NEED PRAYERS</Button>
+            <Button variant="outline" className="transition-all" href="/ministries#ministries-serve">I WANT TO VOLUNTEER</Button>
+            <Button variant="outline" className="transition-all" href="/programs#programs-soc">WALK WITH US</Button>
           </div>
         </AnimatedSection>
       </section>
