@@ -9,7 +9,7 @@ export default function PaintFrameBackground() {
         Using pure DOM divs instead of SVG completely eliminates the browser flickering/clipping bugs 
         associated with animating CSS transforms inside a massively blurred SVG.
       */}
-      <div className="absolute inset-0 w-[150vw] h-[150vh] -left-[25vw] -top-[25vh] opacity-80 dark:opacity-70 blur-[100px] md:blur-[140px] transition-opacity duration-700 pointer-events-none">
+      <div className="absolute inset-0 w-[150vw] h-[150vh] -left-[25vw] -top-[25vh] opacity-80 dark:opacity-70 blur-[60px] md:blur-[120px] transition-opacity duration-700 pointer-events-none transform-gpu">
         
         {/* Top Left - Yellow/Gold (LinC) */}
         <div className="absolute top-[10%] left-[15%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-[#E5B53B] rounded-full mix-blend-multiply dark:mix-blend-screen animate-float-tl"></div>

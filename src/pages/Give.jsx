@@ -61,7 +61,7 @@ export default function Give() {
                       className="bg-gray-50 dark:bg-neutral-900 aspect-square rounded-2xl flex items-center justify-center text-gray-400 border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] transition-all cursor-pointer relative group overflow-hidden"
                     >
                       {/* Temporary placeholder image, waiting for official QR code */}
-                      <img src="/images/general/outside.png" alt="GCash QR Code" className="w-full h-full object-cover" />
+                      <img loading="lazy" src="/images/general/outside.png" alt="GCash QR Code" className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <IconZoomIn size={48} className="text-white drop-shadow-md" />
                       </div>
@@ -222,7 +222,7 @@ export default function Give() {
               </button>
               
               {/* Image */}
-              <img 
+              <img loading="lazy" 
                 src="/images/general/outside.png" 
                 alt="GCash QR Code Zoomed" 
                 className="w-full h-auto aspect-square object-cover rounded-2xl" 

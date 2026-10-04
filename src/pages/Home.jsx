@@ -122,7 +122,7 @@ export default function Home() {
             <TiltCard className="md:col-span-8">
               <Link to="/programs" className="block w-full h-full group relative min-h-[400px] md:min-h-[500px] overflow-hidden rounded-2xl bg-neutral-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)]">
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10"></div>
-                <img src="/images/general/CoreValues.png" alt="Church Programs" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
+                <img loading="lazy" src="/images/general/CoreValues.png" alt="Church Programs" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
                   <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Church Programs</h3>
                   <p className="text-gray-300 font-sans text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Sunday Worship, School of Champions, and more.</p>
@@ -134,7 +134,7 @@ export default function Home() {
             <TiltCard className="md:col-span-4 md:row-span-2">
               <Link to="/ministries" className="block w-full h-full group relative min-h-[400px] md:min-h-full overflow-hidden rounded-2xl bg-neutral-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)] ">
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-500 z-10"></div>
-                <img src="/images/general/retreat-pic.jpg" alt="Ministries" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
+                <img loading="lazy" src="/images/general/retreat-pic.jpg" alt="Ministries" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
                   <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Ministries</h3>
                   <p className="text-gray-300 font-sans text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Find your people.</p>
@@ -146,7 +146,7 @@ export default function Home() {
             <TiltCard className="md:col-span-8">
               <Link to="/posts" className="block w-full h-full group relative min-h-[300px] md:min-h-[350px] overflow-hidden rounded-2xl bg-neutral-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_30px_rgba(251,176,59,0.3)] ">
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-colors duration-500 z-10"></div>
-                <img src="/images/ministries/sundayschl.jpg" alt="Latest News" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
+                <img loading="lazy" src="/images/ministries/sundayschl.jpg" alt="Latest News" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
                   <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Latest News</h3>
                   <p className="text-gray-300 font-sans text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Stay encouraged with devotionals and updates.</p>
@@ -181,7 +181,7 @@ export default function Home() {
         <div className="flex whitespace-nowrap animate-marquee items-center">
           {[...Array(12)].map((_, i) => (
             <div key={i} className="flex-shrink-0 flex items-center mx-12 opacity-40 hover:opacity-100 transition-opacity duration-500">
-              <img src="/images/general/banner-white.svg" alt="JOHIA" className="h-12 md:h-16 w-auto object-contain" />
+              <img loading="lazy" src="/images/general/banner-white.svg" alt="JOHIA" className="h-12 md:h-16 w-auto object-contain" />
             </div>
           ))}
         </div>

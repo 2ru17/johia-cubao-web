@@ -53,7 +53,7 @@ export default function Journals() {
             <AnimatedSection key={idx} delay={idx * 0.1} className="bg-white dark:bg-background-dark rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full group">
               <div className="aspect-[16/9] overflow-hidden relative">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover transform group- transition-transform duration-700" />
+                <img loading="lazy" src={post.image} alt={post.title} className="w-full h-full object-cover transform group- transition-transform duration-700" />
               </div>
               
               <div className="p-8 flex flex-col flex-grow">

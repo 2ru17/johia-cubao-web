@@ -68,7 +68,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <Link to="/" className="z-50 relative flex items-center gap-2" onClick={closeMenu}>
-          <img src="/images/general/banner-white.svg" alt="JOHIA Cubao Logo" className="w-[86px] md:w-[220px] h-auto transition-all" />
+          <img loading="lazy" src="/images/general/banner-white.svg" alt="JOHIA Cubao Logo" className="w-[86px] md:w-[220px] h-auto transition-all" />
         </Link>
 
         {/* Desktop Nav */}

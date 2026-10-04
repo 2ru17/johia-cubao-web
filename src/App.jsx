@@ -8,25 +8,25 @@ import Layout from './components/layout/Layout';
 import PageTransition from './components/ui/PageTransition';
 import ComingSoon from './pages/ComingSoon';
 
-// Pages
+// Pages - Core (Immediate Load)
 import Home from './pages/Home';
-import About from './pages/About';
-import Programs from './pages/Programs';
-import Ministries from './pages/Ministries';
-import Contact from './pages/Contact';
-import Give from './pages/Give';
-import Media from './pages/Media';
-import Journals from './pages/Journals';
-import Posts from './pages/Posts';
-import PostTemplate from './pages/PostTemplate';
-import NotFound from './pages/NotFound';
+
+// Pages - Lazy Loaded to reduce bundle size
+const About = lazy(() => import('./pages/About'));
+const Programs = lazy(() => import('./pages/Programs'));
+const Ministries = lazy(() => import('./pages/Ministries'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Give = lazy(() => import('./pages/Give'));
+const Media = lazy(() => import('./pages/Media'));
+const Journals = lazy(() => import('./pages/Journals'));
+const Posts = lazy(() => import('./pages/Posts'));
+const PostTemplate = lazy(() => import('./pages/PostTemplate'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const PrivacyPolicy = lazy(() => import('./pages/Privacy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
 import UserPreferences from './components/ui/UserPreferences';
 import SiteMetrics from './components/seo/SiteMetrics';
-
-// Legal pages — lazy loaded
-const PrivacyPolicy = lazy(() => import('./pages/Privacy'));
-const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
 // Extract routes to use useLocation hook
 function AnimatedRoutes() {
@@ -46,21 +46,27 @@ function AnimatedRoutes() {
         }
       }}
     >
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/programs" element={<PageTransition><Programs /></PageTransition>} />
-        <Route path="/ministries" element={<PageTransition><Ministries /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-        <Route path="/give" element={<PageTransition><Give /></PageTransition>} />
-        <Route path="/media" element={<PageTransition><Media /></PageTransition>} />
-        <Route path="/posts" element={<PageTransition><Posts /></PageTransition>} />
-        <Route path="/posts/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
-        <Route path="/journals" element={<PageTransition><Journals /></PageTransition>} />
-        <Route path="/privacy" element={<PageTransition><Suspense fallback={null}><PrivacyPolicy /></Suspense></PageTransition>} />
-        <Route path="/terms" element={<PageTransition><Suspense fallback={null}><TermsOfService /></Suspense></PageTransition>} />
-        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-      </Routes>
+      <Suspense fallback={
+        <div className="flex h-screen w-full items-center justify-center bg-[#f9f9f9] dark:bg-[#000000]">
+          <div className="w-12 h-12 border-4 border-brand-yellow border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      }>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+          <Route path="/programs" element={<PageTransition><Programs /></PageTransition>} />
+          <Route path="/ministries" element={<PageTransition><Ministries /></PageTransition>} />
+          <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+          <Route path="/give" element={<PageTransition><Give /></PageTransition>} />
+          <Route path="/media" element={<PageTransition><Media /></PageTransition>} />
+          <Route path="/posts" element={<PageTransition><Posts /></PageTransition>} />
+          <Route path="/posts/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
+          <Route path="/journals" element={<PageTransition><Journals /></PageTransition>} />
+          <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+          <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
+          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 }

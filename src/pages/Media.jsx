@@ -106,7 +106,7 @@ export default function Media() {
                     <div className="absolute inset-0 bg-brand-yellow/0 group-hover:bg-brand-yellow/30 transition-colors duration-500 z-10 flex items-center justify-center pointer-events-none">
                       <IconZoomIn size={48} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100 drop-shadow-md" />
                     </div>
-                    <img 
+                    <img loading="lazy" 
                       src={photo.src} 
                       alt={`Community ${idx + 1}`} 
                       className="w-full h-auto object-cover transform transition-transform duration-700 block" 

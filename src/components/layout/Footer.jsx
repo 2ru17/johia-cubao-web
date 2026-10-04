@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Left Column */}
           <div>
             <Link to="/">
-              <img src="/images/general/banner-white.svg" alt="JOHIA Cubao Logo" className="w-[200px] h-auto mb-4 hover:opacity-80 transition-opacity" />
+              <img loading="lazy" src="/images/general/banner-white.svg" alt="JOHIA Cubao Logo" className="w-[200px] h-auto mb-4 hover:opacity-80 transition-opacity" />
             </Link>
             <p className="font-sans text-gray-400 mb-8 max-w-sm text-lg">
               Jesus Our Hope International Assemblies Cubao.<br />

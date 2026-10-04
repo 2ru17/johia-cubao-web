@@ -24,7 +24,7 @@ export default function ComingSoon() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-12 bg-neutral-900/40 p-4 md:p-6 rounded-3xl backdrop-blur-md border border-white/10 shadow-2xl"
         >
-          <img 
+          <img loading="lazy" 
             src="/images/general/banner-white.svg" 
             alt="JOHIA Cubao Logo" 
             className="w-48 md:w-72 h-auto"
