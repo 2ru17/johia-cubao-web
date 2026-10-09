@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 
 import Layout from './components/layout/Layout';
 import PageTransition from './components/ui/PageTransition';
+import PageSkeleton from './components/ui/PageSkeleton';
 import ComingSoon from './pages/ComingSoon';
 
 // Pages - Core (Immediate Load)
@@ -46,11 +47,7 @@ function AnimatedRoutes() {
         }
       }}
     >
-      <Suspense fallback={
-        <div className="flex h-screen w-full items-center justify-center bg-[#f9f9f9] dark:bg-[#000000]">
-          <div className="w-12 h-12 border-4 border-brand-yellow border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      }>
+      <Suspense fallback={<PageSkeleton />}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />

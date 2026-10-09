@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDebounce } from 'use-debounce';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
@@ -80,6 +81,7 @@ const moodStyles = {
 
 export default function Posts() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 300);
   const [selectedTag, setSelectedTag] = useState('All Tags');
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [sortOrder, setSortOrder] = useState('desc');
@@ -100,7 +102,7 @@ export default function Posts() {
   // Filter and sort posts
   const filteredPosts = allPosts.filter(post => {
     const searchTarget = stripFA(post.title)?.toLowerCase() + ' ' + post.excerpt?.toLowerCase();
-    const matchesSearch = searchTarget.includes(searchTerm.toLowerCase());
+    const matchesSearch = searchTarget.includes(debouncedSearchTerm.toLowerCase());
     const matchesTag = selectedTag === 'All Tags' || (post.tags && post.tags.includes(selectedTag));
     const matchesCategory = selectedCategory === 'All Categories' || post.category === selectedCategory;
     return matchesSearch && matchesTag && matchesCategory;
