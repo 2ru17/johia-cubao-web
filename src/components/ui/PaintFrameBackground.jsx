@@ -9,7 +9,7 @@ export default function PaintFrameBackground() {
         Using pure DOM divs instead of SVG completely eliminates the browser flickering/clipping bugs 
         associated with animating CSS transforms inside a massively blurred SVG.
       */}
-      <div className="absolute inset-0 w-[150vw] h-[150vh] -left-[25vw] -top-[25vh] opacity-80 dark:opacity-70 blur-[60px] md:blur-[120px] transition-opacity duration-700 pointer-events-none transform-gpu">
+      <div className="absolute inset-0 w-[150vw] h-[150vh] -left-[25vw] -top-[25vh] opacity-80 dark:opacity-70 blur-[100px] md:blur-[140px] transition-opacity duration-700 pointer-events-none transform-gpu">
         
         {/* Top Left - Yellow/Gold (LinC) */}
         <div className="absolute top-[10%] left-[15%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-[#E5B53B] rounded-full mix-blend-multiply dark:mix-blend-screen animate-float-tl"></div>
@@ -37,10 +37,12 @@ export default function PaintFrameBackground() {
 
       {/* 
         2. The Frosted Glass Grain (Noise Texture)
-        Reduced opacity to make it less grainy and much smoother!
+        By increasing the opacity and using mix-blend-overlay, this creates 
+        that exact premium frosted glass texture seen in UI design trends.
+        In dark mode, we use mix-blend-soft-light to prevent the grain from looking harsh against pure OLED black.
       */}
       <div 
-        className="absolute inset-0 opacity-[0.12] dark:opacity-[0.05] mix-blend-overlay dark:mix-blend-screen z-10 pointer-events-none"
+        className="absolute inset-0 opacity-[0.25] dark:opacity-[0.10] mix-blend-overlay dark:mix-blend-screen z-10 pointer-events-none"
         style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}
       ></div>
 
