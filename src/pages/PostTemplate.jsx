@@ -6,21 +6,45 @@ import AnimatedSection from '../components/ui/AnimatedSection';
 import TiltCard from '../components/ui/TiltCard';
 import Button from '../components/ui/Button';
 import { cn } from '../lib/utils';
-import { IconArrowLeft, IconArrowRight, IconBrandFacebook, IconBrandX, IconBrandInstagram, IconLink, IconCode, IconCheck, IconClock, IconCalendar } from '@tabler/icons-react';
+import { IconArrowLeft, IconArrowRight, IconBrandFacebook, IconBrandX, IconBrandInstagram, IconLink, IconCode, IconCheck, IconClock, IconCalendar, IconPin } from '@tabler/icons-react';
 
 // Dynamically import all MDX posts
 const mdxModules = import.meta.glob('../content/posts/*.mdx');
 const mdxPosts = import.meta.glob('../content/posts/*.mdx', { eager: true });
 
 // --- Helpers ---
-function formatDate(dateStr) {
-  const d = new Date(dateStr + 'T00:00:00');
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+function formatDate(dateVal) {
+  if (!dateVal) return '';
+  try {
+    let d;
+    if (dateVal instanceof Date) {
+      d = dateVal;
+    } else {
+      const str = String(dateVal).trim();
+      d = new Date(str.includes('T') ? str : `${str}T00:00:00`);
+    }
+    if (isNaN(d.getTime())) return String(dateVal);
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  } catch {
+    return String(dateVal || '');
+  }
 }
 
-function formatDateShort(dateStr) {
-  const d = new Date(dateStr + 'T00:00:00');
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+function formatDateShort(dateVal) {
+  if (!dateVal) return '';
+  try {
+    let d;
+    if (dateVal instanceof Date) {
+      d = dateVal;
+    } else {
+      const str = String(dateVal).trim();
+      d = new Date(str.includes('T') ? str : `${str}T00:00:00`);
+    }
+    if (isNaN(d.getTime())) return String(dateVal);
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  } catch {
+    return String(dateVal || '');
+  }
 }
 
 function estimateReadingTime(text) {
@@ -29,13 +53,7 @@ function estimateReadingTime(text) {
   return Math.max(1, Math.ceil(words / 200));
 }
 
-function stripFA(title) {
-  return title?.replace(/^\[FA\]\s*/, '') || title;
-}
 
-function isFA(title) {
-  return title?.startsWith('[FA]');
-}
 
 export default function PostTemplate() {
   const { slug } = useParams();
@@ -56,7 +74,7 @@ export default function PostTemplate() {
 
   for (const path in mdxPosts) {
     const mod = mdxPosts[path];
-    const fm = mod.frontmatter;
+    const fm = mod?.frontmatter || mod?.default?.frontmatter;
     if (!fm) continue;
     const inferredSlug = path.split('/').pop().replace('.mdx', '');
     const currentSlug = fm.slug || inferredSlug;
@@ -65,7 +83,7 @@ export default function PostTemplate() {
       targetPath = path;
       frontmatter = fm;
       // Grab raw source for reading time estimate
-      rawContent = typeof mod.default === 'string' ? mod.default : '';
+      rawContent = typeof mod?.default === 'string' ? mod.default : '';
       break;
     }
   }
@@ -104,14 +122,12 @@ export default function PostTemplate() {
     return pool.slice(0, 3);
   }, [slug, frontmatter?.category]);
 
-  const displayTitle = stripFA(frontmatter.title);
-  const faPost = isFA(frontmatter.title);
   const readTime = estimateReadingTime(rawContent) || 4; // fallback 4 min
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark min-h-screen">
       <PageMeta 
-        title={displayTitle} 
+        title={frontmatter.title} 
         description={frontmatter.excerpt} 
         image={frontmatter.thumbnail} 
       />
@@ -123,7 +139,7 @@ export default function PostTemplate() {
           <span>/</span>
           <Link to="/posts" className="hover:text-brand-yellow transition-colors">Journals</Link>
           <span>/</span>
-          <span className="text-gray-600 dark:text-gray-300 truncate max-w-[200px] md:max-w-none">{displayTitle}</span>
+          <span className="text-gray-600 dark:text-gray-300 truncate max-w-[200px] md:max-w-none">{frontmatter.title}</span>
         </div>
       </div>
 
@@ -133,17 +149,17 @@ export default function PostTemplate() {
         <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
           <AnimatedSection variant="fade">
             <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
+              {frontmatter.pinned && (
+                <span className="text-sm font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-brand-yellow text-text-dark flex items-center gap-1.5 shadow-sm">
+                  <IconPin size={14} className="rotate-45" /> Pinned Event
+                </span>
+              )}
               <span className="text-sm font-bold uppercase tracking-wider text-brand-yellow bg-brand-yellow/10 px-4 py-2 rounded-full">
                 {frontmatter.category}
               </span>
-              {faPost && (
-                <span className="text-sm font-bold uppercase tracking-wider text-orange-400 bg-orange-400/10 px-4 py-2 rounded-full border border-orange-400/20">
-                  For Approval
-                </span>
-              )}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-text-light mb-6 tracking-tight drop-shadow-md">
-              {displayTitle}
+              {frontmatter.title}
             </h1>
             {frontmatter.excerpt && (
               <p className="text-lg md:text-xl text-gray-300/90 font-sans font-medium max-w-2xl mx-auto mb-8 leading-relaxed">
@@ -276,7 +292,7 @@ export default function PostTemplate() {
                           {post.category}
                         </span>
                         <h3 className="font-bold font-heading text-text-dark dark:text-text-light text-xl mb-3 group-hover:opacity-80 transition-opacity relative z-10">
-                          {stripFA(post.title)}
+                          {post.title}
                         </h3>
                         <p className="text-gray-500 dark:text-gray-400 font-sans text-sm mb-6 flex-grow line-clamp-3 relative z-10">
                           {post.excerpt}

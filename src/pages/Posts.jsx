@@ -7,34 +7,45 @@ import SectionWrapper from '../components/ui/SectionWrapper';
 import TiltCard from '../components/ui/TiltCard';
 import EmptyState from '../components/ui/EmptyState';
 import Button from '../components/ui/Button';
-import { IconArrowRight, IconSearch, IconChevronLeft, IconChevronRight, IconChevronDown, IconClock } from '@tabler/icons-react';
+import { IconArrowRight, IconSearch, IconChevronLeft, IconChevronRight, IconChevronDown, IconClock, IconPin } from '@tabler/icons-react';
 import { cn } from '../lib/utils';
 
 // --- Helpers ---
-function formatDateShort(dateStr) {
-  const d = new Date(dateStr + 'T00:00:00');
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-}
-
-function stripFA(title) {
-  return title?.replace(/^\[FA\]\s*/, '') || title;
-}
-
-function isFA(title) {
-  return title?.startsWith('[FA]');
+function formatDateShort(dateVal) {
+  if (!dateVal) return '';
+  try {
+    let d;
+    if (dateVal instanceof Date) {
+      d = dateVal;
+    } else {
+      const str = String(dateVal).trim();
+      d = new Date(str.includes('T') ? str : `${str}T00:00:00`);
+    }
+    if (isNaN(d.getTime())) return String(dateVal);
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  } catch {
+    return String(dateVal || '');
+  }
 }
 
 // Dynamically load all MDX posts and their frontmatter
 const mdxPosts = import.meta.glob('../content/posts/*.mdx', { eager: true });
 const allPosts = Object.keys(mdxPosts)
   .map(path => {
-    const fm = mdxPosts[path].frontmatter;
+    const mod = mdxPosts[path];
+    const fm = mod?.frontmatter || mod?.default?.frontmatter;
     if (!fm) return null;
     const inferredSlug = path.split('/').pop().replace('.mdx', '');
     return { ...fm, slug: fm.slug || inferredSlug };
   })
   .filter(Boolean)
-  .sort((a, b) => new Date(b.date) - new Date(a.date));
+  .sort((a, b) => {
+    if (a?.pinned && !b?.pinned) return -1;
+    if (!a?.pinned && b?.pinned) return 1;
+    const timeA = a?.date ? new Date(a.date).getTime() || 0 : 0;
+    const timeB = b?.date ? new Date(b.date).getTime() || 0 : 0;
+    return timeB - timeA;
+  });
 
 const moodStyles = {
   joy: {
@@ -90,26 +101,33 @@ export default function Posts() {
   const postsPerPage = 7;
 
   // Extract all unique tags and categories from posts
-  const tagFrequencies = allPosts.flatMap(post => post.tags || []).reduce((acc, tag) => {
-    acc[tag] = (acc[tag] || 0) + 1;
-    return acc;
-  }, {});
+  const tagFrequencies = allPosts
+    .flatMap(post => Array.isArray(post?.tags) ? post.tags : (post?.tags ? [post.tags] : []))
+    .reduce((acc, tag) => {
+      acc[tag] = (acc[tag] || 0) + 1;
+      return acc;
+    }, {});
   const topTags = Object.entries(tagFrequencies).sort((a, b) => b[1] - a[1]).slice(0, 7).map(entry => entry[0]);
   const allTags = ['All Tags', ...topTags];
 
   const allCategories = ['All Categories', 'Sermon Notes', 'Events', 'Devotionals'];
 
   // Filter and sort posts
+  const cleanSearchTerm = (debouncedSearchTerm || '').trim().toLowerCase();
   const filteredPosts = allPosts.filter(post => {
-    const searchTarget = stripFA(post.title)?.toLowerCase() + ' ' + post.excerpt?.toLowerCase();
-    const matchesSearch = searchTarget.includes(debouncedSearchTerm.toLowerCase());
-    const matchesTag = selectedTag === 'All Tags' || (post.tags && post.tags.includes(selectedTag));
+    if (!post) return false;
+    const searchTarget = `${post.title || ''} ${post.excerpt || ''}`.toLowerCase();
+    const matchesSearch = !cleanSearchTerm || searchTarget.includes(cleanSearchTerm);
+    const postTags = Array.isArray(post.tags) ? post.tags : (post.tags ? [post.tags] : []);
+    const matchesTag = selectedTag === 'All Tags' || postTags.includes(selectedTag);
     const matchesCategory = selectedCategory === 'All Categories' || post.category === selectedCategory;
     return matchesSearch && matchesTag && matchesCategory;
   }).sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+    if (a?.pinned && !b?.pinned) return -1;
+    if (!a?.pinned && b?.pinned) return 1;
+    const timeA = a?.date ? new Date(a.date).getTime() || 0 : 0;
+    const timeB = b?.date ? new Date(b.date).getTime() || 0 : 0;
+    return sortOrder === 'desc' ? timeB - timeA : timeA - timeB;
   });
 
   const hasPosts = filteredPosts.length > 0;
@@ -306,8 +324,6 @@ export default function Posts() {
                   const fallbackMoods = ['joy', 'peace', 'fire', 'reflection'];
                   const assignedMood = post.mood || fallbackMoods[idx % fallbackMoods.length];
                   const style = moodStyles[assignedMood] || moodStyles.default;
-                  const faPost = isFA(post.title);
-                  const displayTitle = stripFA(post.title);
 
                   return (
                     <AnimatedSection
@@ -340,14 +356,14 @@ export default function Posts() {
                             <div className="relative z-10 flex flex-col h-full">
                               <div className="flex justify-between items-start mb-6">
                                 <div className="flex items-center gap-2 flex-wrap">
+                                  {post.pinned && (
+                                    <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-brand-yellow text-text-dark flex items-center gap-1 shadow-sm">
+                                      <IconPin size={12} className="rotate-45" /> Pinned
+                                    </span>
+                                  )}
                                   <span className={cn("text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm", style.badge)}>
                                     {post.category || "General"}
                                   </span>
-                                  {faPost && (
-                                    <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full text-white bg-orange-600/90 border border-orange-400 group-hover:bg-orange-500/10 group-hover:text-orange-500 group-hover:border-orange-500/20 transition-colors duration-500">
-                                      FA
-                                    </span>
-                                  )}
                                 </div>
                                 <span className="text-xs font-sans text-gray-200 group-hover:text-gray-400 font-medium whitespace-nowrap ml-4 drop-shadow-sm group-hover:drop-shadow-none transition-colors duration-500">{formatDateShort(post.date)}</span>
                               </div>
@@ -356,7 +372,7 @@ export default function Posts() {
                                 "font-bold font-heading text-white group-hover:text-text-dark dark:group-hover:text-text-light mb-3 drop-shadow-md group-hover:drop-shadow-none transition-all duration-500",
                                 size === "large" ? "text-3xl lg:text-4xl" : "text-2xl"
                               )}>
-                                {displayTitle}
+                                {post.title}
                               </h3>
 
                               <p className={cn(

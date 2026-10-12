@@ -122,7 +122,7 @@ export default function Home() {
             <TiltCard className="md:col-span-8">
               <Link to="/programs" className="block w-full h-full group relative min-h-[400px] md:min-h-[500px] overflow-hidden rounded-2xl bg-neutral-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_40px_rgba(251,176,59,0.3)]">
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10"></div>
-                <img loading="lazy" src="/images/general/CoreValues.png" alt="Church Programs" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
+                <img loading="lazy" src="/images/community/service-moment-a29.jpg" alt="Sunday Worship Service and Church Programs in Sanctuary" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
                   <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Church Programs</h3>
                   <p className="text-gray-300 font-sans text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Sunday Worship, School of Champions, and more.</p>
@@ -146,7 +146,7 @@ export default function Home() {
             <TiltCard className="md:col-span-8">
               <Link to="/posts" className="block w-full h-full group relative min-h-[300px] md:min-h-[350px] overflow-hidden rounded-2xl bg-neutral-900 border border-white/5 hover:border-brand-yellow/50 transition-all duration-500 shadow-2xl hover:shadow-[0_0_30px_rgba(251,176,59,0.3)] ">
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-colors duration-500 z-10"></div>
-                <img loading="lazy" src="/images/ministries/sundayschl.jpg" alt="Latest News" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
+                <img loading="lazy" src="/images/gallery/service-congregation-blessing.jpg" alt="Latest News and Church Family Updates" className="w-full h-full object-cover animate-slow-zoom grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 z-20 flex flex-col items-start justify-end p-10 bg-gradient-to-t from-black/80 to-transparent">
                   <h3 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light group-hover:text-brand-yellow transition-colors duration-300">Latest News</h3>
                   <p className="text-gray-300 font-sans text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">Stay encouraged with devotionals and updates.</p>
@@ -159,7 +159,12 @@ export default function Home() {
       </SectionWrapper>
 
       {/* Parallax Divider */}
-      <ParallaxDivider imageSrc="/images/ministries/prayer.jpg" alt="Church Community" height="h-[350px]" />
+      <ParallaxDivider 
+        imageSrc="/images/community/church-family-linggo-ng-wika.jpg" 
+        alt="Church Family Community" 
+        height="h-[500px] md:h-[550px]" 
+        imagePosition="center 75%" 
+      />
 
       {/* SECTION 3: ACTION ROW */}
       <section id="home-action" className="relative py-32 bg-texture-light dark:bg-texture-dark overflow-hidden transition-colors duration-500">

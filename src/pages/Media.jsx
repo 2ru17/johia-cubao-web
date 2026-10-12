@@ -10,29 +10,53 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 // Photos with assigned categories
-const basePhotos = [
-  { src: "/images/general/New Core values.png", category: "Events" },
-  { src: "/images/general/retreat-pic.jpg", category: "Community" },
-  { src: "/images/ministries/sundayschl.jpg", category: "Sundays" },
-  { src: "/images/ministries/prayer.jpg", category: "Events" },
-  { src: "/images/general/outside.png", category: "Sundays" },
-  { src: "/images/general/CoreValues.png", category: "Community" },
-];
-// Dedicated array for the simulated Instagram feed (9 posts)
-const igPhotos = [
-  { src: "/images/general/New Core values.png", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/general/retreat-pic.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/ministries/sundayschl.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/ministries/prayer.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/general/outside.png", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/general/CoreValues.png", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/general/retreat-pic.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/ministries/sundayschl.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/ministries/prayer.jpg", link: "https://www.instagram.com/johiacubao" },
+const communityPhotos = [
+  // Sundays
+  { src: "/images/gallery/service-congregation-listening.jpg", category: "Sundays", alt: "Congregation Seated and Listening to the Word" },
+  { src: "/images/gallery/worship-leader-solo-stage.jpg", category: "Sundays", alt: "Worship Leader Ministering with Passion on Stage" },
+  { src: "/images/gallery/preaching-pastor-chips.jpg", category: "Sundays", alt: "Pastor Chips Preaching God's Word" },
+  { src: "/images/gallery/worship-service-atmosphere.jpg", category: "Sundays", alt: "Worship Service Sanctuary Atmosphere" },
+  { src: "/images/gallery/friday-alive-acoustic-worship.jpg", category: "Sundays", alt: "Friday Alive Acoustic Worship Night" },
+  { src: "/images/gallery/preaching-pastor-ken.jpg", category: "Sundays", alt: "Pastor Ken Preaching to Congregation" },
+  { src: "/images/gallery/service-personal-worship-moment.jpg", category: "Sundays", alt: "Personal Prayer and Worship Moment" },
+  { src: "/images/gallery/preaching-pastor-docdek.jpg", category: "Sundays", alt: "Pastor Docdek Sharing God's Word" },
+
+  // Community
+  { src: "/images/community/church-family-linggo-ng-wika-2.jpg", category: "Community", alt: "JOHIA Church Family Linggo ng Wika Celebration" },
+  { src: "/images/leadership/leaders-council-stage.jpg", category: "Community", alt: "JOHIA Church Leadership Council" },
+  { src: "/images/leadership/leaders-council-wacky.jpg", category: "Community", alt: "Leadership Team Fellowship Gathering" },
+  { src: "/images/gallery/community-congregation-smiles.jpg", category: "Community", alt: "Church Congregation Members Sharing Smiles" },
+  { src: "/images/gallery/community-prayer-embrace.jpg", category: "Community", alt: "Congregation Members Praying and Embracing in Fellowship" },
+  { src: "/images/gallery/community-brews-fellowship.jpg", category: "Community", alt: "JOHIA Brews Fellowship and Ministry Service" },
+  { src: "/images/gallery/programs-soc-cohort.jpg", category: "Community", alt: "School of Champions Discipleship Cohort" },
+  { src: "/images/gallery/community-couples-gathering.jpg", category: "Community", alt: "Couples Ministry Fellowship Gathering" },
+  { src: "/images/gallery/community-fathers-blessing-line.jpg", category: "Community", alt: "Fathers Blessing Line During Service" },
+  { src: "/images/gallery/community-kids-peace-smiles.jpg", category: "Community", alt: "Sunday School Teacher and Child Sharing Smiles" },
+  { src: "/images/gallery/community-youth-fellowship-table.jpg", category: "Community", alt: "Youth and Children Fellowship Gathering" },
+
+  // Events
+  { src: "/images/gallery/kids-presentation-linggo-ng-wika.jpg", category: "Events", alt: "Sunday School Children Cultural Presentation" },
+  { src: "/images/gallery/kids-presentation-salamat.jpg", category: "Events", alt: "Kids Pasasalamat Stage Presentation" },
+  { src: "/images/gallery/event-recital-church-family-stage.jpg", category: "Events", alt: "Church Family Recital on Sanctuary Stage" },
+  { src: "/images/gallery/event-live-worship-stage.jpg", category: "Events", alt: "Live Worship Band Leading Worship" },
+  { src: "/images/gallery/event-altar-call-prayer.jpg", category: "Events", alt: "Altar Call and Corporate Intercession" },
+  { src: "/images/gallery/event-ushers-ministry-team.jpg", category: "Events", alt: "Ushering Ministry Team in Service" },
+  { src: "/images/gallery/service-congregation-prayer.jpg", category: "Events", alt: "Congregational United Prayer Gathering" },
+  { src: "/images/gallery/programs-retreat-water-baptism-2.jpg", category: "Events", alt: "Life Retreat Water Baptism Ceremony" },
 ];
 
-// Duplicated for masonry effect
-const communityPhotos = [...basePhotos, ...basePhotos, ...basePhotos, ...basePhotos];
+// Dedicated array for the simulated Instagram feed (9 distinct authentic photos)
+const igPhotos = [
+  { src: "/images/gallery/worship-leader-solo-stage.jpg", link: "https://www.instagram.com/johiacubao" },
+  { src: "/images/gallery/community-brews-fellowship.jpg", link: "https://www.instagram.com/johiacubao" },
+  { src: "/images/gallery/service-sanctuary-wide.jpg", link: "https://www.instagram.com/johiacubao" },
+  { src: "/images/gallery/event-live-worship-stage.jpg", link: "https://www.instagram.com/johiacubao" },
+  { src: "/images/gallery/community-congregation-smiles.jpg", link: "https://www.instagram.com/johiacubao" },
+  { src: "/images/gallery/friday-alive-acoustic-worship.jpg", link: "https://www.instagram.com/johiacubao" },
+  { src: "/images/gallery/community-kids-peace-smiles.jpg", link: "https://www.instagram.com/johiacubao" },
+  { src: "/images/gallery/event-recital-church-family-stage.jpg", link: "https://www.instagram.com/johiacubao" },
+  { src: "/images/gallery/event-altar-call-prayer.jpg", link: "https://www.instagram.com/johiacubao" },
+];
 
 const categories = ['All', 'Sundays', 'Community', 'Events'];
 
@@ -106,9 +130,9 @@ export default function Media() {
                     <div className="absolute inset-0 bg-brand-yellow/0 group-hover:bg-brand-yellow/30 transition-colors duration-500 z-10 flex items-center justify-center pointer-events-none">
                       <IconZoomIn size={48} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100 drop-shadow-md" />
                     </div>
-                    <img loading="lazy" 
+                    <img 
                       src={photo.src} 
-                      alt={`Community ${idx + 1}`} 
+                      alt={photo.alt || `JOHIA Cubao Community Photo ${idx + 1}`} 
                       className="w-full h-auto object-cover transform transition-transform duration-700 block" 
                       loading="lazy"
                     />
@@ -167,14 +191,14 @@ export default function Media() {
                 <span className="inline-flex font-bold text-[#E4405F] group-hover:underline text-sm">Follow @JOHIA_Cubao</span>
               </a>
 
-              {/* TikTok Card Placeholder */}
-              <a href="#" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-black dark:hover:border-white transition-all duration-300 transform hover:-translate-y-2 text-center">
-                <div className="mx-auto w-16 h-16 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-800 dark:text-white mb-4 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors duration-300">
-                  <IconBrandTiktok size={32} />
+              {/* YouTube Card */}
+              <a href="https://youtube.com/@JOHIA_Cubao" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#FF0000]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+                <div className="mx-auto w-16 h-16 bg-[#FF0000]/10 rounded-full flex items-center justify-center text-[#FF0000] mb-4 group-hover:bg-[#FF0000] group-hover:text-white transition-colors duration-300">
+                  <IconBrandYoutube size={32} />
                 </div>
-                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-black dark:group-hover:text-white transition-colors">TikTok</h3>
-                <p className="text-gray-500 mb-4 font-medium text-sm">Coming Soon</p>
-                <span className="inline-flex font-bold text-gray-800 dark:text-gray-300 group-hover:underline text-sm">Follow Us</span>
+                <h3 className="text-xl font-bold font-heading text-text-dark dark:text-text-light mb-1 group-hover:text-[#FF0000] transition-colors">YouTube</h3>
+                <p className="text-gray-500 mb-4 font-medium text-sm">Sermons & Livestreams</p>
+                <span className="inline-flex font-bold text-[#FF0000] group-hover:underline text-sm">Watch @JOHIA_Cubao</span>
               </a>
             </div>
             

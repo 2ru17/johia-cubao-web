@@ -44,34 +44,29 @@ export default function Give() {
           {/* Option 1: GCash */}
           <AnimatedSection variant="fade" delay={0.1}>
             <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col">
+              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm transition-all duration-500 overflow-hidden h-full flex flex-col">
+                {/* Coming Soon Badge */}
+                <div className="absolute top-4 right-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/30">
+                    Coming Soon
+                  </span>
+                </div>
                 <div>
-                  <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
+                  <div className="w-20 h-20 bg-gray-100 dark:bg-white/5 text-gray-400 dark:text-gray-500 rounded-2xl flex items-center justify-center mx-auto mb-8">
                     <IconQrcode size={40} />
                   </div>
                   <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">GCash</h3>
                   <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
-                    Scan the QR code or send directly to our official GCash account.
+                    Online QR donations via GCash will be available soon. Please use Bank Transfer in the meantime.
                   </p>
                 </div>
                 <div className="mt-auto pt-4 flex flex-col gap-4">
-                  {showGcash && (
-                    <div 
-                      onClick={() => setShowQrModal(true)}
-                      className="bg-gray-50 dark:bg-neutral-900 aspect-square rounded-2xl flex items-center justify-center text-gray-400 border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] transition-all cursor-pointer relative group overflow-hidden"
-                    >
-                      {/* Temporary placeholder image, waiting for official QR code */}
-                      <img loading="lazy" src="/images/general/outside.png" alt="GCash QR Code" className="w-full h-full object-cover" />
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <IconZoomIn size={48} className="text-white drop-shadow-md" />
-                      </div>
-                    </div>
-                  )}
                   <button 
-                    onClick={() => setShowGcash(!showGcash)}
-                    className="w-full py-4 rounded-xl font-bold tracking-wider uppercase text-sm border-2 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-brand-yellow hover:text-brand-yellow transition-all"
+                    disabled
+                    aria-disabled="true"
+                    className="w-full py-4 rounded-xl font-bold tracking-wider uppercase text-sm border-2 border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-600 bg-gray-50 dark:bg-neutral-900/50 cursor-not-allowed select-none"
                   >
-                    {showGcash ? 'Hide QR Code' : 'View QR Code'}
+                    Coming Soon
                   </button>
                 </div>
               </div>

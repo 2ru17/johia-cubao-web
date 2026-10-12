@@ -43,6 +43,15 @@ export default function TermsOfService() {
               You may share our content for personal, non-commercial, and ministry purposes with proper attribution. Reproduction for commercial use requires written permission.
             </p>
 
+            <h2>Artificial Intelligence (AI) & Creative Usage Policy</h2>
+            <p>
+              To uphold integrity and spiritual authenticity across our digital platforms:
+            </p>
+            <ul>
+              <li><strong>Visual Design Exclusivity:</strong> Generative AI technologies are employed strictly for visual styling, digital textures, and atmospheric abstract illustrations (e.g., thumbnail backgrounds for devotional and sermon posts).</li>
+              <li><strong>Human-Authored Spiritual Content:</strong> We strictly prohibit AI generation of pastoral sermons, devotionals, theology, ministry teachings, or prayers. Every message published is prayerfully authored and reviewed by human pastoral leadership.</li>
+            </ul>
+
             <h2>User-Submitted Content</h2>
             <p>
               When you submit content through our contact form or any other means, you grant JOHIA Cubao the right to use, store, and respond to that content as necessary for church operations.

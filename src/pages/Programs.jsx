@@ -30,8 +30,8 @@ export default function Programs() {
           id="programs-sunday-service"
           title="Sunday Worship Service"
           description={<p>Experience the presence of God through passionate worship and transformative preaching. Every Sunday at 10AM.</p>}
-          imageSrc="/images/general/CoreValues.png"
-          imageAlt="Sunday Worship Service"
+          imageSrc="/images/gallery/worship-hands-raised.jpg"
+          imageAlt="Sunday Worship Service - Congregation in Praise and Worship"
           reverse={false}
           texture="dark"
         />
@@ -40,8 +40,8 @@ export default function Programs() {
           id="programs-soc"
           title="School of Champions (SOC)"
           description={<p>A structured discipleship track designed to equip believers with foundational truths, leadership skills, and biblical doctrines to fulfill their God-given destiny. From discovering your spiritual gifts to leading others, SOC is your path to spiritual maturity.</p>}
-          imageSrc="/images/general/retreat-pic.jpg"
-          imageAlt="School of Champions"
+          imageSrc="/images/programs/programs-soc-graduates.jpg"
+          imageAlt="School of Champions Graduation"
           reverse={true}
           texture="light"
           className="text-text-dark dark:text-text-light" // Ensure body text is dark on light texture
@@ -61,8 +61,8 @@ export default function Programs() {
           id="programs-outreach"
           title="Community Outreach"
           description={<p>Faith in action. Our community outreach programs are dedicated to be the hands and feet of Jesus. We provide help, resources and unyielding hope to the city and the nation.</p>}
-          imageSrc="/images/ministries/sundayschl.jpg"
-          imageAlt="Community Outreach"
+          imageSrc="/images/placeholder-team.jpg"
+          imageAlt="Community Outreach and Fellowship"
           reverse={true}
           texture="light"
           className="text-text-dark dark:text-text-light"
@@ -72,8 +72,8 @@ export default function Programs() {
           id="programs-retreats"
           title="Life Retreats"
           description={<p>Encounter God without distractions. Life retreats are immersive weekend experiences in spiritual breakthroughs, deep fellowship and Holy Spirit filled encounter with Jesus.</p>}
-          imageSrc="/images/general/retreat-pic.jpg"
-          imageAlt="Life Retreats"
+          imageSrc="/images/programs/programs-retreat-water-baptism.jpg"
+          imageAlt="Life Retreat Water Baptism"
           reverse={false}
           texture="dark"
         />
@@ -82,8 +82,8 @@ export default function Programs() {
           id="programs-johia-brews"
           title="JOHIA Brews"
           description={<p>A hub for connection, fellowship and discipleship. Grab a cup of our fresh brew, meet new friends and enjoy heartfelt conversations in a welcoming, faith filled atmosphere. Every Sunday at the JOHIA Center.</p>}
-          imageSrc="/images/general/CoreValues.png"
-          imageAlt="JOHIA Brews"
+          imageSrc="/images/ministries/ministry-brews-food-service.jpg"
+          imageAlt="JOHIA Brews Fellowship and Food Service"
           reverse={true}
           texture="light"
           className="text-text-dark dark:text-text-light"

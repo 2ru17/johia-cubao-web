@@ -28,26 +28,28 @@ const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
 import UserPreferences from './components/ui/UserPreferences';
 import SiteMetrics from './components/seo/SiteMetrics';
+import ErrorBoundary from './components/ui/ErrorBoundary';
 
 // Extract routes to use useLocation hook
 function AnimatedRoutes() {
   const location = useLocation();
   
   return (
-    <AnimatePresence 
-      mode="wait"
-      onExitComplete={() => {
-        if (location.hash) {
-          setTimeout(() => {
-            const element = document.getElementById(location.hash.replace('#', ''));
-            if (element) element.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
-        } else {
-          window.scrollTo(0, 0);
-        }
-      }}
-    >
-      <Suspense fallback={<PageSkeleton />}>
+    <ErrorBoundary>
+      <AnimatePresence 
+        mode="wait"
+        onExitComplete={() => {
+          if (location.hash) {
+            setTimeout(() => {
+              const element = document.getElementById(location.hash.replace('#', ''));
+              if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          } else {
+            window.scrollTo(0, 0);
+          }
+        }}
+      >
+        <Suspense fallback={<PageSkeleton />}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
@@ -58,6 +60,7 @@ function AnimatedRoutes() {
           <Route path="/media" element={<PageTransition><Media /></PageTransition>} />
           <Route path="/posts" element={<PageTransition><Posts /></PageTransition>} />
           <Route path="/posts/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
+          <Route path="/post/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
           <Route path="/journals" element={<PageTransition><Journals /></PageTransition>} />
           <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
           <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
@@ -65,6 +68,7 @@ function AnimatedRoutes() {
         </Routes>
       </Suspense>
     </AnimatePresence>
+  </ErrorBoundary>
   );
 }
 

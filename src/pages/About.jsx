@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useInView } from 'framer-motion';
+import React from 'react';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import ZLayoutSection from '../components/ui/ZLayoutSection';
+import ParallaxDivider from '../components/ui/ParallaxDivider';
 import Button from '../components/ui/Button';
 
 const pastors = [
@@ -12,90 +12,22 @@ const pastors = [
   { name: "Ptr. Dek", image: "/images/pastors/docdek.jpg", bio: "Short write-up intro for Ptr. Dek will be placed here.", position: "object-top" },
   { name: "Ptr. Ken", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Ken will be placed here.", position: "object-top" },
   { name: "Ptr. Marc", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here.", position: "object-top" },
-  { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-center" },
+  { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-top" },
+];
+
+const pastoralCouncil = [
+  { name: "Bishop Tanny", role: "Bishop / SEC President", image: "/images/placeholder-portrait.jpg" },
+  { name: "Ptr. Glen & Wendy Gazzingan", role: "International Missions", image: "/images/placeholder-portrait.jpg" },
+  { name: "Ptr. Charlie", role: "Visiting Pastor", image: "/images/placeholder-portrait.jpg" },
 ];
 
 const admins = [
-  { name: "Admin 1", role: "Church Administrator", image: "/images/pastors/ptr jun.jpg" },
-  { name: "Admin 2", role: "Finance Officer", image: "/images/pastors/Jess.jpg" },
-  { name: "Admin 3", role: "Operations Manager", image: "/images/pastors/docdek.jpg" },
-  { name: "Admin 4", role: "Secretariat", image: "/images/pastors/ken.jpg" },
-  { name: "Admin 5", role: "Communications", image: "/images/pastors/marc.jpg" },
+  { name: "Jeanette Melchor", role: "Church Administrator", image: "/images/admins/nay-jeannette.jpg" },
+  { name: "Tet Villalonga", role: "Finance Auditor", image: "/images/admins/tita-tet.jpg" },
+  { name: "Cristy Satuna", role: "Finance Officer", image: "/images/admins/tita-cristy.jpg" },
+  { name: "Jhay Hernandez", role: "Facilities & Operations", image: "/images/admins/kuya-jhay.jpg" },
+  { name: "Marissa Jaylo", role: "Facilities & Operations", image: "/images/admins/ate-marissa.jpg" },
 ];
-
-// Animated counter hook
-function useAnimatedCounter(target, duration = 2000, shouldAnimate) {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    if (!shouldAnimate) return;
-    let startTime = null;
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      // Ease out cubic for a satisfying deceleration
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [target, duration, shouldAnimate]);
-  
-  return count;
-}
-
-const stats = [
-  { value: 30, suffix: '+', label: 'Years of Ministry' },
-  { value: 6, suffix: '', label: 'Pastors & Leaders' },
-  { value: 10, suffix: '+', label: 'Active Ministries' },
-  { value: 1, suffix: '', label: 'United Family' },
-];
-
-function StatCountersSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
-  return (
-    <section ref={ref} className="bg-background-dark py-24 border-t border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-aurora opacity-20 z-0"></div>
-      <div className="container mx-auto px-6 relative z-10">
-        <AnimatedSection variant="rise">
-          <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-text-light text-center mb-16 tracking-tight">
-            JOHIA by the Numbers
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, i) => (
-              <StatCard key={stat.label} stat={stat} isInView={isInView} delay={i * 200} />
-            ))}
-          </div>
-        </AnimatedSection>
-      </div>
-    </section>
-  );
-}
-
-function StatCard({ stat, isInView, delay }) {
-  const [shouldAnimate, setShouldAnimate] = useState(false);
-  const count = useAnimatedCounter(stat.value, 2000, shouldAnimate);
-  
-  useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setShouldAnimate(true), delay);
-      return () => clearTimeout(timer);
-    }
-  }, [isInView, delay]);
-  
-  return (
-    <div className="text-center group">
-      <div className="text-5xl md:text-7xl font-extrabold font-heading text-brand-yellow mb-3 tabular-nums">
-        {shouldAnimate ? count : 0}{stat.suffix}
-      </div>
-      <p className="text-gray-400 font-sans text-sm md:text-base uppercase tracking-wider font-semibold">
-        {stat.label}
-      </p>
-    </div>
-  );
-}
 
 export default function About() {
   return (
@@ -151,18 +83,28 @@ export default function About() {
         </div>
       </section>
 
-      {/* JOHIA by the Numbers */}
-      <StatCountersSection />
 
       {/* Meet Our Pastors */}
-      <section id="about-us-meet-pastor-header" className="bg-background-dark py-24 border-t border-white/5 relative z-10">
-        <div className="container mx-auto px-6 text-center mb-10">
+      <section id="about-us-meet-pastor-header" className="bg-background-dark pt-24 border-t border-white/5 relative z-10">
+        <div className="container mx-auto px-6 text-center mb-16">
           <AnimatedSection>
             <h2 className="text-4xl md:text-6xl font-extrabold font-heading text-text-light mb-4 drop-shadow-md">Meet Our Pastors</h2>
             <p className="text-gray-400 font-sans text-xl max-w-2xl mx-auto">
               Dedicated servant leaders guiding our community with biblical truth and care.
             </p>
           </AnimatedSection>
+        </div>
+
+        {/* Full-bleed Edge-to-Edge Pastoral Assembly Banner */}
+        <div className="w-full mb-16">
+          <ParallaxDivider 
+            imageSrc="/images/leadership/pastors-assembly-stage.jpg" 
+            alt="JOHIA Pastoral Assembly" 
+            height="h-[500px] md:h-[620px]" 
+            imagePosition="center 42%" 
+            imageClassName="grayscale-0"
+            overlayClassName="bg-black/20"
+          />
         </div>
 
         <div className="flex flex-col">
@@ -180,6 +122,42 @@ export default function About() {
               className="min-h-[50vh] py-16"
             />
           ))}
+        </div>
+
+        {/* Pastoral Council & Extended Ministries - 3 Cards */}
+        <div className="container mx-auto px-6 pt-20 pb-24 border-t border-white/5">
+          <AnimatedSection className="text-center mb-16">
+            <h3 className="text-3xl md:text-5xl font-extrabold font-heading text-text-light mb-4 drop-shadow-md">
+              Pastoral Council & Missions
+            </h3>
+            <p className="text-gray-400 font-sans text-xl max-w-2xl mx-auto">
+              Presiding overseers, international missionaries, and visiting ministers serving the wider body of Christ.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+            {pastoralCouncil.map((pastor, index) => (
+              <AnimatedSection key={pastor.name} variant="rise" delay={index * 0.15}>
+                <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg border border-white/10 bg-[#1A1A1A] h-full transition-all duration-500 hover:border-brand-yellow/50 hover:shadow-[0_0_30px_rgba(251,176,59,0.2)]">
+                  <img 
+                    loading="lazy" 
+                    src={pastor.image} 
+                    alt={pastor.name} 
+                    className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
+                    <h4 className="text-2xl font-bold font-heading text-brand-yellow mb-1">
+                      {pastor.name}
+                    </h4>
+                    <p className="text-white/80 font-sans text-base font-medium">
+                      {pastor.role}
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 

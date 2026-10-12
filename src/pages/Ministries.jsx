@@ -14,44 +14,37 @@ const lifeMinistries = [
     name: "Couples", 
     desc: "Strengthening marriages and families through Christ-centered guidance.", 
     color: "#ff0000", 
-    image: "/images/general/CoreValues.png",
+    image: "/images/ministries/ministry-couples-group.jpg",
     gallery: [
-      "/images/general/CoreValues.png",
-      "/images/general/retreat-pic.jpg",
-      "/images/ministries/creatives.jpg"
+      "/images/ministries/ministry-couples-group.jpg",
+      "/images/ministries/ministry-couples-celebration.jpg",
+      "/images/ministries/ministry-couples-embrace.jpg",
+      "/images/ministries/ministry-couples-game.jpg"
     ]
   },
   { 
     name: "Wildfire (Youth)", 
     desc: "Empowering the next generation to live boldly for Jesus.", 
     color: "#003314", 
-    image: "/images/general/retreat-pic.jpg",
+    image: "/images/ministries/ministry-wildfire-youth.jpg",
     gallery: [
-      "/images/general/retreat-pic.jpg",
-      "/images/ministries/worship.jpg",
-      "/images/general/outside.png"
+      "/images/ministries/ministry-wildfire-youth.jpg",
+      "/images/ministries/ministry-wildfire-dance.jpg",
+      "/images/ministries/ministry-wildfire-drummer.jpg",
+      "/images/ministries/ministry-wildfire-guitarist.jpg",
+      "/images/ministries/ministry-wildfire-recital.jpg"
     ]
   },
   { 
     name: "LinC (Young Adults)", 
     desc: "Life in Christ - Navigating career and faith together.", 
     color: "#E5B53B", 
-    image: "/images/general/outside.png",
+    image: "/images/ministries/ministry-linc-logo.png",
     gallery: [
-      "/images/ministries/sundayschl.jpg",
-      "/images/ministries/tech.jpg",
-      "/images/general/retreat-pic.jpg"
-    ]
-  },
-  { 
-    name: "YaH (Seniors)", 
-    desc: "Young at Heart - Wisdom, fellowship, and continued purpose.", 
-    color: "#008080", 
-    image: "/images/general/outside.png",
-    gallery: [
-      "/images/general/outside.png",
-      "/images/ministries/prayer.jpg",
-      "/images/general/CoreValues.png"
+      "/images/ministries/ministry-linc-logo.png",
+      "/images/ministries/ministry-linc-meeting-1.jpg",
+      "/images/ministries/ministry-linc-meeting-2.jpg",
+      "/images/ministries/ministry-linc-meeting-3.jpg"
     ]
   }
 ];
@@ -93,43 +86,48 @@ export default function Ministries() {
             </AnimatedSection>
 
             <AnimatedSection variant="fade" className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16 w-full">
-              {lifeMinistries.map((group) => (
-                <TiltCard key={group.name} className="w-full h-full">
-                  <div 
-                    className="group relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] h-full bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800"
-                  >
-                    {/* Top: Image Section (Clickable for Gallery) */}
+              {lifeMinistries.map((group, idx) => (
+                <div 
+                  key={group.name} 
+                  className={`w-full h-full ${idx === 2 ? 'md:col-span-2 md:max-w-[480px] md:mx-auto' : ''}`}
+                >
+                  <TiltCard className="w-full h-full">
                     <div 
-                      className="relative w-full h-56 md:h-64 overflow-hidden bg-gray-100 dark:bg-gray-800 cursor-pointer"
-                      onClick={() => setActiveGallery(group)}
+                      className="group relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] h-full bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800"
                     >
-                      <motion.img 
-                        src={group.image} 
-                        alt={group.name} 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110" 
-                      />
+                      {/* Top: Image Section (Clickable for Gallery) */}
+                      <div 
+                        className="relative w-full h-56 md:h-64 overflow-hidden bg-gray-100 dark:bg-gray-800 cursor-pointer"
+                        onClick={() => setActiveGallery(group)}
+                      >
+                        <motion.img 
+                          src={group.image} 
+                          alt={`${group.name} Ministry - JOHIA Cubao`} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110" 
+                        />
+                        
+                        {/* View Gallery Overlay Hint */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                          <span className="bg-white/90 text-black px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-2">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            View Gallery
+                          </span>
+                        </div>
+                      </div>
                       
-                      {/* View Gallery Overlay Hint */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                        <span className="bg-white/90 text-black px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-2">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                          View Gallery
-                        </span>
+                      {/* Bottom: Text Section */}
+                      <div className="flex flex-col flex-grow p-6 md:p-8 bg-white dark:bg-neutral-900 relative z-10 border-t border-gray-100 dark:border-neutral-800">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="w-4 h-4 rounded-full shadow-sm" style={{ backgroundColor: group.color }}></span>
+                          <h3 className="text-2xl md:text-3xl font-extrabold font-heading text-text-dark dark:text-white">
+                            {group.name}
+                          </h3>
+                        </div>
+                        <p className="text-gray-700 dark:text-gray-300 font-sans text-base md:text-lg font-medium leading-relaxed">{group.desc}</p>
                       </div>
                     </div>
-                    
-                    {/* Bottom: Text Section */}
-                    <div className="flex flex-col flex-grow p-6 md:p-8 bg-white dark:bg-neutral-900 relative z-10 border-t border-gray-100 dark:border-neutral-800">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-4 h-4 rounded-full shadow-sm" style={{ backgroundColor: group.color }}></span>
-                        <h3 className="text-2xl md:text-3xl font-extrabold font-heading text-text-dark dark:text-white">
-                          {group.name}
-                        </h3>
-                      </div>
-                      <p className="text-gray-700 dark:text-gray-300 font-sans text-base md:text-lg font-medium leading-relaxed">{group.desc}</p>
-                    </div>
-                  </div>
-                </TiltCard>
+                  </TiltCard>
+                </div>
               ))}
             </AnimatedSection>
 
@@ -169,10 +167,10 @@ export default function Ministries() {
           title="Worship & Tech Arts"
           mainDescription="Lead the congregation in powerful encounters with God through music, media, and technical excellence."
           teams={[
-            { name: "Worship Team", desc: "Musicians and vocalists leading the congregation in praise.", image: "/images/ministries/worship.jpg", color: "#550000" },
-            { name: "Technicals", desc: "Sound engineers, lighting, and stage setup ensuring a distraction-free environment.", image: "/images/ministries/tech.jpg", color: "#434343" },
-            { name: "Creatives", desc: "Media, livestream, photography, and social media capturing the life of the church.", image: "/images/ministries/creatives.jpg", color: "#ff9900" },
-            { name: "Engineering", desc: "Facilities management, stage construction, and venue maintenance.", image: "/images/placeholder-ministry.png", color: "#305cde" }
+            { name: "Worship Team", desc: "Musicians and vocalists leading the congregation in praise.", image: "/images/ministries/ministry-worship-team.jpg", color: "#550000" },
+            { name: "Technicals", desc: "Sound engineers, lighting, and stage setup ensuring a distraction-free environment.", image: "/images/ministries/ministry-technicals-team.jpg", color: "#434343" },
+            { name: "Creatives", desc: "Media, livestream, photography, and social media capturing the life of the church.", image: "/images/placeholder-team.jpg", color: "#ff9900" },
+            { name: "Engineering", desc: "Facilities management, stage construction, and venue maintenance.", image: "/images/ministries/ministry-engineering-team.jpg", color: "#305cde" }
           ]}
           reverse={false}
           texture="light"
@@ -184,10 +182,10 @@ export default function Ministries() {
           title="Hospitality & Care"
           mainDescription="Be the welcoming hands and feet of Jesus. Ensure every person who walks through our doors feels at home and safe."
           teams={[
-            { name: "Consolidation", desc: "Welcoming guests, helping others in finding their way to a new church family.", image: "/images/general/outside.png", color: "#FBB03B" },
-            { name: "Marshalls", desc: "Ensuring safety, traffic control and a healthy worship environment.", image: "/images/placeholder-ministry.png", color: "#01153e" },
-            { name: "Brews", desc: "In-house baristas to foster fellowship before and after service.", image: "/images/general/retreat-pic.jpg", color: "#6f4e37" },
-            { name: "Ushers", desc: "Deliver a welcoming atmosphere, managing offerings and providing immediate help to worshippers.", image: "/images/placeholder-ministry.png", color: "#fd3db5" }
+            { name: "Consolidation", desc: "Welcoming guests, helping others in finding their way to a new church family.", image: "/images/placeholder-team.jpg", color: "#FBB03B" },
+            { name: "Marshalls", desc: "Ensuring safety, traffic control and a healthy worship environment.", image: "/images/placeholder-team.jpg", color: "#01153e" },
+            { name: "Brews", desc: "In-house baristas to foster fellowship before and after service.", image: "/images/ministries/ministry-brews-team.jpg", color: "#6f4e37" },
+            { name: "Ushers", desc: "Deliver a welcoming atmosphere, managing offerings and providing immediate help to worshippers.", image: "/images/ministries/ministry-ushers-team.jpg", color: "#fd3db5" }
           ]}
           reverse={true}
           texture="light"
@@ -200,7 +198,7 @@ export default function Ministries() {
           mainDescription="Build the spiritual backbone of our church by investing in the next generation and waging war in the spiritual realm."
           teams={[
             { name: "Sunday School", desc: "Translating the Sunday's preaching into a language that our kids will understand.", image: "/images/ministries/sundayschl.jpg", color: "#6633cc" },
-            { name: "Prayer Warriors", desc: "Dedicated intercessors winning wars for our community and our nation.", image: "/images/ministries/prayer.jpg", color: "#ffd3ac" }
+            { name: "Prayer Warriors", desc: "Dedicated intercessors winning wars for our community and our nation.", image: "/images/ministries/ministry-prayer-warriors-team.jpg", color: "#ffd3ac" }
           ]}
           reverse={false}
           texture="light"
