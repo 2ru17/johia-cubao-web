@@ -61,8 +61,8 @@ export default function Programs() {
           id="programs-outreach"
           title="Community Outreach"
           description={<p>Faith in action. Our community outreach programs are dedicated to be the hands and feet of Jesus. We provide help, resources and unyielding hope to the city and the nation.</p>}
-          imageSrc="/images/placeholder-team.jpg"
-          imageAlt="Community Outreach and Fellowship"
+          imageSrc="/images/programs/programs-community-outreach.jpg"
+          imageAlt="JOHIA Cubao Community Outreach and Ministry"
           reverse={true}
           texture="light"
           className="text-text-dark dark:text-text-light"

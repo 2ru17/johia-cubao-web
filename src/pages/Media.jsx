@@ -22,6 +22,10 @@ const communityPhotos = [
   { src: "/images/gallery/preaching-pastor-docdek.jpg", category: "Sundays", alt: "Pastor Docdek Sharing God's Word" },
 
   // Community
+  { src: "/images/community/community-outreach-bjmp-group.jpg", category: "Community", alt: "JOHIA Cubao BJMP Outreach Ministry Team" },
+  { src: "/images/community/community-outreach-bjmp-fellowship.jpg", category: "Community", alt: "BJMP Outreach Fellowship and Encouragement" },
+  { src: "/images/community/community-outreach-bjmp-worship.jpg", category: "Community", alt: "Outreach Ministry Praise and Worship Gathering" },
+  { src: "/images/community/community-outreach-bjmp-team.jpg", category: "Community", alt: "JOHIA Outreach Ministry Volunteers and Leaders" },
   { src: "/images/community/church-family-linggo-ng-wika-2.jpg", category: "Community", alt: "JOHIA Church Family Linggo ng Wika Celebration" },
   { src: "/images/leadership/leaders-council-stage.jpg", category: "Community", alt: "JOHIA Church Leadership Council" },
   { src: "/images/leadership/leaders-council-wacky.jpg", category: "Community", alt: "Leadership Team Fellowship Gathering" },
