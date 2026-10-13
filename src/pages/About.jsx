@@ -17,7 +17,7 @@ const pastors = [
 
 const pastoralCouncil = [
   { name: "Bishop Tanny", role: "Bishop / SEC President", image: "/images/placeholder-portrait.jpg" },
-  { name: "Ptr. Glen & Wendy Gazzingan", role: "International Missions", image: "/images/placeholder-portrait.jpg" },
+  { name: "Ptr. Glen Mabazza Gazzingan & Wendy Umali Gazzingan", role: "International Missions", image: "/images/placeholder-portrait.jpg" },
   { name: "Ptr. Charlie", role: "Visiting Pastor", image: "/images/placeholder-portrait.jpg" },
 ];
 
@@ -147,7 +147,7 @@ export default function About() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
-                    <h4 className="text-2xl font-bold font-heading text-brand-yellow mb-1">
+                    <h4 className="text-xl sm:text-2xl font-bold font-heading text-brand-yellow mb-1 leading-snug">
                       {pastor.name}
                     </h4>
                     <p className="text-white/80 font-sans text-base font-medium">
