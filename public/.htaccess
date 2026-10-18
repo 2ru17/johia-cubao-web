@@ -1,3 +1,22 @@
+<IfModule mod_headers.c>
+  # Clickjacking Protection
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # MIME-type Sniffing Protection
+  Header always set X-Content-Type-Options "nosniff"
+  # Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Permissions Policy
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  # Cross-Origin Policies
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+</IfModule>
+
+# Block access to hidden files and sensitive dotfiles
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /

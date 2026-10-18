@@ -9,15 +9,25 @@ import { IconMapPin, IconClock, IconPhone, IconBrandFacebook } from '@tabler/ico
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [botcheck, setBotcheck] = useState(false);
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Honeypot triggered: simulate success to thwart bots without consuming API quota
+    if (botcheck) {
+      setStatus({ type: 'success', message: 'Message sent successfully! We will get back to you soon.' });
+      setFormData({ name: '', email: '', message: '' });
+      return;
+    }
+
     setIsSubmitting(true);
     setStatus(null);
     
     try {
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "e9ab44a9-991f-4643-b646-167c3c6075a8";
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -25,10 +35,10 @@ export default function Contact() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "e9ab44a9-991f-4643-b646-167c3c6075a8",
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+          access_key: accessKey,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
           subject: "New Contact Form Submission - JOHIA Cubao Website"
         }),
       });
@@ -117,7 +127,7 @@ export default function Contact() {
                   <div className="flex flex-col justify-center pt-1">
                     <h4 className="font-heading font-extrabold text-xl mb-1">Message Us</h4>
                     <p className="text-gray-600 dark:text-gray-300 font-sans text-lg">
-                      <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="hover:text-[#1877F2] hover:underline transition-colors">
+                      <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noopener noreferrer" className="hover:text-[#1877F2] hover:underline transition-colors">
                         JOHIA Cubao Facebook Page
                       </a>
                     </p>
@@ -141,12 +151,26 @@ export default function Contact() {
               <h3 className="text-3xl font-extrabold font-heading text-text-dark dark:text-text-light mb-10 tracking-tight">Get in Touch</h3>
               
               <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Honeypot field for anti-bot protection */}
+                <input 
+                  type="checkbox" 
+                  name="botcheck" 
+                  className="hidden" 
+                  style={{ display: 'none' }} 
+                  checked={botcheck} 
+                  onChange={(e) => setBotcheck(e.target.checked)} 
+                  tabIndex="-1" 
+                  autoComplete="off" 
+                  aria-hidden="true"
+                />
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-bold text-gray-800 dark:text-gray-200 mb-3 font-sans uppercase tracking-wider">Full Name *</label>
                   <input 
                     type="text" 
                     id="name" 
                     required 
+                    maxLength={100}
                     className="w-full px-6 py-4 rounded-xl border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 dark:bg-white/5 text-text-dark dark:text-text-light text-lg"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -160,6 +184,7 @@ export default function Contact() {
                     type="email" 
                     id="email" 
                     required 
+                    maxLength={100}
                     className="w-full px-6 py-4 rounded-xl border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 dark:bg-white/5 text-text-dark dark:text-text-light text-lg"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -173,6 +198,7 @@ export default function Contact() {
                     id="message" 
                     required 
                     rows="6"
+                    maxLength={2000}
                     className="w-full px-6 py-4 rounded-xl border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all bg-gray-50 dark:bg-white/5 text-text-dark dark:text-text-light text-lg resize-none"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}

@@ -53,13 +53,13 @@ export default function ComingSoon() {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="flex gap-6 items-center justify-center"
         >
-          <a href="https://www.facebook.com/johiacubao" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 hover:text-[#1877F2] hover:border-[#1877F2] hover:shadow-[0_0_20px_rgba(24,119,242,0.3)] transition-all duration-300 transform hover:-translate-y-1">
+          <a href="https://www.facebook.com/johiacubao" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 hover:text-[#1877F2] hover:border-[#1877F2] hover:shadow-[0_0_20px_rgba(24,119,242,0.3)] transition-all duration-300 transform hover:-translate-y-1">
             <IconBrandFacebook size={28} />
           </a>
-          <a href="https://www.instagram.com/johiacubao/" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 hover:text-[#E4405F] hover:border-[#E4405F] hover:shadow-[0_0_20px_rgba(228,64,95,0.3)] transition-all duration-300 transform hover:-translate-y-1">
+          <a href="https://www.instagram.com/johiacubao/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 hover:text-[#E4405F] hover:border-[#E4405F] hover:shadow-[0_0_20px_rgba(228,64,95,0.3)] transition-all duration-300 transform hover:-translate-y-1">
             <IconBrandInstagram size={28} />
           </a>
-          <a href="https://www.youtube.com/@johiacubao" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 hover:text-[#FF0000] hover:border-[#FF0000] hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 transform hover:-translate-y-1">
+          <a href="https://www.youtube.com/@johiacubao" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 hover:text-[#FF0000] hover:border-[#FF0000] hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 transform hover:-translate-y-1">
             <IconBrandYoutube size={28} />
           </a>
         </motion.div>

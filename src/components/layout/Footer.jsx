@@ -27,13 +27,13 @@ export default function Footer() {
             </p>
             
             <div className="flex space-x-6">
-              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="text-[#1877F2]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Facebook">
+              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noopener noreferrer" className="text-[#1877F2]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Facebook">
                 <IconBrandFacebook size={28} />
               </a>
-              <a href="https://www.instagram.com/johiacubao" target="_blank" rel="noreferrer" className="text-[#E4405F]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Instagram">
+              <a href="https://www.instagram.com/johiacubao" target="_blank" rel="noopener noreferrer" className="text-[#E4405F]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="Instagram">
                 <IconBrandInstagram size={28} />
               </a>
-              <a href="https://youtube.com/@JOHIA_Cubao" target="_blank" rel="noreferrer" className="text-[#FF0000]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="YouTube">
+              <a href="https://youtube.com/@JOHIA_Cubao" target="_blank" rel="noopener noreferrer" className="text-[#FF0000]  hover:-translate-y-1 transition-all duration-300 drop-shadow-md" aria-label="YouTube">
                 <IconBrandYoutube size={28} />
               </a>
             </div>

@@ -176,7 +176,7 @@ export default function Media() {
             {/* First Row: 3 Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 max-w-5xl mx-auto">
               {/* Facebook Card - Main */}
-              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#1877F2]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+              <a href="https://facebook.com/johiacubaoph" target="_blank" rel="noopener noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#1877F2]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
                 <div className="mx-auto w-16 h-16 bg-[#1877F2]/10 rounded-full flex items-center justify-center text-[#1877F2] mb-4 group-hover:bg-[#1877F2] group-hover:text-white transition-colors duration-300">
                   <IconBrandFacebook size={32} />
                 </div>
@@ -186,7 +186,7 @@ export default function Media() {
               </a>
 
               {/* Instagram Card */}
-              <a href="https://www.instagram.com/johiacubao" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#E4405F]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+              <a href="https://www.instagram.com/johiacubao" target="_blank" rel="noopener noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#E4405F]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
                 <div className="mx-auto w-16 h-16 bg-[#E4405F]/10 rounded-full flex items-center justify-center text-[#E4405F] mb-4 group-hover:bg-[#E4405F] group-hover:text-white transition-colors duration-300">
                   <IconBrandInstagram size={32} />
                 </div>
@@ -196,7 +196,7 @@ export default function Media() {
               </a>
 
               {/* YouTube Card */}
-              <a href="https://youtube.com/@JOHIA_Cubao" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#FF0000]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+              <a href="https://youtube.com/@JOHIA_Cubao" target="_blank" rel="noopener noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#FF0000]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
                 <div className="mx-auto w-16 h-16 bg-[#FF0000]/10 rounded-full flex items-center justify-center text-[#FF0000] mb-4 group-hover:bg-[#FF0000] group-hover:text-white transition-colors duration-300">
                   <IconBrandYoutube size={32} />
                 </div>
@@ -209,7 +209,7 @@ export default function Media() {
             {/* Second Row: 2 Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
               {/* Wildfire FB Card */}
-              <a href="https://www.facebook.com/WildfireJOHIA" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#003314]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+              <a href="https://www.facebook.com/WildfireJOHIA" target="_blank" rel="noopener noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#003314]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
                 <div className="mx-auto w-16 h-16 bg-[#003314]/10 rounded-full flex items-center justify-center text-[#003314] mb-4 group-hover:bg-[#003314] group-hover:text-white transition-colors duration-300">
                   <IconBrandFacebook size={32} />
                 </div>
@@ -219,7 +219,7 @@ export default function Media() {
               </a>
 
               {/* LinC FB Card */}
-              <a href="https://www.facebook.com/linc.johia" target="_blank" rel="noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#E5B53B]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
+              <a href="https://www.facebook.com/linc.johia" target="_blank" rel="noopener noreferrer" className="group block bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-3xl p-6 hover:shadow-2xl hover:border-[#E5B53B]/50 transition-all duration-300 transform hover:-translate-y-2 text-center">
                 <div className="mx-auto w-16 h-16 bg-[#E5B53B]/10 rounded-full flex items-center justify-center text-[#E5B53B] mb-4 group-hover:bg-[#E5B53B] group-hover:text-white transition-colors duration-300">
                   <IconBrandFacebook size={32} />
                 </div>

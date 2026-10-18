@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
 
             <h2>Third-Party Services</h2>
             <ul>
-              <li><strong>Google Analytics:</strong> Traffic measurement and analysis. (<a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>)</li>
+              <li><strong>Google Analytics:</strong> Traffic measurement and analysis. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>)</li>
               <li><strong>YouTube:</strong> Sermon videos on our Media page are served by YouTube and subject to Google Privacy Policy.</li>
               <li><strong>Hostinger:</strong> Our hosting infrastructure may process server-level data per their own privacy policy.</li>
             </ul>
