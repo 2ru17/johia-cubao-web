@@ -169,7 +169,7 @@ export default function Ministries() {
           teams={[
             { name: "Worship Team", desc: "Musicians and vocalists leading the congregation in praise.", image: "/images/ministries/ministry-worship-team.jpg", color: "#550000" },
             { name: "Technicals", desc: "Sound engineers, lighting, and stage setup ensuring a distraction-free environment.", image: "/images/ministries/ministry-technicals-team.jpg", color: "#434343" },
-            { name: "Creatives", desc: "Media, livestream, photography, and social media capturing the life of the church.", image: "/images/placeholder-team.jpg", color: "#ff9900" },
+            { name: "Creatives", desc: "Media, livestream, photography, and social media capturing the life of the church.", image: "/images/ministries/ministry-creatives-card.jpg", color: "#ff9900" },
             { name: "Engineering", desc: "Facilities management, stage construction, and venue maintenance.", image: "/images/ministries/ministry-engineering-team.jpg", color: "#305cde" }
           ]}
           reverse={false}
@@ -182,8 +182,8 @@ export default function Ministries() {
           title="Hospitality & Care"
           mainDescription="Be the welcoming hands and feet of Jesus. Ensure every person who walks through our doors feels at home and safe."
           teams={[
-            { name: "Consolidation", desc: "Welcoming guests, helping others in finding their way to a new church family.", image: "/images/placeholder-team.jpg", color: "#FBB03B" },
-            { name: "Marshalls", desc: "Ensuring safety, traffic control and a healthy worship environment.", image: "/images/placeholder-team.jpg", color: "#01153e" },
+            { name: "Consolidation", desc: "Welcoming guests, helping others in finding their way to a new church family.", image: "/images/ministries/ministry-consolidation-card.jpg", color: "#FBB03B" },
+            { name: "Marshalls", desc: "Ensuring safety, traffic control and a healthy worship environment.", image: "/images/ministries/ministry-marshalls-card.jpg", color: "#01153e" },
             { name: "Brews", desc: "In-house baristas to foster fellowship before and after service.", image: "/images/ministries/ministry-brews-team.jpg", color: "#6f4e37" },
             { name: "Ushers", desc: "Deliver a welcoming atmosphere, managing offerings and providing immediate help to worshippers.", image: "/images/ministries/ministry-ushers-team.jpg", color: "#fd3db5" }
           ]}
