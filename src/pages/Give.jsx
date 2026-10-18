@@ -4,19 +4,73 @@ import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import TiltCard from '../components/ui/TiltCard';
-import { IconBuildingBank, IconQrcode, IconHeartHandshake, IconZoomIn, IconX, IconDownload, IconCopy, IconCheck } from '@tabler/icons-react';
+import { 
+  IconBuildingBank, 
+  IconSchool, 
+  IconCurrencyDollar, 
+  IconCoins, 
+  IconCopy, 
+  IconCheck,
+  IconX,
+  IconDownload
+} from '@tabler/icons-react';
 
 export default function Give() {
-  const [showGcash, setShowGcash] = useState(false);
-  const [showBank, setShowBank] = useState(false);
+  const [copiedAccount, setCopiedAccount] = useState(null);
   const [showQrModal, setShowQrModal] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [expandedCards, setExpandedCards] = useState({});
 
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const toggleCard = (id) => {
+    setExpandedCards(prev => ({ ...prev, [id]: !prev[id] }));
   };
+
+  const copyToClipboard = (rawNumber) => {
+    navigator.clipboard.writeText(rawNumber);
+    setCopiedAccount(rawNumber);
+    setTimeout(() => setCopiedAccount(null), 2000);
+  };
+
+  const donationCards = [
+    {
+      id: "tithes-current",
+      title: "Tithes & Offerings",
+      badge: "Current Account",
+      currency: "PHP",
+      icon: IconBuildingBank,
+      desc: "Support our ongoing ministry, Sunday gatherings, and general operations.",
+      bank: "BPI",
+      accountName: "Jesus Our Hope International Assemblies",
+      accountType: "Current Account",
+      accountNumber: "0120-1245-28",
+      rawNumber: "0120124528",
+    },
+    {
+      id: "tugon-ng-puso",
+      title: "Tugon ng Puso",
+      badge: "Youth Scholars",
+      currency: "PHP",
+      icon: IconSchool,
+      desc: "Our scholarship fund dedicated to empowering deserving youth scholars through tuition assistance and mentorship.",
+      bank: "BPI",
+      accountName: "Jesus Our Hope International Assemblies",
+      accountType: "Savings Account",
+      accountNumber: "0123-4711-48",
+      rawNumber: "0123471148",
+    },
+    {
+      id: "tithes-dollar",
+      title: "Tithes & Offerings",
+      badge: "Dollar Account",
+      currency: "USD",
+      icon: IconCurrencyDollar,
+      desc: "For global mission partners, overseas members, and international supporters giving in US Dollars.",
+      bank: "BPI",
+      accountName: "Jesus Our Hope International Assemblies",
+      accountType: "Dollar Account",
+      accountNumber: "0124-0324-07",
+      rawNumber: "0124032407",
+    },
+  ];
 
   return (
     <div className="flex flex-col w-full bg-background-light dark:bg-background-dark transition-colors duration-500">
@@ -37,109 +91,154 @@ export default function Give() {
         </div>
       </section>
 
-      {/* Cards Section */}
+      {/* Cards Section: 4 Cards */}
       <SectionWrapper className="bg-background-light dark:bg-background-dark py-24 transition-colors duration-500">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto -mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto -mt-10">
           
-          {/* Option 1: GCash */}
-          <AnimatedSection variant="fade" delay={0.1}>
-            <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm transition-all duration-500 overflow-hidden h-full flex flex-col">
-                {/* Coming Soon Badge */}
-                <div className="absolute top-4 right-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/30">
-                    Coming Soon
-                  </span>
-                </div>
-                <div>
-                  <div className="w-20 h-20 bg-gray-100 dark:bg-white/5 text-gray-400 dark:text-gray-500 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                    <IconQrcode size={40} />
-                  </div>
-                  <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">GCash</h3>
-                  <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
-                    Online QR donations via GCash will be available soon. Please use Bank Transfer in the meantime.
-                  </p>
-                </div>
-                <div className="mt-auto pt-4 flex flex-col gap-4">
-                  <button 
-                    disabled
-                    aria-disabled="true"
-                    className="w-full py-4 rounded-xl font-bold tracking-wider uppercase text-sm border-2 border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-600 bg-gray-50 dark:bg-neutral-900/50 cursor-not-allowed select-none"
-                  >
-                    Coming Soon
-                  </button>
-                </div>
-              </div>
-            </TiltCard>
-          </AnimatedSection>
+          {/* Bank Cards (1 to 3) */}
+          {donationCards.map((card, idx) => {
+            const Icon = card.icon;
+            const isCopied = copiedAccount === card.rawNumber;
+            const isExpanded = !!expandedCards[card.id];
 
-          {/* Option 2: Bank Transfer */}
-          <AnimatedSection variant="fade" delay={0.2}>
-            <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col">
-                <div>
-                  <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
-                    <IconBuildingBank size={40} />
-                  </div>
-                  <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">Bank Transfer</h3>
-                  <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
-                    Transfer funds directly to our bank account.
-                  </p>
-                </div>
-                <div className="mt-auto pt-4 flex flex-col gap-4">
-                  {showBank && (
-                    <div className="text-left bg-gray-50 dark:bg-neutral-900 p-6 rounded-2xl border border-brand-yellow/30 shadow-[0_0_15px_rgba(251,176,59,0.1)] space-y-4 transition-all">
-                      <div>
-                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Bank Name</p>
-                        <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">BDO Unibank</p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Account Name</p>
-                        <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">Jesus Our Hope Int'l</p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Account Number</p>
-                        <div className="flex items-center gap-2">
-                          <p className="font-medium text-text-dark dark:text-text-light dark:text-white text-lg transition-colors">0012-3456-7890</p>
-                          <button 
-                            onClick={() => copyToClipboard('001234567890')}
-                            className="p-1.5 rounded-lg bg-brand-yellow/10 text-brand-yellow hover:bg-brand-yellow hover:text-white transition-all duration-300"
-                            title="Copy account number"
-                          >
-                            {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
-                          </button>
-                        </div>
-                      </div>
+            return (
+              <AnimatedSection key={card.id} variant="fade" delay={(idx + 1) * 0.1}>
+                <TiltCard className="h-full">
+                  <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-6 sm:p-7 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col">
+                    <div className="flex justify-between items-center mb-5">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/30">
+                        {card.badge}
+                      </span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                        {card.currency}
+                      </span>
                     </div>
-                  )}
-                  <button 
-                    onClick={() => setShowBank(!showBank)}
-                    className="w-full py-4 rounded-xl font-bold tracking-wider uppercase text-sm border-2 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-brand-yellow hover:text-brand-yellow transition-all"
-                  >
-                    {showBank ? 'Hide Account Details' : 'View Account Details'}
-                  </button>
-                </div>
-              </div>
-            </TiltCard>
-          </AnimatedSection>
 
-          {/* Option 3: In Person */}
-          <AnimatedSection variant="fade" delay={0.3}>
-            <TiltCard>
-              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-8 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col">
-                <div>
-                  <div className="w-20 h-20 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-8 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white">
-                    <IconHeartHandshake size={40} />
+                    <div className="w-16 h-16 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white shadow-sm">
+                      <Icon size={32} />
+                    </div>
+
+                    <h3 className="text-2xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-2 transition-colors">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400 font-sans text-xs sm:text-sm mb-6 flex-grow leading-relaxed">
+                      {card.desc}
+                    </p>
+
+                    <div className="mt-auto pt-2 space-y-3">
+                      <AnimatePresence>
+                        {isExpanded && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="text-left bg-gray-50 dark:bg-neutral-900/90 p-4 rounded-xl border border-gray-200/80 dark:border-white/10 space-y-2 text-xs mb-3">
+                              <div>
+                                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Bank</p>
+                                <p className="font-semibold text-text-dark dark:text-white text-sm">{card.bank}</p>
+                              </div>
+                              <div>
+                                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Account Name</p>
+                                <p className="font-medium text-text-dark dark:text-white text-xs leading-snug">
+                                  {card.accountName}
+                                </p>
+                              </div>
+                              <div>
+                                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Account Number</p>
+                                <div className="flex items-center justify-between gap-2 mt-0.5">
+                                  <p className="font-mono font-bold text-text-dark dark:text-brand-yellow text-sm">
+                                    {card.accountNumber}
+                                  </p>
+                                  <button 
+                                    onClick={() => copyToClipboard(card.rawNumber)}
+                                    className="p-1.5 rounded-lg bg-brand-yellow/10 text-brand-yellow hover:bg-brand-yellow hover:text-text-dark transition-all cursor-pointer"
+                                    title="Copy account number"
+                                  >
+                                    {isCopied ? <IconCheck size={16} /> : <IconCopy size={16} />}
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      <button 
+                        onClick={() => toggleCard(card.id)}
+                        className="w-full py-3 px-4 rounded-xl font-bold tracking-wider uppercase text-xs border-2 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-brand-yellow hover:text-brand-yellow transition-all flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        {isExpanded ? 'Hide Info' : 'Show Info'}
+                      </button>
+                    </div>
                   </div>
-                  <h3 className="text-3xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-4 transition-colors">In Person</h3>
-                  <p className="text-gray-500 dark:text-gray-400 font-sans mb-8">
-                    Give during our Sunday worship services using the offering envelopes.
-                  </p>
+                </TiltCard>
+              </AnimatedSection>
+            );
+          })}
+
+          {/* Option 4: In Person (Offering Box) */}
+          <AnimatedSection variant="fade" delay={0.4}>
+            <TiltCard className="h-full">
+              <div className="group relative bg-white dark:bg-background-footer rounded-2xl p-6 sm:p-7 text-center border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-[0_10px_40px_rgba(251,176,59,0.15)] hover:border-brand-yellow/30 transition-all duration-500 overflow-hidden h-full flex flex-col">
+                <div className="flex justify-between items-center mb-5">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/30">
+                    Sunday Gathering
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-400">In Person</span>
                 </div>
-                <div className="mt-auto pt-4">
-                  <div className="w-full py-4 rounded-xl font-bold tracking-wider uppercase text-sm border-2 border-brand-yellow/30 bg-brand-yellow/5 text-brand-yellow shadow-[0_0_15px_rgba(251,176,59,0.1)]">
-                    Offering Box
-                  </div>
+
+                <div className="w-16 h-16 bg-brand-yellow/10 text-brand-yellow rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors duration-500 group-hover:bg-brand-yellow group-hover:text-white shadow-sm">
+                  <IconCoins size={32} />
+                </div>
+
+                <h3 className="text-2xl font-bold font-heading text-text-dark dark:text-text-light dark:text-white mb-2 transition-colors">
+                  In Person
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 font-sans text-xs sm:text-sm mb-6 flex-grow leading-relaxed">
+                  Give during our Sunday worship gatherings using the designated offering envelopes and boxes.
+                </p>
+
+                <div className="mt-auto pt-2 space-y-3">
+                  <AnimatePresence>
+                    {expandedCards['in-person'] && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="text-left bg-gray-50 dark:bg-neutral-900/90 p-4 rounded-xl border border-gray-200/80 dark:border-white/10 space-y-2 text-xs mb-3">
+                          <div>
+                            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Venue</p>
+                            <p className="font-semibold text-text-dark dark:text-white text-sm">JOHIA Center, Cubao</p>
+                          </div>
+                          <div>
+                            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Schedule</p>
+                            <p className="font-medium text-text-dark dark:text-white text-xs leading-snug">
+                              Every Sunday Worship Service
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Channel</p>
+                            <p className="font-medium text-text-dark dark:text-brand-yellow text-sm">
+                              Offering Box & Envelopes
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <button 
+                    onClick={() => toggleCard('in-person')}
+                    className="w-full py-3 px-4 rounded-xl font-bold tracking-wider uppercase text-xs border-2 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-brand-yellow hover:text-brand-yellow transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    {expandedCards['in-person'] ? 'Hide Info' : 'Show Info'}
+                  </button>
                 </div>
               </div>
             </TiltCard>

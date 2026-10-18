@@ -6,8 +6,8 @@ export default function ParallaxDivider({
   alt = "Divider", 
   height = "h-[550px]", 
   imagePosition = "center 75%",
-  imageClassName = "grayscale-[50%]",
-  overlayClassName = "bg-black/40"
+  imageClassName = "grayscale-0",
+  overlayClassName = ""
 }) {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
@@ -25,7 +25,7 @@ export default function ParallaxDivider({
         style={{ y, objectPosition: imagePosition }}
         className={`absolute -top-[10%] inset-x-0 w-full h-[120%] object-cover ${imageClassName}`}
       />
-      <div className={`absolute inset-0 ${overlayClassName}`}></div>
+      {overlayClassName && <div className={`absolute inset-0 ${overlayClassName}`}></div>}
     </div>
   );
 }

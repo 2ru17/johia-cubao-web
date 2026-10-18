@@ -9,21 +9,21 @@ import Button from '../components/ui/Button';
 const pastors = [
   { name: "Ptr. Jun", image: "/images/pastors/ptr jun.jpg", bio: "Short write-up intro for Ptr. Jun will be placed here.", position: "object-top" },
   { name: "Ptr. Jess", image: "/images/pastors/Jess.jpg", bio: "Short write-up intro for Ptr. Jess will be placed here.", position: "object-top" },
-  { name: "Ptr. Dek", image: "/images/pastors/docdek.jpg", bio: "Short write-up intro for Ptr. Dek will be placed here.", position: "object-top" },
-  { name: "Ptr. Ken", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Ken will be placed here.", position: "object-top" },
+  { name: "Ptr. Derrick", image: "/images/pastors/docdek.jpg", bio: "Short write-up intro for Ptr. Derrick will be placed here.", position: "object-top" },
+  { name: "Ptr. Arken", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Arken will be placed here.", position: "object-top" },
   { name: "Ptr. Marc", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here.", position: "object-top" },
   { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-top" },
+  { name: "Ptr. Marvin", image: "/images/placeholder-portrait.jpg", bio: "Short write-up intro for Ptr. Marvin will be placed here.", position: "object-top" },
 ];
 
 const pastoralCouncil = [
-  { name: "Bishop Tanny", role: "Bishop / SEC President", image: "/images/placeholder-portrait.jpg" },
-  { name: "Ptr. Glen Mabazza Gazzingan & Wendy Umali Gazzingan", role: "International Missions", image: "/images/placeholder-portrait.jpg" },
-  { name: "Ptr. Charlie", role: "Visiting Pastor", image: "/images/placeholder-portrait.jpg" },
+  { name: "Ptr. Tanny", role: "Bishop / Corporate President", image: "/images/placeholder-portrait.jpg" },
+  { name: "Ptr. Glen & Wendy", role: "International Missions", image: "/images/placeholder-portrait.jpg" },
+  { name: "Ptr. Charlie & Cel", role: "Consulting Pastors", image: "/images/placeholder-portrait.jpg" },
 ];
 
 const admins = [
   { name: "Jeanette Melchor", role: "Church Administrator", image: "/images/admins/nay-jeannette.jpg" },
-  { name: "Tet Villalonga", role: "Finance Auditor", image: "/images/admins/tita-tet.jpg" },
   { name: "Cristy Satuna", role: "Finance Officer", image: "/images/admins/tita-cristy.jpg" },
   { name: "Jhay Hernandez", role: "Facilities & Operations", image: "/images/admins/kuya-jhay.jpg" },
   { name: "Marissa Jaylo", role: "Facilities & Operations", image: "/images/admins/ate-marissa.jpg" },
@@ -171,13 +171,13 @@ export default function About() {
             </p>
           </AnimatedSection>
 
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {admins.map((admin, index) => (
               <AnimatedSection 
                 key={admin.name} 
                 variant="rise" 
                 delay={index * 0.1}
-                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm"
+                className="w-full"
               >
                 <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg border border-white/10 bg-[#1A1A1A] h-full">
                   <img loading="lazy" src={admin.image} alt={admin.name} className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />

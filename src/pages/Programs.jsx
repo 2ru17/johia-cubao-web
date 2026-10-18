@@ -88,6 +88,16 @@ export default function Programs() {
           texture="light"
           className="text-text-dark dark:text-text-light"
         />
+
+        <ZLayoutSection 
+          id="programs-tugon-ng-puso"
+          title="Tugon ng Puso (Youth Scholars)"
+          description={<p>Empowering the next generation through education. Tugon ng Puso is our youth scholarship initiative, dedicated to supporting deserving youth scholars through educational assistance, learning supplies, and Christ-centered mentorship as they pursue their studies and God-given destiny.</p>}
+          imageSrc="/images/programs/programs-tugon-ng-puso.jpg"
+          imageAlt="JOHIA Cubao Tugon ng Puso Youth Scholarship Program"
+          reverse={false}
+          texture="dark"
+        />
       </div>
 
       {/* Bottom CTA */}
