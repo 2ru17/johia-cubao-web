@@ -88,20 +88,14 @@ export default function PostTemplate() {
     }
   }
 
-  if (!targetPath) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light">
-        <h1 className="text-4xl font-bold font-heading mb-4">Post Not Found</h1>
-        <Button variant="solid" onClick={() => navigate('/posts')}>Back to Posts</Button>
-      </div>
-    );
-  }
-
   // Lazy load the specific MDX component, memoized to prevent remounting
-  const PostContent = useMemo(() => React.lazy(mdxModules[targetPath]), [targetPath]);
+  const PostContent = useMemo(() => {
+    return targetPath && mdxModules[targetPath] ? React.lazy(mdxModules[targetPath]) : null;
+  }, [targetPath]);
 
   // Find related posts (same category, excluding current). Fallback to any post if same-category pool is too small.
   const relatedPosts = useMemo(() => {
+    if (!frontmatter) return [];
     const all = Object.keys(mdxPosts)
       .map(p => {
         const fm = mdxPosts[p].frontmatter;
@@ -121,6 +115,15 @@ export default function PostTemplate() {
     pool.sort((a, b) => a.slug.localeCompare(b.slug));
     return pool.slice(0, 3);
   }, [slug, frontmatter?.category]);
+
+  if (!targetPath || !PostContent) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light">
+        <h1 className="text-4xl font-bold font-heading mb-4">Post Not Found</h1>
+        <Button variant="solid" onClick={() => navigate('/posts')}>Back to Posts</Button>
+      </div>
+    );
+  }
 
   const readTime = estimateReadingTime(rawContent) || 4; // fallback 4 min
 

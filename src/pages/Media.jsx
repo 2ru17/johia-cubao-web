@@ -9,44 +9,63 @@ import { IconBrandYoutube, IconZoomIn, IconBrandInstagram, IconBrandFacebook, Ic
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-// Photos with assigned categories
+// Photos with assigned categories (50 curated items)
 const communityPhotos = [
-  // Sundays
-  { src: "/images/gallery/service-congregation-listening.jpg", category: "Sundays", alt: "Congregation Seated and Listening to the Word" },
+  // Sundays (16)
+  { src: "/images/gallery/service-congregation-listening.jpg", category: "Sundays", alt: "Congregation Seated and Listening Attentively to Sunday Preaching" },
   { src: "/images/gallery/worship-leader-solo-stage.jpg", category: "Sundays", alt: "Worship Leader Ministering with Passion on Stage" },
   { src: "/images/gallery/preaching-pastor-chips.jpg", category: "Sundays", alt: "Pastor Chips Preaching God's Word" },
-  { src: "/images/gallery/worship-service-atmosphere.jpg", category: "Sundays", alt: "Worship Service Sanctuary Atmosphere" },
-  { src: "/images/gallery/friday-alive-acoustic-worship.jpg", category: "Sundays", alt: "Friday Alive Acoustic Worship Night" },
-  { src: "/images/gallery/preaching-pastor-ken.jpg", category: "Sundays", alt: "Pastor Ken Preaching to Congregation" },
-  { src: "/images/gallery/service-personal-worship-moment.jpg", category: "Sundays", alt: "Personal Prayer and Worship Moment" },
+  { src: "/images/gallery/worship-service-atmosphere.jpg", category: "Sundays", alt: "Worship Service Sanctuary Atmosphere and Lighting" },
+  { src: "/images/gallery/friday-alive-acoustic-worship.jpg", category: "Sundays", alt: "Friday Alive Acoustic Worship Night Gathering" },
+  { src: "/images/gallery/preaching-pastor-ken.jpg", category: "Sundays", alt: "Pastor Ken Preaching to the Church Congregation" },
+  { src: "/images/gallery/service-personal-worship-moment.jpg", category: "Sundays", alt: "Personal Prayer and Worship Moment during Sunday Service" },
   { src: "/images/gallery/preaching-pastor-docdek.jpg", category: "Sundays", alt: "Pastor Docdek Sharing God's Word" },
+  { src: "/images/gallery/service-holy-communion.jpg", category: "Sundays", alt: "Solemn Observation of Holy Communion during Worship" },
+  { src: "/images/gallery/service-congregation-worship-moment.jpg", category: "Sundays", alt: "Worshipper in Reverent Prayer and Praise during Sunday Gathering" },
+  { src: "/images/gallery/service-sanctuary-wide.jpg", category: "Sundays", alt: "Wide View of JOHIA Sanctuary During Sunday Worship Gathering" },
+  { src: "/images/gallery/service-preaching-pastor-arken.jpg", category: "Sundays", alt: "Pastor Arken Sharing Scripture from the Sanctuary Pulpit" },
+  { src: "/images/gallery/service-preaching-pulpit.jpg", category: "Sundays", alt: "Sunday Exhortation Delivered from the Sanctuary Pulpit" },
+  { src: "/images/gallery/preaching-pastor-jess.jpg", category: "Sundays", alt: "Pastor Jess Delivering Encouraging Sunday Sermon" },
+  { src: "/images/gallery/service-preaching-pastor-jun.jpg", category: "Sundays", alt: "Pastor Jun Inspiring the Church with Biblical Message" },
+  { src: "/images/gallery/service-preaching-pastor-marc.jpg", category: "Sundays", alt: "Pastor Marc Sharing Powerful Scriptural Exhortation" },
 
-  // Community
+  // Community (18)
   { src: "/images/community/community-outreach-bjmp-group.jpg", category: "Community", alt: "JOHIA Cubao BJMP Outreach Ministry Team" },
   { src: "/images/community/community-outreach-bjmp-fellowship.jpg", category: "Community", alt: "BJMP Outreach Fellowship and Encouragement" },
   { src: "/images/community/community-outreach-bjmp-worship.jpg", category: "Community", alt: "Outreach Ministry Praise and Worship Gathering" },
   { src: "/images/community/community-outreach-bjmp-team.jpg", category: "Community", alt: "JOHIA Outreach Ministry Volunteers and Leaders" },
   { src: "/images/community/church-family-linggo-ng-wika-2.jpg", category: "Community", alt: "JOHIA Church Family Linggo ng Wika Celebration" },
-  { src: "/images/leadership/leaders-council-stage.jpg", category: "Community", alt: "JOHIA Church Leadership Council" },
-  { src: "/images/leadership/leaders-council-wacky.jpg", category: "Community", alt: "Leadership Team Fellowship Gathering" },
-  { src: "/images/gallery/community-congregation-smiles.jpg", category: "Community", alt: "Church Congregation Members Sharing Smiles" },
+  { src: "/images/leadership/leaders-council-stage.jpg", category: "Community", alt: "JOHIA Church Leadership Council on Stage" },
+  { src: "/images/leadership/leaders-council-wacky.jpg", category: "Community", alt: "Leadership Team Joyful Fellowship Gathering" },
+  { src: "/images/gallery/community-congregation-smiles.jpg", category: "Community", alt: "Church Congregation Members Sharing Joyful Smiles" },
   { src: "/images/gallery/community-prayer-embrace.jpg", category: "Community", alt: "Congregation Members Praying and Embracing in Fellowship" },
   { src: "/images/gallery/community-brews-fellowship.jpg", category: "Community", alt: "JOHIA Brews Fellowship and Ministry Service" },
   { src: "/images/gallery/programs-soc-cohort.jpg", category: "Community", alt: "School of Champions Discipleship Cohort" },
   { src: "/images/gallery/community-couples-gathering.jpg", category: "Community", alt: "Couples Ministry Fellowship Gathering" },
-  { src: "/images/gallery/community-fathers-blessing-line.jpg", category: "Community", alt: "Fathers Blessing Line During Service" },
+  { src: "/images/gallery/community-fathers-blessing-line.jpg", category: "Community", alt: "Fathers Blessing Line During Sunday Service" },
   { src: "/images/gallery/community-kids-peace-smiles.jpg", category: "Community", alt: "Sunday School Teacher and Child Sharing Smiles" },
   { src: "/images/gallery/community-youth-fellowship-table.jpg", category: "Community", alt: "Youth and Children Fellowship Gathering" },
+  { src: "/images/gallery/community-outreach-new-1.jpg", category: "Community", alt: "Community Outreach Volunteer Team Serving Food and Hope" },
+  { src: "/images/gallery/community-discipleship-smallgroup.jpg", category: "Community", alt: "Discipleship Small Group Study and Heartfelt Discussion" },
+  { src: "/images/gallery/community-kids-sunday-school.jpg", category: "Community", alt: "Children Joyfully Participating in Sunday School Activities" },
 
-  // Events
+  // Events (16)
   { src: "/images/gallery/kids-presentation-linggo-ng-wika.jpg", category: "Events", alt: "Sunday School Children Cultural Presentation" },
   { src: "/images/gallery/kids-presentation-salamat.jpg", category: "Events", alt: "Kids Pasasalamat Stage Presentation" },
   { src: "/images/gallery/event-recital-church-family-stage.jpg", category: "Events", alt: "Church Family Recital on Sanctuary Stage" },
-  { src: "/images/gallery/event-live-worship-stage.jpg", category: "Events", alt: "Live Worship Band Leading Worship" },
-  { src: "/images/gallery/event-altar-call-prayer.jpg", category: "Events", alt: "Altar Call and Corporate Intercession" },
-  { src: "/images/gallery/event-ushers-ministry-team.jpg", category: "Events", alt: "Ushering Ministry Team in Service" },
+  { src: "/images/gallery/event-live-worship-stage.jpg", category: "Events", alt: "Live Worship Band Leading Congregation in Praise" },
+  { src: "/images/gallery/event-altar-call-prayer.jpg", category: "Events", alt: "Altar Call and Corporate Intercessory Prayer" },
+  { src: "/images/gallery/event-ushers-ministry-team.jpg", category: "Events", alt: "Ushering Ministry Team Serving during Event" },
   { src: "/images/gallery/service-congregation-prayer.jpg", category: "Events", alt: "Congregational United Prayer Gathering" },
   { src: "/images/gallery/programs-retreat-water-baptism-2.jpg", category: "Events", alt: "Life Retreat Water Baptism Ceremony" },
+  { src: "/images/gallery/event-guitar-recital-1.jpg", category: "Events", alt: "Youth Guitar Recital Performance on Stage" },
+  { src: "/images/gallery/event-guitar-recital-2.jpg", category: "Events", alt: "Guitar Recital Ensemble Musical Presentation" },
+  { src: "/images/gallery/event-guitar-workshop-1.jpg", category: "Events", alt: "Music Workshop Training for Young Instrumentalists" },
+  { src: "/images/gallery/event-guitar-workshop-2.jpg", category: "Events", alt: "Hands-On Guitar Workshop Teaching Session" },
+  { src: "/images/gallery/event-voice-recital-1.jpg", category: "Events", alt: "Vocal Recital Solo Performance in the Sanctuary" },
+  { src: "/images/gallery/event-wildfire-youth-stage.jpg", category: "Events", alt: "Wildfire Youth Fellowship Stage Event and Worship" },
+  { src: "/images/gallery/programs-soc-book2-graduates.jpg", category: "Events", alt: "School of Champions Book 2 Graduation Celebration" },
+  { src: "/images/gallery/programs-retreat-water-baptism.jpg", category: "Events", alt: "Candidate Baptism in the Lake during Life Retreat" },
 ];
 
 // Dedicated array for the simulated Instagram feed (9 distinct authentic photos)

@@ -57,8 +57,6 @@
   
   .bg-texture-light {
     @apply bg-background-light;
-    background-image: theme('backgroundImage.texture-light');
-    background-attachment: fixed;
   }
 
   .skeleton {

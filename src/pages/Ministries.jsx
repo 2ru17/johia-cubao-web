@@ -14,8 +14,12 @@ const lifeMinistries = [
     name: "Couples", 
     desc: "Strengthening marriages and families through Christ-centered guidance.", 
     color: "#ff0000", 
-    image: "/images/ministries/ministry-couples-group.jpg",
+    image: "/images/ministries/ministry-couples-event-1.jpg",
     gallery: [
+      "/images/ministries/ministry-couples-event-1.jpg",
+      "/images/ministries/ministry-couples-event-2.jpg",
+      "/images/ministries/ministry-couples-seminar-1.jpg",
+      "/images/ministries/ministry-couples-seminar-2.jpg",
       "/images/ministries/ministry-couples-group.jpg",
       "/images/ministries/ministry-couples-celebration.jpg",
       "/images/ministries/ministry-couples-embrace.jpg",
@@ -26,8 +30,12 @@ const lifeMinistries = [
     name: "Wildfire (Youth)", 
     desc: "Empowering the next generation to live boldly for Jesus.", 
     color: "#003314", 
-    image: "/images/ministries/ministry-wildfire-youth.jpg",
+    image: "/images/ministries/ministry-wildfire-new-4.jpg",
     gallery: [
+      "/images/ministries/ministry-wildfire-new-4.jpg",
+      "/images/ministries/ministry-wildfire-new-1.jpg",
+      "/images/ministries/ministry-wildfire-new-2.jpg",
+      "/images/ministries/ministry-wildfire-new-3.jpg",
       "/images/ministries/ministry-wildfire-youth.jpg",
       "/images/ministries/ministry-wildfire-dance.jpg",
       "/images/ministries/ministry-wildfire-drummer.jpg",
@@ -42,6 +50,10 @@ const lifeMinistries = [
     image: "/images/ministries/ministry-linc-logo.png",
     gallery: [
       "/images/ministries/ministry-linc-logo.png",
+      "/images/ministries/ministry-linc-new-1.jpg",
+      "/images/ministries/ministry-linc-new-2.jpg",
+      "/images/ministries/ministry-linc-new-3.jpg",
+      "/images/ministries/ministry-linc-new-4.jpg",
       "/images/ministries/ministry-linc-meeting-1.jpg",
       "/images/ministries/ministry-linc-meeting-2.jpg",
       "/images/ministries/ministry-linc-meeting-3.jpg"
@@ -132,7 +144,7 @@ export default function Ministries() {
             </AnimatedSection>
 
             <div className="text-center relative z-20">
-              <Button variant="solid" href="https://forms.google.com" target="_blank" className="transition-all shadow-xl px-12 py-5 text-xl bg-text-dark text-white hover:bg-black dark:bg-brand-yellow dark:text-text-dark dark:hover:bg-brand-yellow/90 rounded-full border-none">
+              <Button variant="solid" href="https://forms.gle/m7bG335UM4sdxx5V9" target="_blank" className="transition-all shadow-xl px-12 py-5 text-xl bg-text-dark text-white hover:bg-black dark:bg-brand-yellow dark:text-text-dark dark:hover:bg-brand-yellow/90 rounded-full border-none">
                 Join a Group
               </Button>
             </div>
@@ -168,9 +180,9 @@ export default function Ministries() {
           mainDescription="Lead the congregation in powerful encounters with God through music, media, and technical excellence."
           teams={[
             { name: "Worship Team", desc: "Musicians and vocalists leading the congregation in praise.", image: "/images/ministries/ministry-worship-team.jpg", color: "#550000" },
-            { name: "Technicals", desc: "Sound engineers, lighting, and stage setup ensuring a distraction-free environment.", image: "/images/ministries/ministry-technicals-team.jpg", color: "#434343" },
-            { name: "Creatives", desc: "Media, livestream, photography, and social media capturing the life of the church.", image: "/images/ministries/ministry-creatives-card.jpg", color: "#ff9900" },
-            { name: "Engineering", desc: "Facilities management and venue maintenance.", image: "/images/ministries/ministry-engineering-team.jpg", color: "#305cde" }
+            { name: "Technicals", desc: "Audio engineering, stage lighting, multimedia projection, and livestream broadcasting.", image: "/images/ministries/ministry-technicals-team.jpg", color: "#434343" },
+            { name: "Creatives", desc: "Media, livestream, photography, and social media capturing the life of the church.", image: "/images/ministries/ministry-creatives-team.jpg", color: "#ff9900" },
+            { name: "Engineering", desc: "Support building and facilities maintenance, electrical systems, and physical operations.", image: "/images/ministries/ministry-engineering-team.jpg", color: "#305cde" }
           ]}
           reverse={false}
           texture="light"
@@ -183,7 +195,7 @@ export default function Ministries() {
           mainDescription="Be the welcoming hands and feet of Jesus. Ensure every person who walks through our doors feels at home and safe."
           teams={[
             { name: "Consolidation", desc: "Welcoming guests, helping others in finding their way to a new church family.", image: "/images/ministries/ministry-consolidation-card.jpg", color: "#FBB03B" },
-            { name: "Marshalls", desc: "Ensuring safety, traffic control and a healthy worship environment.", image: "/images/ministries/ministry-marshalls-card.jpg", color: "#01153e" },
+            { name: "Marshalls", desc: "Ensuring safety, traffic control and a healthy worship environment.", image: "/images/ministries/ministry-marshalls-team.jpg", color: "#01153e" },
             { name: "Brews", desc: "Serving coffee and refreshments to foster fellowship before and after every Sunday service.", image: "/images/ministries/ministry-brews-team.jpg", color: "#6f4e37" },
             { name: "Ushers", desc: "Deliver a welcoming atmosphere, managing offerings and providing immediate help to worshippers.", image: "/images/ministries/ministry-ushers-team.jpg", color: "#fd3db5" }
           ]}
@@ -197,7 +209,7 @@ export default function Ministries() {
           title="Foundations"
           mainDescription="Build the spiritual backbone of our church by investing in the next generation and waging war in the spiritual realm."
           teams={[
-            { name: "Sunday School", desc: "Translating the Sunday's preaching into a language that our kids will understand.", image: "/images/ministries/sundayschl.jpg", color: "#6633cc" },
+            { name: "Sunday School", desc: "Translating the Sunday's preaching into a language that our kids will understand.", image: "/images/ministries/ministry-sundayschool-1.jpg", color: "#6633cc" },
             { name: "Prayer Warriors", desc: "Dedicated intercessors winning wars for our community and our nation.", image: "/images/ministries/ministry-prayer-warriors-team.jpg", color: "#ffd3ac" }
           ]}
           reverse={false}
@@ -208,7 +220,7 @@ export default function Ministries() {
         <div className="py-24 text-center bg-white dark:bg-background-dark border-t border-gray-100">
            <AnimatedSection variant="fade">
               <h3 className="text-3xl font-heading font-extrabold text-text-dark dark:text-text-light mb-8">Ready to serve the Lord?</h3>
-              <Button variant="solid" href="https://forms.google.com" target="_blank" className="px-12 py-5 text-xl shadow-md transition-all">
+              <Button variant="solid" href="https://forms.gle/2fQkXUqxVWYwbfv98" target="_blank" className="px-12 py-5 text-xl shadow-md transition-all">
                 Learn More
               </Button>
            </AnimatedSection>

@@ -13,20 +13,20 @@ const pastors = [
   { name: "Ptr. Arken", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Arken will be placed here.", position: "object-top" },
   { name: "Ptr. Marc", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here.", position: "object-top" },
   { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-top" },
-  { name: "Ptr. Marvin", image: "/images/placeholder-portrait.jpg", bio: "Short write-up intro for Ptr. Marvin will be placed here.", position: "object-top" },
+  { name: "Ptr. Marvin", image: "/images/pastors/ptr-marvin.jpg", bio: "Short write-up intro for Ptr. Marvin will be placed here.", position: "object-top" },
 ];
 
 const pastoralCouncil = [
-  { name: "Ptr. Tanny", role: "Bishop / Corporate President", image: "/images/placeholder-portrait.jpg" },
-  { name: "Ptr. Glen & Wendy", role: "International Missions", image: "/images/placeholder-portrait.jpg" },
-  { name: "Ptr. Charlie & Cel", role: "Consulting Pastors", image: "/images/placeholder-portrait.jpg" },
+  { name: "Ptr. Tanny", role: "Bishop / Corporate President", image: "/images/leadership/pastor-tanny.jpg", position: "object-top" },
+  { name: "Ptr. Glen & Wendy", role: "International Missions", image: "/images/leadership/pastor-glen-wendy.jpg", position: "object-top" },
+  { name: "Ptr. Charlie & Cel", role: "Consulting Pastors", image: "/images/leadership/pastor-charlie.jpg", position: "object-top" },
 ];
 
 const admins = [
-  { name: "Jeanette Melchor", role: "Church Administrator", image: "/images/admins/nay-jeannette.jpg" },
-  { name: "Cristy Satuna", role: "Finance Officer", image: "/images/admins/tita-cristy.jpg" },
-  { name: "Jhay Hernandez", role: "Facilities & Operations", image: "/images/admins/kuya-jhay.jpg" },
-  { name: "Marissa Jaylo", role: "Facilities & Operations", image: "/images/admins/ate-marissa.jpg" },
+  { name: "Jeanette Melchor", role: "Church Administrator", image: "/images/admins/nay-jeannette.jpg", position: "object-top" },
+  { name: "Cristy Satuna", role: "Finance Officer", image: "/images/admins/tita-cristy.jpg", position: "object-top" },
+  { name: "Jhay Hernandez", role: "Facilities & Operations", image: "/images/admins/kuya-jhay.jpg", position: "object-top" },
+  { name: "Marissa Jaylo", role: "Facilities & Operations", image: "/images/admins/ate-marissa.jpg", position: "object-top" },
 ];
 
 export default function About() {
@@ -143,7 +143,7 @@ export default function About() {
                     loading="lazy" 
                     src={pastor.image} 
                     alt={pastor.name} 
-                    className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+                    className={`w-full h-full object-cover ${pastor.position || 'object-top'} grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105`} 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
@@ -180,7 +180,7 @@ export default function About() {
                 className="w-full"
               >
                 <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg border border-white/10 bg-[#1A1A1A] h-full">
-                  <img loading="lazy" src={admin.image} alt={admin.name} className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                  <img loading="lazy" src={admin.image} alt={admin.name} className={`w-full h-full object-cover ${admin.position || 'object-top'} grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full p-6 text-left">
                     <h3 className="text-2xl font-bold font-heading text-brand-yellow mb-1">{admin.name}</h3>

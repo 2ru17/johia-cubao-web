@@ -1,7 +1,7 @@
 import { ThemeProvider } from "./components/ui/ThemeProvider";
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import Layout from './components/layout/Layout';
@@ -19,7 +19,6 @@ const Ministries = lazy(() => import('./pages/Ministries'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Give = lazy(() => import('./pages/Give'));
 const Media = lazy(() => import('./pages/Media'));
-const Journals = lazy(() => import('./pages/Journals'));
 const Posts = lazy(() => import('./pages/Posts'));
 const PostTemplate = lazy(() => import('./pages/PostTemplate'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -61,7 +60,7 @@ function AnimatedRoutes() {
           <Route path="/posts" element={<PageTransition><Posts /></PageTransition>} />
           <Route path="/posts/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
           <Route path="/post/:slug" element={<PageTransition><PostTemplate /></PageTransition>} />
-          <Route path="/journals" element={<PageTransition><Journals /></PageTransition>} />
+          <Route path="/journals" element={<Navigate to="/posts" replace />} />
           <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
           <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
           <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
