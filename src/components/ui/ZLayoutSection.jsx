@@ -45,12 +45,12 @@ export default function ZLayoutSection({
             <div className="w-full lg:w-1/2 flex flex-col justify-center text-left">
               {badge && (
                 <div className="mb-4">
-                  <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/30">
+                  <span className="inline-flex items-center px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/30">
                     {badge}
                   </span>
                 </div>
               )}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-brand-yellow mb-8 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-brand-yellow mb-6 md:mb-8 tracking-tight">
                 {title}
               </h2>
               <div className={cn("font-sans text-lg md:text-xl leading-relaxed space-y-6", 

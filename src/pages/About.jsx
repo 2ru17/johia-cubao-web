@@ -7,19 +7,79 @@ import ParallaxDivider from '../components/ui/ParallaxDivider';
 import Button from '../components/ui/Button';
 
 const pastors = [
-  { name: "Ptr. Jun", role: "Lead Pastor", image: "/images/pastors/ptr jun.jpg", bio: "Short write-up intro for Ptr. Jun will be placed here.", position: "object-top" },
-  { name: "Ptr. Jess", role: "Couples Ministry", image: "/images/pastors/Jess.jpg", bio: "Short write-up intro for Ptr. Jess will be placed here.", position: "object-top" },
-  { name: "Ptr. Derrick", role: "Worship Ministry", image: "/images/pastors/docdek.jpg", bio: "Short write-up intro for Ptr. Derrick will be placed here.", position: "object-top" },
-  { name: "Ptr. Arken", role: "Wildfire (Youth)", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Arken will be placed here.", position: "object-top" },
-  { name: "Ptr. Marc", role: "School of Champions", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here.", position: "object-top" },
-  { name: "Ptr. Chips", role: "LinC (Young Adults)", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-top" },
-  { name: "Ptr. Marvin", role: "Tugon ng Puso (Scholars)", image: "/images/pastors/ptr-marvin.jpg", bio: "Short write-up intro for Ptr. Marvin will be placed here.", position: "object-top" },
-];
-
-const pastoralCouncil = [
-  { name: "Ptr. Tanny", role: "Bishop / Corporate President", image: "/images/leadership/pastor-tanny.jpg", position: "object-top" },
-  { name: "Ptr. Glen & Wendy", role: "International Missions", image: "/images/leadership/pastor-glen-wendy.jpg", position: "object-top" },
-  { name: "Ptr. Charlie", role: "Consulting Pastor", image: "/images/leadership/pastor-charlie.jpg", position: "object-top" },
+  { 
+    name: "Ptr. Tanny", 
+    role: "Bishop / Corporate President", 
+    image: "/images/leadership/pastor-tanny.jpg", 
+    bio: "Short write-up intro for Ptr. Tanny will be placed here.", 
+    position: "object-center" 
+  },
+  { 
+    name: "Ptr. Jun", 
+    role: "Lead Pastor", 
+    image: "/images/pastors/ptr jun.jpg", 
+    bio: [
+      "A businessman by profession, Ptr. Jun serves as the Lead Pastor and Chief Operating Officer (COO) of Jesus Our Hope International Assemblies, Inc. (JOHIA) Cubao. He is currently pursuing a Master of Divinity in Pastoral Studies at Asian Theological Seminary.",
+      "An alumnus of the University of Santo Tomas, where he earned a degree in Music Education, he brings a multidisciplinary approach to church leadership. His approach influences the day-to-day operations of JOHIA and has contributed to the church's revival after the pandemic. His innovative methods have led to new members and more people coming to Christ through intensive Bible-centered teaching and non-formal, nontraditional activities."
+    ], 
+    position: "object-top" 
+  },
+  { 
+    name: "Ptr. Jess", 
+    role: "Couples Ministry", 
+    image: "/images/pastors/Jess.jpg", 
+    bio: "A proud member of the Philippine Civil Service specializing in local government legislation; Ptr. Jess has dedicated decades of his life to enriching families and couples through his focus ministry: Pillars of Fire. He and his wife spearhead the programs for married couples which resulted to stable and happy family lives for the members of JOHIA.", 
+    position: "object-top" 
+  },
+  { 
+    name: "Ptr. Derrick", 
+    role: "Worship Ministry", 
+    image: "/images/pastors/docdek.jpg", 
+    bio: "A Physician by profession, Dr. Derrick Anselmo serves as the Worship Pastor and Co-Music Director of Jesus Our Hope International Assemblies Inc. – Cubao. His decades in the worship ministry produced other worship ministers to love and worship God and to inspire others to do the same. His inspiring music touched the lives of many and are still available in various streaming platforms. On several occasions, his medical profession had been the church’s healing arm in medical outreaches all over the Philippines.", 
+    position: "object-top" 
+  },
+  { 
+    name: "Ptr. Arken", 
+    role: "Wildfire (Youth)", 
+    image: "/images/pastors/ken.jpg", 
+    bio: "Our Youth Pastor. Having dedicated almost the entirety of his life to ministry; at a young age, Ptr. Arken has ministered in discipleship trainings and have taken care of various youth groups. He and his wife now head the Wildfire, a youth based ministry in JOHIA centered in the equipping and enrichment of the capabilities of our youth while getting to know Jesus and shaping the future national and church leaders of tomorrow.", 
+    position: "object-top" 
+  },
+  { 
+    name: "Ptr. Marc", 
+    role: "School of Champions", 
+    image: "/images/pastors/marc.jpg", 
+    bio: "Another proud member of the Philippine Civil Service specializing in national level legislation; Ptr. Marc hails from the University of the Philippines Diliman and practices Public Administration. He is also the current Dean of the JOHIA School of Champions which is the primary educational program of the church; teaching a curriculum based on proven practices in getting to know Christ, going deeper with one’s relationship with God and being fruitful by evangelizing to our world. He is also the current pastor in charge for JOHIA’s outreach program: Tugon ng Puso, a scholarship fund dedicated to helping struggling youth through financial aid. He is also the current Chief Finance Officer of JOHIA – Cubao.", 
+    position: "object-top" 
+  },
+  { 
+    name: "Ptr. Chips", 
+    role: "LinC (Young Adults)", 
+    image: "/images/pastors/chips.jpg", 
+    bio: "A specialist in the business process outsourcing industry, Ptr. Chips currently heads LINC or Life Incorporated; the primary program of the church catering to young professionals. His decades of dedication has yielded various god-fearing individuals who have shone in music and business. He and his team now focus on ushering our rising and emerging workforce and leaders to knowing Christ and sharing the gospel while on the ground floor of their respective careers.", 
+    position: "object-top" 
+  },
+  { 
+    name: "Ptr. Marvin", 
+    role: "Tugon ng Puso (Scholars)", 
+    image: "/images/pastors/ptr-marvin.jpg", 
+    bio: "An Educator from the University of the Philippines Diliman. Ptr. Marvin has shaped the lives of various leaders in the field of Human Kinetics. He’s currently part of the roster of preachers of JOHIA Cubao. His insights in the leadership of the church has yielded various successful programs including the School of Champions, Tugon ng Puso and various outreach programs that the church has been undertaking during the past years.", 
+    position: "object-top" 
+  },
+  { 
+    name: "Ptr. Glen & Wendy", 
+    role: "International Missions", 
+    image: "/images/leadership/pastor-glen-wendy.jpg", 
+    bio: "Short write-up intro for Ptr. Glen & Wendy will be placed here.", 
+    position: "object-center" 
+  },
+  { 
+    name: "Ptr. Charlie", 
+    role: "Consulting Pastor", 
+    image: "/images/leadership/pastor-charlie.jpg", 
+    bio: "Short write-up intro for Ptr. Charlie will be placed here.", 
+    position: "object-center" 
+  },
 ];
 
 const admins = [
@@ -114,51 +174,21 @@ export default function About() {
               id={`pastor-${index}`}
               title={pastor.name}
               badge={pastor.role}
-              description={<p>{pastor.bio}</p>}
+              description={
+                Array.isArray(pastor.bio) ? (
+                  pastor.bio.map((paragraph, i) => <p key={i}>{paragraph}</p>)
+                ) : (
+                  <p>{pastor.bio}</p>
+                )
+              }
               imageSrc={pastor.image}
               imageAlt={pastor.name}
               reverse={index % 2 !== 0}
               texture={index % 2 === 0 ? 'dark' : 'none'}
               imageClassName={pastor.position}
-              className="min-h-[50vh] py-16"
+              className="min-h-[50vh] py-12 md:py-16"
             />
           ))}
-        </div>
-
-        {/* Pastoral Council & Extended Ministries - 3 Cards */}
-        <div className="container mx-auto px-6 pt-20 pb-24 border-t border-white/5">
-          <AnimatedSection className="text-center mb-16">
-            <h3 className="text-3xl md:text-5xl font-extrabold font-heading text-text-light mb-4 drop-shadow-md">
-              Pastoral Council & Missions
-            </h3>
-            <p className="text-gray-400 font-sans text-xl max-w-2xl mx-auto">
-              Presiding overseers, international missionaries, and visiting ministers serving the wider body of Christ.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-            {pastoralCouncil.map((pastor, index) => (
-              <AnimatedSection key={pastor.name} variant="rise" delay={index * 0.15}>
-                <div className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg border border-white/10 bg-[#1A1A1A] h-full transition-all duration-500 hover:border-brand-yellow/50 hover:shadow-[0_0_30px_rgba(251,176,59,0.2)]">
-                  <img 
-                    loading="lazy" 
-                    src={pastor.image} 
-                    alt={pastor.name} 
-                    className={`w-full h-full object-cover ${pastor.position || 'object-top'} grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105`} 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
-                    <h4 className="text-xl sm:text-2xl font-bold font-heading text-brand-yellow mb-1 leading-snug">
-                      {pastor.name}
-                    </h4>
-                    <p className="text-white/80 font-sans text-base font-medium">
-                      {pastor.role}
-                    </p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
       </section>
 
