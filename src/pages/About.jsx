@@ -7,19 +7,19 @@ import ParallaxDivider from '../components/ui/ParallaxDivider';
 import Button from '../components/ui/Button';
 
 const pastors = [
-  { name: "Ptr. Jun", image: "/images/pastors/ptr jun.jpg", bio: "Short write-up intro for Ptr. Jun will be placed here.", position: "object-top" },
-  { name: "Ptr. Jess", image: "/images/pastors/Jess.jpg", bio: "Short write-up intro for Ptr. Jess will be placed here.", position: "object-top" },
-  { name: "Ptr. Derrick", image: "/images/pastors/docdek.jpg", bio: "Short write-up intro for Ptr. Derrick will be placed here.", position: "object-top" },
-  { name: "Ptr. Arken", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Arken will be placed here.", position: "object-top" },
-  { name: "Ptr. Marc", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here.", position: "object-top" },
-  { name: "Ptr. Chips", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-top" },
-  { name: "Ptr. Marvin", image: "/images/pastors/ptr-marvin.jpg", bio: "Short write-up intro for Ptr. Marvin will be placed here.", position: "object-top" },
+  { name: "Ptr. Jun", role: "Lead Pastor", image: "/images/pastors/ptr jun.jpg", bio: "Short write-up intro for Ptr. Jun will be placed here.", position: "object-top" },
+  { name: "Ptr. Jess", role: "Couples Ministry", image: "/images/pastors/Jess.jpg", bio: "Short write-up intro for Ptr. Jess will be placed here.", position: "object-top" },
+  { name: "Ptr. Derrick", role: "Worship Ministry", image: "/images/pastors/docdek.jpg", bio: "Short write-up intro for Ptr. Derrick will be placed here.", position: "object-top" },
+  { name: "Ptr. Arken", role: "Wildfire (Youth)", image: "/images/pastors/ken.jpg", bio: "Short write-up intro for Ptr. Arken will be placed here.", position: "object-top" },
+  { name: "Ptr. Marc", role: "School of Champions", image: "/images/pastors/marc.jpg", bio: "Short write-up intro for Ptr. Marc will be placed here.", position: "object-top" },
+  { name: "Ptr. Chips", role: "LinC (Young Adults)", image: "/images/pastors/chips.jpg", bio: "Short write-up intro for Ptr. Chips will be placed here.", position: "object-top" },
+  { name: "Ptr. Marvin", role: "Tugon ng Puso (Scholars)", image: "/images/pastors/ptr-marvin.jpg", bio: "Short write-up intro for Ptr. Marvin will be placed here.", position: "object-top" },
 ];
 
 const pastoralCouncil = [
   { name: "Ptr. Tanny", role: "Bishop / Corporate President", image: "/images/leadership/pastor-tanny.jpg", position: "object-top" },
   { name: "Ptr. Glen & Wendy", role: "International Missions", image: "/images/leadership/pastor-glen-wendy.jpg", position: "object-top" },
-  { name: "Ptr. Charlie & Cel", role: "Consulting Pastors", image: "/images/leadership/pastor-charlie.jpg", position: "object-top" },
+  { name: "Ptr. Charlie", role: "Consulting Pastor", image: "/images/leadership/pastor-charlie.jpg", position: "object-top" },
 ];
 
 const admins = [
@@ -113,6 +113,7 @@ export default function About() {
               key={pastor.name}
               id={`pastor-${index}`}
               title={pastor.name}
+              badge={pastor.role}
               description={<p>{pastor.bio}</p>}
               imageSrc={pastor.image}
               imageAlt={pastor.name}

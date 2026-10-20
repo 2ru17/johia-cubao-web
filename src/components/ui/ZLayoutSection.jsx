@@ -5,6 +5,7 @@ import AnimatedSection from './AnimatedSection';
 export default function ZLayoutSection({ 
   id, 
   title, 
+  badge,
   description, 
   imageSrc, 
   imageAlt, 
@@ -42,6 +43,13 @@ export default function ZLayoutSection({
             
             {/* Text Side - Left aligned text per reference */}
             <div className="w-full lg:w-1/2 flex flex-col justify-center text-left">
+              {badge && (
+                <div className="mb-4">
+                  <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-brand-yellow/10 text-brand-yellow border border-brand-yellow/30">
+                    {badge}
+                  </span>
+                </div>
+              )}
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-brand-yellow mb-8 tracking-tight">
                 {title}
               </h2>
