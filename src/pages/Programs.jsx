@@ -82,7 +82,7 @@ export default function Programs() {
           id="programs-johia-brews"
           title="JOHIA Brews"
           description={<p>A hub for connection, fellowship and discipleship. Grab a cup of our fresh brew, meet new friends and enjoy heartfelt conversations in a welcoming, faith filled atmosphere. Every Sunday at the JOHIA Center.</p>}
-          imageSrc="/images/ministries/ministry-brews-food-service.jpg"
+          imageSrc="/images/programs/programs-brews-service.jpg"
           imageAlt="JOHIA Brews Fellowship and Food Service"
           reverse={true}
           texture="light"

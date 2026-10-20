@@ -22,7 +22,7 @@ const pastors = [
       "A businessman by profession, Ptr. Jun serves as the Lead Pastor and Chief Operating Officer (COO) of Jesus Our Hope International Assemblies, Inc. (JOHIA) Cubao. He is currently pursuing a Master of Divinity in Pastoral Studies at Asian Theological Seminary.",
       "An alumnus of the University of Santo Tomas, where he earned a degree in Music Education, he brings a multidisciplinary approach to church leadership. His approach influences the day-to-day operations of JOHIA and has contributed to the church's revival after the pandemic. His innovative methods have led to new members and more people coming to Christ through intensive Bible-centered teaching and non-formal, nontraditional activities."
     ], 
-    position: "object-top" 
+    position: "object-center" 
   },
   { 
     name: "Ptr. Jess", 
