@@ -27,7 +27,10 @@ export default function Contact() {
     setStatus(null);
     
     try {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "e9ab44a9-991f-4643-b646-167c3c6075a8";
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey) {
+        throw new Error("Contact form service is currently not configured. Please contact us directly at johiacubao.info@gmail.com.");
+      }
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {

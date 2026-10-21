@@ -25,16 +25,16 @@ const communityPhotos = [
   { src: "/images/gallery/service-sanctuary-wide.jpg", category: "Sundays", alt: "Wide View of JOHIA Sanctuary During Sunday Worship Gathering" },
   { src: "/images/gallery/service-preaching-pastor-arken.jpg", category: "Sundays", alt: "Pastor Arken Sharing Scripture from the Sanctuary Pulpit" },
   { src: "/images/gallery/service-preaching-pulpit.jpg", category: "Sundays", alt: "Sunday Exhortation Delivered from the Sanctuary Pulpit" },
-  { src: "/images/gallery/preaching-pastor-jess.jpg", category: "Sundays", alt: "Pastor Jess Delivering Encouraging Sunday Sermon" },
+  { src: "/images/gallery/preaching-pastor-jess.jpg", category: "Sundays", alt: "Pastor Jess Leading Couples Discipleship and Discussion" },
   { src: "/images/gallery/service-preaching-pastor-jun.jpg", category: "Sundays", alt: "Pastor Jun Inspiring the Church with Biblical Message" },
   { src: "/images/gallery/service-preaching-pastor-marc.jpg", category: "Sundays", alt: "Pastor Marc Sharing Powerful Scriptural Exhortation" },
 
   // Community (18)
-  { src: "/images/community/community-outreach-bjmp-group.jpg", category: "Community", alt: "JOHIA Cubao BJMP Outreach Ministry Team" },
-  { src: "/images/community/community-outreach-bjmp-fellowship.jpg", category: "Community", alt: "BJMP Outreach Fellowship and Encouragement" },
+  { src: "/images/gallery/community-outreach-service-1.jpg", category: "Community", alt: "JOHIA Community Outreach Ministry Volunteers Serving the Neighborhood" },
+  { src: "/images/gallery/community-outreach-service-2.jpg", category: "Community", alt: "Community Outreach Fellowship and Care Distribution" },
   { src: "/images/community/community-outreach-bjmp-worship.jpg", category: "Community", alt: "Outreach Ministry Praise and Worship Gathering" },
   { src: "/images/community/community-outreach-bjmp-team.jpg", category: "Community", alt: "JOHIA Outreach Ministry Volunteers and Leaders" },
-  { src: "/images/community/church-family-linggo-ng-wika-2.jpg", category: "Community", alt: "JOHIA Church Family Linggo ng Wika Celebration" },
+  { src: "/images/gallery/church-community-couples-celebration.jpg", category: "Community", alt: "JOHIA Couples and Church Family Fellowship Stage Celebration" },
   { src: "/images/leadership/leaders-council-stage.jpg", category: "Community", alt: "JOHIA Church Leadership Council on Stage" },
   { src: "/images/leadership/leaders-council-wacky.jpg", category: "Community", alt: "Leadership Team Joyful Fellowship Gathering" },
   { src: "/images/gallery/community-congregation-smiles.jpg", category: "Community", alt: "Church Congregation Members Sharing Joyful Smiles" },
@@ -63,22 +63,9 @@ const communityPhotos = [
   { src: "/images/gallery/event-guitar-workshop-1.jpg", category: "Events", alt: "Music Workshop Training for Young Instrumentalists" },
   { src: "/images/gallery/event-guitar-workshop-2.jpg", category: "Events", alt: "Hands-On Guitar Workshop Teaching Session" },
   { src: "/images/gallery/event-voice-recital-1.jpg", category: "Events", alt: "Vocal Recital Solo Performance in the Sanctuary" },
-  { src: "/images/gallery/event-wildfire-youth-stage.jpg", category: "Events", alt: "Wildfire Youth Fellowship Stage Event and Worship" },
+  { src: "/images/gallery/event-wildfire-youth-stage.jpg", category: "Events", alt: "Wildfire Youth Fellowship Stage Event and Praise Gathering" },
   { src: "/images/gallery/programs-soc-book2-graduates.jpg", category: "Events", alt: "School of Champions Book 2 Graduation Celebration" },
   { src: "/images/gallery/programs-retreat-water-baptism.jpg", category: "Events", alt: "Candidate Baptism in the Lake during Life Retreat" },
-];
-
-// Dedicated array for the simulated Instagram feed (9 distinct authentic photos)
-const igPhotos = [
-  { src: "/images/gallery/worship-leader-solo-stage.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/gallery/community-brews-fellowship.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/gallery/service-sanctuary-wide.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/gallery/event-live-worship-stage.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/gallery/community-congregation-smiles.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/gallery/friday-alive-acoustic-worship.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/gallery/community-kids-peace-smiles.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/gallery/event-recital-church-family-stage.jpg", link: "https://www.instagram.com/johiacubao" },
-  { src: "/images/gallery/event-altar-call-prayer.jpg", link: "https://www.instagram.com/johiacubao" },
 ];
 
 const categories = ['All', 'Sundays', 'Community', 'Events'];
