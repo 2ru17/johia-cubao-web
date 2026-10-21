@@ -19,8 +19,8 @@ const pastors = [
     role: "Lead Pastor", 
     image: "/images/pastors/ptr jun.jpg", 
     bio: [
-      "A businessman by profession, Ptr. Jun serves as the Lead Pastor and Chief Operating Officer (COO) of Jesus Our Hope International Assemblies, Inc. (JOHIA) Cubao. He is currently pursuing a Master of Divinity in Pastoral Studies at Asian Theological Seminary.",
-      "An alumnus of the University of Santo Tomas, where he earned a degree in Music Education, he brings a multidisciplinary approach to church leadership. His approach influences the day-to-day operations of JOHIA and has contributed to the church's revival after the pandemic. His innovative methods have led to new members and more people coming to Christ through intensive Bible-centered teaching and non-formal, nontraditional activities."
+      "A businessman by profession, Ptr. Jun serves as the Lead Pastor and Chief Operating Officer (COO) of Jesus Our Hope International Assemblies, Inc. (JOHIA) Cubao. He is currently pursuing his post-graduate studies; Master of Divinity in Pastoral Studies at the Asian Theological Seminary.",
+      "An alumnus of the University of Santo Tomas, where he earned a bachelor’s degree in Music Education, he brings a multidisciplinary approach to church leadership. His approach influences the day-to-day operations of JOHIA and has contributed to the church's revival after the pandemic. His innovative methods have led to significant growth in membership and more people coming to Christ through intensive Bible-centered teaching and non-formal, non-traditional activities."
     ], 
     position: "object-center" 
   },
@@ -28,35 +28,35 @@ const pastors = [
     name: "Ptr. Jess", 
     role: "Couples Ministry", 
     image: "/images/pastors/Jess.jpg", 
-    bio: "A proud member of the Philippine Civil Service specializing in local government legislation; Ptr. Jess has dedicated decades of his life to enriching families and couples through his focus ministry: Pillars of Fire. He and his wife spearhead the programs for married couples which resulted to stable and happy family lives for the members of JOHIA.", 
+    bio: "A proud member of the Philippine Civil Service specializing in local government legislation; Ptr. Jess has dedicated decades of his life to enriching families and couples through his focus ministry: Pillars of Fire. He and his wife spearheads the programs for married couples which resulted to stable and happy family lives for the members of JOHIA.", 
     position: "object-top" 
   },
   { 
     name: "Ptr. Derrick", 
     role: "Worship Ministry", 
     image: "/images/pastors/docdek.jpg", 
-    bio: "A Physician by profession, Dr. Derrick Anselmo serves as the Worship Pastor and Co-Music Director of Jesus Our Hope International Assemblies Inc. – Cubao. His decades in the worship ministry produced other worship ministers to love and worship God and to inspire others to do the same. His inspiring music touched the lives of many and are still available in various streaming platforms. On several occasions, his medical profession had been the church’s healing arm in medical outreaches all over the Philippines.", 
+    bio: "A Physician by profession, Dr. Derrick Anselmo serves as the Worship Pastor and Co-Music Director of Jesus Our Hope International Assemblies Inc. – Cubao. His decades in the worship ministry honed other worship ministers to love and worship God and to inspire others to do the same. His inspiring music touched the lives of many and are still available in various streaming platforms. On several occasions, his medical profession had been the church’s healing arm in medical outreaches all over the Philippines.", 
     position: "object-top" 
   },
   { 
     name: "Ptr. Arken", 
     role: "Wildfire (Youth)", 
     image: "/images/pastors/ken.jpg", 
-    bio: "Our Youth Pastor. Having dedicated almost the entirety of his life to ministry; at a young age, Ptr. Arken has ministered in discipleship trainings and have taken care of various youth groups. He and his wife now head the Wildfire, a youth based ministry in JOHIA centered in the equipping and enrichment of the capabilities of our youth while getting to know Jesus and shaping the future national and church leaders of tomorrow.", 
+    bio: "Our Youth Pastor. Having dedicated almost the entirety of his life to ministry; at a young age, Ptr. Arken has ministered in discipleship trainings and have taken care of various youth groups. He and his wife now heads the Wildfire, a youth based ministry in JOHIA centered in the equipping and enrichment of the capabilities of our youth while getting to know Jesus and shaping the future national and church leaders of tomorrow.", 
     position: "object-top" 
   },
   { 
     name: "Ptr. Marc", 
     role: "School of Champions", 
     image: "/images/pastors/marc.jpg", 
-    bio: "Another proud member of the Philippine Civil Service specializing in national level legislation; Ptr. Marc hails from the University of the Philippines Diliman and practices Public Administration. He is also the current Dean of the JOHIA School of Champions which is the primary educational program of the church; teaching a curriculum based on proven practices in getting to know Christ, going deeper with one’s relationship with God and being fruitful by evangelizing to our world. He is also the current pastor in charge for JOHIA’s outreach program: Tugon ng Puso, a scholarship fund dedicated to helping struggling youth through financial aid. He is also the current Chief Finance Officer of JOHIA – Cubao.", 
+    bio: "Another proud member of the Philippine Civil Service specializing in national level legislation; Ptr. Marc hails from the University of the Philippines Diliman and practices Public Administration. He is also the current Dean of the JOHIA School of Champions which is the primary educational program of the church; teaching a curriculum-based; proven practices in getting to know Christ, going deeper with one’s relationship with God and being fruitful by evangelizing to our world. He is also the current pastor in charge for JOHIA’s outreach program: Tugon ng Puso, a scholarship fund dedicated to helping struggling youth through financial aid. He is also the current Chief Finance Officer of JOHIA – Cubao.", 
     position: "object-top" 
   },
   { 
     name: "Ptr. Chips", 
     role: "LinC (Young Adults)", 
     image: "/images/pastors/chips.jpg", 
-    bio: "A specialist in the business process outsourcing industry, Ptr. Chips currently heads LINC or Life Incorporated; the primary program of the church catering to young professionals. His decades of dedication has yielded various god-fearing individuals who have shone in music and business. He and his team now focus on ushering our rising and emerging workforce and leaders to knowing Christ and sharing the gospel while on the ground floor of their respective careers.", 
+    bio: "A specialist in the business process outsourcing industry, Ptr. Chips currently heads LinC or Life Incorporated; the primary program of the church catering to young adults and professionals. His decades of dedication has yielded various god-fearing individuals who has shone in various industries. He and his team now focuses on ushering our rising and emerging workforce and leaders to knowing Christ and sharing the gospel in the marketplace.", 
     position: "object-top" 
   },
   { 
@@ -70,7 +70,10 @@ const pastors = [
     name: "Ptr. Glen & Wendy", 
     role: "International Missions", 
     image: "/images/leadership/pastor-glen-wendy.jpg", 
-    bio: "Short write-up intro for Ptr. Glen & Wendy will be placed here.", 
+    bio: [
+      "Pastors Glen Gazzingan and Wendy Umali-Gazzingan are a husband and wife team serving as missionary/pastors to Japan. Glen has been involved in missions since his single years and worked in an advertising company while Wendy has been a worship leader since her youth and a teacher by profession.",
+      "After getting married, they pursued missions training at World Mission International in the Philippines. They are currently serving as missionary pastors to iHOPE Community Yokohama, Japan since 1999. From 2011 to 2014, their community actively participated in rebuilding efforts in the Tohoku region after the Japan tsunami/earthquake in 2011. Today, they continue their ministry together in Japan, reaching out to the local community by offering free English lessons to Japanese residents, building relationships, and creating opportunities to connect with people. They equip and encourage their congregation to discover their purpose and have an impact in the community."
+    ], 
     position: "object-center" 
   },
   { 
