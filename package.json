@@ -42,5 +42,11 @@
     "sharp": "^0.35.5",
     "vite": "^8.3.3",
     "vite-plugin-image-optimizer": "^2.0.3"
+  },
+  "overrides": {
+    "source-map-js": "^1.2.2",
+    "toml": "^4.2.0",
+    "postcss-selector-parser": "^7.1.6",
+    "braces": "^3.0.3"
   }
 }
