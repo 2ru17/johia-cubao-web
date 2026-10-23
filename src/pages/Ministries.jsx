@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
-import SectionWrapper from '../components/ui/SectionWrapper';
 import InteractiveTeamSection from '../components/ui/InteractiveTeamSection';
 import Button from '../components/ui/Button';
 import TiltCard from '../components/ui/TiltCard';

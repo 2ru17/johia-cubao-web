@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import PageMeta from '../components/seo/PageMeta';
 import Button from '../components/ui/Button';
 import { IconHome, IconArrowLeft } from '@tabler/icons-react';

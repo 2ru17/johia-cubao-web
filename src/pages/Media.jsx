@@ -4,7 +4,7 @@ import AnimatedSection from '../components/ui/AnimatedSection';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import Button from '../components/ui/Button';
 import TiltCard from '../components/ui/TiltCard';
-import { IconBrandYoutube, IconZoomIn, IconBrandInstagram, IconBrandFacebook, IconBrandTiktok } from '@tabler/icons-react';
+import { IconBrandYoutube, IconZoomIn, IconBrandInstagram, IconBrandFacebook } from '@tabler/icons-react';
 
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";

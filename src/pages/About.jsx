@@ -11,7 +11,10 @@ const pastors = [
     name: "Ptr. Tanny", 
     role: "Bishop / Corporate President", 
     image: "/images/leadership/pastor-tanny.jpg", 
-    bio: "Short write-up intro for Ptr. Tanny will be placed here.", 
+    bio: [
+      "The President, Chairman of the Board, and the Bishop of Jesus Our Hope International Assemblies Inc. Ptr. Tanny has dedicated over 40 years of his life to the ministry. He has led churches in the United States of America and Japan.",
+      "He also serves as the Chairman Emeritus of Jesus Our Hope International Assemblies (National), heading almost 30 churches all over the country. Today, he continues to guide pastors and preachers in their vocations. His technical knowledge in biblical studies is key in church administration and ministry growth of our network churches."
+    ], 
     position: "object-center" 
   },
   { 
@@ -80,7 +83,10 @@ const pastors = [
     name: "Ptr. Charlie", 
     role: "Consulting Pastor", 
     image: "/images/leadership/pastor-charlie.jpg", 
-    bio: "Short write-up intro for Ptr. Charlie will be placed here.", 
+    bio: [
+      "Considered to be the founder of various mega churches all around the Philippines, Ptr. Charlie serves as a consulting pastor of Jesus Our Hope International Assemblies - Cubao.",
+      "His expertise in church planting, church growing, and spiritual liberation and growth has led many missions to successful breakthroughs in communities that yielded thousands to gather as part of the body of Christ."
+    ], 
     position: "object-center" 
   },
 ];

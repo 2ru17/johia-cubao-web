@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import PageMeta from '../components/seo/PageMeta';
 import AnimatedSection from '../components/ui/AnimatedSection';
-import SectionWrapper from '../components/ui/SectionWrapper';
 import Button from '../components/ui/Button';
 import Toast from '../components/ui/Toast';
 import { IconMapPin, IconClock, IconPhone, IconBrandFacebook } from '@tabler/icons-react';
