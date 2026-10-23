@@ -183,11 +183,12 @@ export default function Ministries() {
               name: "Technicals", 
               desc: "Audio engineering, stage lighting, multimedia projection, and livestream broadcasting.", 
               image: "/images/ministries/ministry-technicals-team.jpg", 
-              color: "#06b6d4",
+              color: "#434343",
               portal: {
                 url: "https://tech.johiacubao.com/",
-                label: "Explore 3D Tech Portal",
-                badge: "LIVE DMX & SOUND CONSOLE",
+                label: "Enter Tech Booth",
+                badge: "RUN THE SUNDAY SHOW",
+                tagline: "SOUND // LIGHTS // BROADCAST",
                 type: "tech"
               }
             },
@@ -195,11 +196,12 @@ export default function Ministries() {
               name: "Creatives", 
               desc: "Media, livestream, photography, and social media capturing the life of the church.", 
               image: "/images/ministries/ministry-creatives-team.jpg", 
-              color: "#ff5e3a",
+              color: "#ff9900",
               portal: {
                 url: "https://creatives.johiacubao.com/",
                 label: "Visit Creative Studio",
                 badge: "WE SHAPE THE VIBE",
+                tagline: "PHOTO // REELS // DESIGN",
                 type: "creatives"
               }
             },
@@ -215,7 +217,7 @@ export default function Ministries() {
           title="Hospitality & Care"
           mainDescription="Be the welcoming hands and feet of Jesus. Ensure every person who walks through our doors feels at home and safe."
           teams={[
-            { name: "Consolidation", desc: "Welcoming guests, helping others in finding their way to a new church family.", image: "/images/ministries/ministry-consolidation-card.jpg", color: "#FBB03B" },
+            { name: "Consolidation", desc: "Welcoming guests, helping others in finding their way to a new church family.", image: "/images/ministries/ministry-consolidation-team.jpg", color: "#FBB03B" },
             { name: "Marshalls", desc: "Ensuring safety, traffic control and a healthy worship environment.", image: "/images/ministries/ministry-marshalls-team.jpg", color: "#01153e" },
             { name: "Brews", desc: "Serving coffee and refreshments to foster fellowship before and after every Sunday service.", image: "/images/ministries/ministry-brews-team.jpg", color: "#6f4e37" },
             { name: "Ushers", desc: "Deliver a welcoming atmosphere, managing offerings and providing immediate help to worshippers.", image: "/images/ministries/ministry-ushers-team.jpg", color: "#fd3db5" }

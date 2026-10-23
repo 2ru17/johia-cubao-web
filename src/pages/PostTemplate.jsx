@@ -6,7 +6,7 @@ import AnimatedSection from '../components/ui/AnimatedSection';
 import TiltCard from '../components/ui/TiltCard';
 import Button from '../components/ui/Button';
 import { cn } from '../lib/utils';
-import { IconArrowLeft, IconArrowRight, IconBrandFacebook, IconBrandX, IconBrandInstagram, IconLink, IconCode, IconCheck, IconClock, IconCalendar, IconPin } from '@tabler/icons-react';
+import { IconArrowLeft, IconArrowRight, IconBrandFacebook, IconBrandInstagram, IconLink, IconCode, IconCheck, IconClock, IconCalendar, IconPin } from '@tabler/icons-react';
 
 // Dynamically import all MDX posts
 const mdxModules = import.meta.glob('../content/posts/*.mdx');
@@ -61,10 +61,36 @@ export default function PostTemplate() {
   const [copiedId, setCopiedId] = useState(null);
 
   const handleCopy = (text, id) => {
-    navigator.clipboard.writeText(text).then(() => {
+    const triggerSuccess = () => {
       setCopiedId(id);
       setTimeout(() => setCopiedId(null), 2000);
-    });
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(triggerSuccess).catch(() => {
+        fallbackCopy(text);
+        triggerSuccess();
+      });
+    } else {
+      fallbackCopy(text);
+      triggerSuccess();
+    }
+  };
+
+  const fallbackCopy = (text) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    try {
+      document.execCommand('copy');
+    } catch (err) {
+      console.error('Fallback copy failed', err);
+    }
+    document.body.removeChild(textarea);
   };
 
   // Find the exact post module path based on the slug
@@ -210,25 +236,19 @@ export default function PostTemplate() {
 
             <div className="flex items-center gap-3">
               <button
-                className="w-11 h-11 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-[#1877F2] hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-all"
+                className="w-11 h-11 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-[#1877F2] hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-all cursor-pointer"
                 onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank')}
                 aria-label="Share on Facebook"
+                title="Share on Facebook"
               >
                 <IconBrandFacebook size={18} />
               </button>
 
               <button
-                className="w-11 h-11 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-white hover:border-white hover:bg-white/10 transition-all"
-                onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(displayTitle)}`, '_blank')}
-                aria-label="Share on X"
-              >
-                <IconBrandX size={18} />
-              </button>
-
-              <button
-                className="w-11 h-11 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-[#E1306C] hover:border-[#E1306C] hover:bg-[#E1306C]/10 transition-all"
+                className="w-11 h-11 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-[#E1306C] hover:border-[#E1306C] hover:bg-[#E1306C]/10 transition-all cursor-pointer"
                 onClick={() => window.open(`https://www.instagram.com/johiacubao`, '_blank')}
-                aria-label="Share on Instagram"
+                aria-label="Visit Instagram"
+                title="Visit Instagram (@johiacubao)"
               >
                 <IconBrandInstagram size={18} />
               </button>

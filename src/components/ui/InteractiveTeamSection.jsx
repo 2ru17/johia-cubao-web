@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { IconExternalLink, IconCpu, IconPalette } from '@tabler/icons-react';
+import { IconDeviceLaptop, IconPalette } from '@tabler/icons-react';
 import { cn } from '../../lib/utils';
 import AnimatedSection from './AnimatedSection';
 
@@ -56,32 +56,35 @@ export default function InteractiveTeamSection({
               {/* Floating Portal Badge on Image */}
               {teams[activeTeamIndex].portal && (
                 <div className="absolute top-4 right-4 z-20">
-                  <a
-                    href={teams[activeTeamIndex].portal.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(
-                      "inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 shadow-xl backdrop-blur-md transform hover:scale-105",
-                      teams[activeTeamIndex].portal.type === 'tech'
-                        ? "bg-neutral-950/90 text-cyan-400 border border-cyan-500/50 hover:border-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.45)] font-mono"
-                        : "bg-black/90 text-white border border-[#FF5E3A]/70 hover:border-[#FF2A6D] hover:shadow-[0_0_20px_rgba(255,94,58,0.5)]"
-                    )}
-                  >
-                    {teams[activeTeamIndex].portal.type === 'tech' ? (
-                      <>
-                        <span className="flex h-2 w-2 relative">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </span>
-                        <span>tech.johiacubao.com ↗</span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#FF5E3A] to-[#FF2A6D]"></span>
-                        <span>creatives.johiacubao.com ↗</span>
-                      </>
-                    )}
-                  </a>
+                  {teams[activeTeamIndex].portal.type === 'tech' ? (
+                    <a
+                      href={teams[activeTeamIndex].portal.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F7B519] hover:bg-[#FACC15] text-[#121212] border-2 border-[#121212] shadow-[3px_3px_0px_#F5F5F0] font-mono text-xs font-black uppercase tracking-wider transition-all duration-150 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5"
+                    >
+                      <IconDeviceLaptop size={15} stroke={2.5} className="shrink-0" />
+                      <span>tech.johiacubao.com</span>
+                      <span className="font-bold">↗</span>
+                    </a>
+                  ) : (
+                    <a
+                      href={teams[activeTeamIndex].portal.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#FAF7F2]/95 hover:bg-white text-[#121316] border border-[#121316]/30 rounded-full shadow-[2px_2px_0px_rgba(18,19,22,0.2)] hover:shadow-[3px_3px_0px_rgba(18,19,22,0.3)] font-mono text-xs font-bold tracking-tight transition-all duration-200 hover:-translate-y-0.5 backdrop-blur-sm"
+                    >
+                      <IconPalette size={15} stroke={2} className="text-[#FF5A1F] shrink-0" />
+                      <span>creatives.johiacubao.com</span>
+                      <span className="hidden sm:inline-flex items-center gap-1 pl-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#FF5A1F]"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#EC4899]"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]"></span>
+                      </span>
+                      <span className="text-[#121316]/70">↗</span>
+                    </a>
+                  )}
                 </div>
               )}
               
@@ -142,44 +145,75 @@ export default function InteractiveTeamSection({
                         <motion.div
                           initial={{ opacity: 0, y: 6 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3 }}
+                          transition={{ duration: 0.25 }}
                           className="pt-3"
                         >
-                          <a
-                            href={team.portal.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className={cn(
-                              "inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 shadow-md transform hover:-translate-y-0.5 group/portal",
-                              team.portal.type === 'tech'
-                                ? "bg-neutral-950 text-cyan-400 border border-cyan-500/40 hover:border-cyan-300 hover:text-cyan-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.35)] font-mono"
-                                : "bg-gradient-to-r from-[#FF5E3A] via-[#FF2A6D] to-[#8A2387] text-white hover:brightness-110 hover:shadow-[0_4px_20px_rgba(255,94,58,0.45)]"
-                            )}
-                          >
-                            {team.portal.type === 'tech' ? (
-                              <>
-                                <span className="flex h-2 w-2 relative">
-                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                          {team.portal.type === 'tech' ? (
+                            <div className="flex items-center gap-2">
+                              <a
+                                href={team.portal.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="group/portal inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#F7B519] hover:bg-[#FACC15] text-[#121212] border-2 border-[#121212] shadow-[3px_3px_0px_#F5F5F0] dark:shadow-[3px_3px_0px_#F5F5F0] font-mono text-xs font-black uppercase tracking-wider transition-all duration-150 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5"
+                              >
+                                <span className="bg-[#121212] text-[#F7B519] px-1 py-0.2 text-[9px] font-mono font-black">
+                                  HUD
                                 </span>
-                                <IconCpu size={16} className="text-cyan-400 group-hover/portal:rotate-12 transition-transform" />
                                 <span>{team.portal.label}</span>
-                                <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/50 hidden sm:inline-block">
-                                  {team.portal.badge}
+                                <span className="font-bold">↗</span>
+                              </a>
+                              <a
+                                href={team.portal.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                title="Technicals Live Booth (tech.johiacubao.com)"
+                                aria-label="Technicals Live Booth"
+                                className="inline-flex items-center justify-center w-8 h-8 bg-[#F5F5F0] dark:bg-[#121212] text-[#121212] dark:text-[#F7B519] border-2 border-[#121212] dark:border-[#F7B519]/70 shadow-[2px_2px_0px_#121212] dark:shadow-[2px_2px_0px_#F5F5F0] transition-all duration-150 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 hover:bg-[#F7B519] hover:text-[#121212]"
+                              >
+                                <IconDeviceLaptop size={17} stroke={2.4} />
+                              </a>
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-2">
+                              <a
+                                href={team.portal.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="group/portal inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#FAF7F2] hover:bg-white text-[#121316] border border-[#121316]/30 rounded-md shadow-[3px_3px_0px_rgba(18,19,22,0.18)] hover:shadow-[4px_4px_0px_rgba(18,19,22,0.25)] transition-all duration-200 hover:-translate-y-0.5"
+                              >
+                                <span className="inline-flex items-center gap-1 font-mono text-[9px] font-bold text-[#121316] bg-white border border-[#121316]/20 px-1 py-0.2 rounded-xs uppercase">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF5A1F]"></span>
+                                  FIG. 01
                                 </span>
-                              </>
-                            ) : (
-                              <>
-                                <IconPalette size={16} className="text-white group-hover/portal:rotate-12 transition-transform" />
-                                <span>{team.portal.label}</span>
-                                <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-black/30 tracking-wider hidden sm:inline-block">
-                                  {team.portal.badge}
+                                <span className="font-sans text-xs font-black tracking-tight text-[#121316]">
+                                  {team.portal.label}
                                 </span>
-                              </>
-                            )}
-                            <IconExternalLink size={14} className="opacity-80 group-hover/portal:opacity-100 group-hover/portal:translate-x-0.5 transition-transform" />
-                          </a>
+                                <div className="hidden sm:flex items-center gap-1 pl-1 border-l border-[#121316]/15">
+                                  <span className="w-2 h-2 rounded-full bg-[#FF5A1F]"></span>
+                                  <span className="w-2 h-2 rounded-full bg-[#EC4899]"></span>
+                                  <span className="w-2 h-2 rounded-full bg-[#2563EB]"></span>
+                                  <span className="w-2 h-2 rounded-full bg-[#FACC15]"></span>
+                                  <span className="w-2 h-2 rounded-full bg-[#10B981]"></span>
+                                  <span className="w-2 h-2 rounded-full bg-[#8B5CF6]"></span>
+                                </div>
+                                <span className="font-mono text-xs font-bold text-[#FF5A1F]">↗</span>
+                              </a>
+                              <a
+                                href={team.portal.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                title="Creatives Studio (creatives.johiacubao.com)"
+                                aria-label="Creatives Studio"
+                                className="inline-flex items-center justify-center w-8 h-8 bg-[#FAF7F2] dark:bg-[#121316] text-[#FF5A1F] border border-[#121316]/30 dark:border-[#FAF7F2]/30 rounded-md shadow-[2px_2px_0px_rgba(18,19,22,0.18)] transition-all duration-200 hover:-translate-y-0.5 active:scale-95 hover:bg-white"
+                              >
+                                <IconPalette size={17} stroke={2} />
+                              </a>
+                            </div>
+                          )}
                         </motion.div>
                       )}
                     </div>
