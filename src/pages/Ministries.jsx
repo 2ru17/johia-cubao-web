@@ -179,8 +179,30 @@ export default function Ministries() {
           mainDescription="Lead the congregation in powerful encounters with God through music, media, and technical excellence."
           teams={[
             { name: "Worship Team", desc: "Musicians and vocalists leading the congregation in praise.", image: "/images/ministries/ministry-worship-team.jpg", color: "#550000" },
-            { name: "Technicals", desc: "Audio engineering, stage lighting, multimedia projection, and livestream broadcasting.", image: "/images/ministries/ministry-technicals-team.jpg", color: "#434343" },
-            { name: "Creatives", desc: "Media, livestream, photography, and social media capturing the life of the church.", image: "/images/ministries/ministry-creatives-team.jpg", color: "#ff9900" },
+            { 
+              name: "Technicals", 
+              desc: "Audio engineering, stage lighting, multimedia projection, and livestream broadcasting.", 
+              image: "/images/ministries/ministry-technicals-team.jpg", 
+              color: "#06b6d4",
+              portal: {
+                url: "https://tech.johiacubao.com/",
+                label: "Explore 3D Tech Portal",
+                badge: "LIVE DMX & SOUND CONSOLE",
+                type: "tech"
+              }
+            },
+            { 
+              name: "Creatives", 
+              desc: "Media, livestream, photography, and social media capturing the life of the church.", 
+              image: "/images/ministries/ministry-creatives-team.jpg", 
+              color: "#ff5e3a",
+              portal: {
+                url: "https://creatives.johiacubao.com/",
+                label: "Visit Creative Studio",
+                badge: "WE SHAPE THE VIBE",
+                type: "creatives"
+              }
+            },
             { name: "Engineering", desc: "Support building and facilities maintenance, electrical systems, and physical operations.", image: "/images/ministries/ministry-engineering-team.jpg", color: "#305cde" }
           ]}
           reverse={false}
