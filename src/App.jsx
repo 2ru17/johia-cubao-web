@@ -72,7 +72,7 @@ function AnimatedRoutes() {
 }
 
 // Global feature flag - Set to false when ready to officially launch!
-export const IS_COMING_SOON_MODE = true;
+export const IS_COMING_SOON_MODE = false;
 
 function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
